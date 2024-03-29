@@ -632,6 +632,50 @@ code {
   word-wrap: break-word;
 }
 
+.wrapper .button{
+  display: inline-block;
+  height: 60px;
+  width: 60px;
+  float: left;
+  overflow: hidden;
+  margin: 0 5px;
+  border-radius: 50px;
+  background-color: black;
+  cursor: pointer;
+  transition: all 0.3s ease-out;
+}
+
+.book {
+  color:#000;
+}
+
+.wrapper .button:hover {
+  width: 200px;
+}
+
+.wrapper .button .icon{
+  display: inline-block;
+  height: 60px;
+  width: 60px;
+  border-radius: 50px;
+  box-sizing: border-box;
+  line-height: 60px;
+  text-align: center;
+}
+
+.wrapper .button .icon i{
+  font-size: 25px;
+  line-height: 60px;
+}
+
+.wrapper .button span{
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 20px;
+  margin-left: 10px;
+
+}
+
 a > code {
   color: inherit;
 }
@@ -9839,7 +9883,7 @@ h6,
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: rgba(0, 0, 0, 0.6);
+  background: rgba(0, 0, 0, 0.4);
   border: 1px solid rgba(255, 255, 255, 0.5);
   border-radius: 10px;
   opacity: 0;

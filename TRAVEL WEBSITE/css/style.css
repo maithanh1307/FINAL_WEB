@@ -9762,7 +9762,7 @@ h6,
   height: 50%;
   top: 0;
   left: 0;
-  background: #f7e9e9;
+  background: var(--body-color);
 }
 
 .navbar-light .navbar-nav .nav-link {
@@ -10327,8 +10327,8 @@ h6,
   justify-content: space-evenly;
   flex-wrap: wrap;
   border-radius: 10px;
-  box-shadow: 0 0 15px rgba(219, 56, 140, 0.23);
-  background-color: #f2f2f2;
+  box-shadow: 0 0 20px rgba(219, 56, 140, 0.5);
+  background-color: #f7e9e9;
   margin-top: 90px;
 }
 .banner_card {

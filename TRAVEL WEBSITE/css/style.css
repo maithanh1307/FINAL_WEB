@@ -528,12 +528,11 @@ mark,
 .blockquote-footer::before {
   content: "\2014\00A0";
 }
-.Imagealignment{
-  max-width: 45px;
-  display: inline;
-  margin-bottom: 15px;
-  
 
+img.Imagealignment{
+  max-width: 40px;
+  height: auto;
+  display: inline;
 } 
 
 .img-fluid {
@@ -9517,7 +9516,11 @@ button.bg-dark:focus {
 .text-primary {
   color: #F4538A !important;
 }
-
+.text-primary1 {
+  color: #F4538A !important;
+  font-size:39px;
+  height: 40px;
+}
 a.text-primary:hover, a.text-primary:focus {
   color: #f10d5b !important;
 }

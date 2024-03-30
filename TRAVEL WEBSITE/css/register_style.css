@@ -79,7 +79,7 @@ form.sign-up-form {
 }
 
 .logo img {
-  width: 27px;
+  width: 49px;
   margin-right: 0.3rem;
   margin-bottom: 9px;
 }
@@ -113,7 +113,7 @@ form.sign-up-form {
 }
 
 .toggle:hover {
-  color: #8371fd;
+  color: #f10d5b;
 }
 
 .input-wrap {
@@ -168,10 +168,13 @@ label {
   font-size: 0.8rem;
   margin-bottom: 2rem;
   transition: 0.3s;
+  font-size: 15px;
 }
 
 .sign-btn:hover {
-  background-color: #8371fd;
+  background-color: #F4538A;
+  color: #000;
+  font-size: 15px;
 }
 
 .text {
@@ -185,7 +188,7 @@ label {
 }
 
 .text a:hover {
-  color: #8371fd;
+  color: #F4538A;
 }
 
 main.sign-up-mode form.sign-in-form {

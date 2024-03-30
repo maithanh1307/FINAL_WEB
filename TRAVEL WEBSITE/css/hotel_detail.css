@@ -1,0 +1,188 @@
+.container_hoteldetail{
+    padding: 0 7%;
+}
+
+.list-container-hoteldetail{
+    margin-top: 50px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+}
+
+.left-col{
+    flex-basis: 70%;
+}
+
+.right-col{
+    flex-basis: 25%;
+}
+
+.left-col h1{
+    font-weight: 600;
+    margin-bottom: 30px;
+}
+
+.house{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 30px 0;
+    border-top: 1px solid #F4538A;
+
+}
+
+.house-img{
+    flex-basis: 40%;
+}
+
+.house-info{
+    flex-basis: 58%;
+}
+
+.house-img img{
+    width: 100%;
+    border-radius: 12px;
+}
+
+.house-info h3 {
+    font-weight: 600;
+    color: #000;
+    font-size: 22px;
+    margin: 4px 0;
+}
+
+.house-info i{
+    color:#F4538A;
+    font-size: 18px;
+    margin: 10px 1px;
+}
+
+.house-price{
+    text-align: right; 
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    
+}
+
+.house-price h4{
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.book-now-link {
+    width: 100%;
+    max-width: 150px; 
+    margin-top: 10px; 
+}
+
+.house-price h4 span{
+    font-size: 16px;
+    font-weight: 500;
+    color:#000;
+}
+
+.sidebar{
+    border: 3px solid #F4538A;
+    padding: 20px 30px;
+    margin-top: 30px;
+}
+
+.sidebar h2{
+    font-weight: 500;
+}
+
+.sidebar h3{
+    font-weight: 500;
+    margin: 20px 0 10px;
+}
+
+.filter{
+    display: flex;
+    align-items: center;
+    color: #000;
+    margin-bottom: 10px;
+}
+
+.filter p{
+    flex: 1;
+    margin: 0;
+}
+
+.filter input{
+    margin-right: 15px;
+    cursor: pointer;
+    vertical-align: middle;
+}
+
+.sidebar-link{
+    text-align: right;
+    margin: 20px 0 ;
+}
+
+.sidebar-link a{
+    text-decoration: none;
+}
+
+.pagination{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 40px 0;
+}
+
+.pagination img{
+    width: 15px;
+    margin: 10px 20px;
+}
+
+.right-arrow{
+    transform:rotate(180deg) ;
+
+}
+
+.pagination span{
+    margin: 10px 8;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.pagination .current{
+    background: #F4538A;
+    color: #000;
+
+}
+
+@media only screen and (max-width: 700px){
+    .list-container-hoteldetail{
+        margin-top: 150px;
+    }
+    .left-col, .right-col, .house-img, .house-info{
+        flex-basis: 100%;
+    }
+    .house-info h3{
+        font-size: 18px;
+    }
+    .house-info i{
+        font-size: 16px;
+    }
+    .pagination span{
+        margin: 10px 2px;
+        width: 30px;
+        height: 30px;
+        line-height: 30px;
+        font-size: 12px;
+    }
+}
+
+.border-top6 {
+    border-style: dotted;
+    border-width: 5px;
+    border-image-slice:1;
+    border-image-source: linear-gradient(to right,#FFC0CB,#FFB6C1,#FFB6C1,#FF1493);
+  }

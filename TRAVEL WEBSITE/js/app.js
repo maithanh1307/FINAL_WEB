@@ -4,6 +4,37 @@ const main = document.querySelector("main");
 const bullets = document.querySelectorAll(".bullets span");
 const images = document.querySelectorAll(".image");
 
+let currentIndex = 0;
+const intervalTime = 3500; 
+
+function moveNext() {
+  currentIndex = (currentIndex + 1) % bullets.length;
+  simulateClick(bullets[currentIndex]);
+}
+
+function simulateClick(element) {
+  const event = new MouseEvent('click', {
+    bubbles: true,
+    cancelable: true,
+    view: window
+  });
+  element.dispatchEvent(event);
+}
+
+const bulletInterval = setInterval(moveNext, intervalTime);
+
+bullets.forEach((bullet) => {
+  bullet.addEventListener("mouseenter", () => {
+    clearInterval(bulletInterval);
+  });
+});
+
+bullets.forEach((bullet) => {
+  bullet.addEventListener("mouseleave", () => {
+    bulletInterval = setInterval(moveNext, intervalTime);
+  });
+});
+
 inputs.forEach((inp) => {
   inp.addEventListener("focus", () => {
     inp.classList.add("active");

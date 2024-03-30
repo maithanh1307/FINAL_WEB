@@ -212,7 +212,7 @@ main.sign-up-mode .carousel {
   width: 55%;
   left: 45%;
   top: 0;
-  background-color: #f7c1c6;
+  background-color: #f7f0f0;
   border-radius: 2rem;
   display: grid;
   grid-template-rows: auto 1fr;
@@ -285,22 +285,23 @@ main.sign-up-mode .carousel {
   display: flex;
   align-items: center;
   justify-content: center;
+  
 }
 
 .bullets span {
   display: block;
-  width: 0.5rem;
-  height: 0.5rem;
-  background-color: #aaa;
+  width: 1rem;
+  height: 1rem;
+  background-color: #f7c1c6;
   margin: 0 0.25rem;
-  border-radius: 50%;
+  border-radius: 100%;
   cursor: pointer;
   transition: 0.3s;
 }
 
 .bullets span.active {
   width: 1.1rem;
-  background-color: #151111;
+  background-color: #F4538A;
   border-radius: 1rem;
 }
 

@@ -1,35 +1,153 @@
-body {
-    background-color: #f5f5f5;
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
+/* detail ve */
+.khoi{
+    width: 78%;
+    background-color: pink;
+    border-radius: 20px;
+  }
+  
+.hang-bay{
+    color: #f10d5b;
+    text-size-adjust: 30px;
+    margin: 10px auto ;
 }
 
-.container_ticket {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #ffffff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+.khoi1-1{
+    display: inline;
+    width: 100%;
+    height: 100%;
+    padding: 17px 20px;
+    align-items: center;
 }
 
-.logo {
-    margin-bottom: 20px;
+.khoi1-1 .icon_ticket{
+    padding-top: 9px;
+    font-size: 25px;
+    color: #F4538A;
+}
+  
+.khoi2-1{
+    display: flex;
+    margin: 20px auto;
+    padding-left: 15%;
+    font-size: larger;
+  
 }
 
-.flight-details {
-    margin-bottom: 20px;
+.col-lg-4{
+    font-size: 25px;
+}
+  
+.khoi1-3{
+    display: flex;
+    justify-content: center;
+    margin: 20px 0 0 0 ;
+  
 }
 
-.passenger-details {
-    margin-bottom: 20px;
-}
-
-.seat-selection {
+  
+.khoi2{
+    width: max-content;
+    border: solid 0.3px #8fd19e;
+    background-color: #9a9d9b;
+    border-radius: 20px;
     text-align: center;
-    margin-bottom: 20px;
+    color: #000;
+  
 }
 
-.confirmation-button {
+  
+.khoi3{
+    background-color: #F4538A;
+    margin-left: 90%;
+    border-radius: 20px;
     text-align: center;
+    color: #000;
+    padding-top: 5px;
+  
+}
+
+.btn1{
+
+    display: inline-block;
+    font-weight: 400;
+    color: #656565;
+    text-align: center;
+    vertical-align: middle;
+    user-select: none;
+    background-color: transparent;
+    border: 1px solid transparent;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: 0;
+    margin-left: 90%;
+    margin-bottom: 9px;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.btn-primary1:hover {
+    color: #000;
+    background-color: #f10d5b;
+    border-color: #f10d5b;
+    border-radius: 100px;
+}
+
+.btn-primary1:focus, .btn-primary1.focus {
+    color: #fff;
+    background-color:  #f10d5b;
+    border-color:  #f10d5b;
+    box-shadow: 0 0 0 0.2rem rgba(238, 73, 130, 0.25);
+}
+.btn-primary1.disabled, .btn-primary1:disabled {
+    color: #fff;;
+    background-color: #f10d5b;
+    border-color: #f10d5b;
+    border-radius: 100px;
+}
+
+.btn-primary1:not(:disabled):not(.disabled):active, .btn-primary1:not(:disabled):not(.disabled).active,
+.show > .btn-primary1.dropdown-toggle {
+  color: #fff;
+  background-color:  #f10d5b;
+  border-color:  #f10d5b;
+}
+
+.btn-primary1:not(:disabled):not(.disabled):active:focus, .btn-primary1:not(:disabled):not(.disabled).active:focus,
+.show > .btn-primary1.dropdown-toggle:focus {
+  box-shadow: 0 0 0 0.2rem rgba(238, 73, 130, 0.25);
+  border-color:  #f10d5b;
+}
+
+.btn-primary1 {
+    color: #000;
+    background-color: #F4538A;
+    border-color: #F4538A;
+    border-color:  #f10d5b;
+    border-radius: 100px;
+}
+
+.btn-block1 + .btn-block1 {
+    margin-top: 0.5rem;
+    border-color:  #f10d5b;
+}
+  
+input[type="reset"].btn-block1,
+input[type="submit"].btn-block1,
+input[type="button"].btn-block1 {
+    width: 100%;
+    border-color:  #f10d5b;
+}
+
+
+.row img{
+    display: inline;
+    width: 12%;
+    padding-top: 8px;
+    font-size: 19px;
+}
+
+.price{
+    margin-left: 40%;
+    font-size: 27px;
+    margin-top: 15px;
 }

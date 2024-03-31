@@ -9916,6 +9916,10 @@ h6,
   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../img/aoPhraNangBeach.jpg), no-repeat center center;
   background-size: cover;
 }
+.page-headerCM {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../img/ChiangMai.jpg), no-repeat center center;
+  background-size: cover;
+}
 
 /*.destination-item img {
   transition: .5s;
@@ -10615,5 +10619,4 @@ img {
     width: 316px;
     padding-inline: 2.5rem;
   }
-
 }

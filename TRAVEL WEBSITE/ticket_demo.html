@@ -9,6 +9,8 @@
     <meta content="Free HTML Templates" name="keywords">
     <meta content="Free HTML Templates" name="description">
 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
     <!-- link icon -->
     <link
       rel="stylesheet"
@@ -136,7 +138,7 @@
     <div class="container-fluid page-headerBT">
         <div class="container">
             <div class="d-flex flex-column align-items-center justify-content-center" style="min-height: 400px">
-                <h3 style="color:#f7c1c6 ;" class="display-4 text-uppercase">Ben Thanh market</h3>
+                <h3 style="color:#f7c1c6 ;" class="display-4 text-uppercase">Ticket</h3>
                 <div class="d-inline-flex text-white">
                     <p class="m-0 text-uppercase"><a style="color:#f7c1c6 ;"  href="index.html">Home</a></p>
                     <i style="color:#f7c1c6;" class="fa fa-angle-double-right pt-1 px-3"></i>
@@ -148,40 +150,265 @@
 
     <!--demo ticket-->
 
-    <div class="bg-white mb-3 container-fluidBT mr-auto ml-auto">
-        <div class="row">
-            <img src="img/benthanh.jpg" class="float-left img-fluidBT">
-            <div>
-                <p><i class="fad fa-clock fa-lg fa-shake ml-5 mt-4 mr-1" style="color: #ff0066;"></i>8:am</p>
-                <p><i class="fas fa-calendar-alt fa-lg ml-5 mr-1" style="color: #ff0066;"></i>30/3/2024</p>
+    <!--<div class="bg-white mb-5 container-fluid-BT mr-auto ml-auto col-sm-10">
+        <div class="row mr-auto ml-auto col-sm-12">
+            <div class=""><img src="img/benthanh.jpg" class="img-fluidBT"></div>
+            <div class="">
+                <div class="">
+                    <img class="logoAir ml-2 mr-1" src="img/logoAir.png">
+                </div>
+                <div class="row">
+                    <p><i class="fas fa-calendar-alt fa-lg ml-5 mr-1" style="color: #ff0066;"></i>30/3/2024</p>
+                    <p><i class="fad fa-clock fa-lg fa-shake ml-3 mr-1 mb-2" style="color: #ff0066;"></i>8:am</p>
+                </div>
+                <div class="row khoi2-1">
+                    <div class="timeBooking ml-5">
+                        <div>8:00</div>
+                        <div>SNG</div>
+                    </div>
+                    <div class="row khoi1-3 ml-1" style="color: #ff0066;">
+                        <i class="fa-regular fa-circle fa-md"></i>
+                        <i class="fa-duotone fa-horizontal-rule fa-md"></i>
+                        <i class="fa-regular fa-circle fa-md"></i>
+                        <i class="fa-duotone fa-horizontal-rule fa-md"></i>
+                        <i class="fa-solid fa-circle fa-md mr-1"></i>
+                    </div>
+                    <div class="timeBooking ml-3">
+                        <div>13:30</div>
+                        <div>SNG</div>
+                    </div>
+                </div>
             </div>
-            <div>
-                <p class="fontPrice"><i class="fas fa-tags fa-2xl tagPrice" style="color: #ff0066;"></i>2.000.000VND/Person</p>     
-                            
+            <div class="">
+                <div class=""><p class="fontPrice headcomment2"><i class="fas fa-tags fa-lg tagPrice" style="color: #ff0066;"></i>2.000.000VND/<i class="fas fa-user fa-lg" style="color: #ff0066;"></i>
+                </p> </div>   
+                <a href="#" class="book-now-link">
+                    <button class="btn btn-primary btn-block tagPrice" style="width: 50%; font-size: 15px;"><b>Book Now</b></button>
+                </a> 
             </div>
         </div>
-        <div>
-            <div class="row pt-2 pb-2">
-                <div class="row ml-0 pt-2 pb-2 mr-2 benthanh_detail" style="width: 100px; height: 30px;">
-                    <i class="fas fa-utensils fa-sm mr-2 ml-0" style="color: #ff0066;"></i>
+        <div class="mr-auto ml-auto">
+            <div class="row pt-2 pb-2 mr-auto col-sm-6">
+                <div class="row ml-0 pt-2 pb-2 mr-2 ml-3 benthanh_detail" style="width: 100px; height: 30px;">
+                    <i class="fas fa-utensils fa-sm mr-2 ml-2" style="color: #ff0066;"></i>
                     <i class="fas fa-shopping-bag fa-sm mr-2" style="color: #ff0066;"></i>
                     <i class="far fa-money-bill-alt fa-sm" style="color: #3e7e6b;"></i>
                 </div>
                 <div class="row ml-0 pt-2 pb-2 mr-2 benthanh_detail" style="width: 100px; height: 30px;">
                     <i class="fas fa-user fa-sm ml-4" style="color: #ff0066;"></i>
                 </div>
+                <div class="row ml-0 pt-2 pb-2 mr-2 benthanh_detail" style="width: 100px; height: 30px;">
+                    <i class="fas fa-bus ml-4 mr-2" style="color: #ff0066;"></i>
+                    <i class="fas fa-map-marker-alt" style="color: #ff0066;"></i>
+                </div>
                 
             </div>
             
-            <div class="row">
-                <p class="borderBT mr-2">Smart combo</p>
-                <p class="borderBT mr-2">Coupble</p>
-                <p class="borderBT mr-2">Return the ticket</p>
-                <p class="borderBT">Change date</p>
+            <div class="row mr-auto ml-auto col-sm-12">
+                <p class="borderBT mr-4"><b>Smart combo</b></p>
+                <p class="borderBT mr-4"><b>Coupon</b></p>
+                <p class="borderBT mr-4"><b>Return the ticket</b></p>
+                <p class="borderBT mr-4"><b>Change date</b></p>
+                <p class="borderBT"><b>Add coupon</b></p>
             </div>
-                
-          
         </div>
+    </div>-->
+
+    <!--<form class="formBT col-lg-8 col-md-11 col-sm-10 col-11">
+        <div class="formBT d-flex flex-column">
+            <div class="row mr-auto ml-auto">
+                <div class="col-lg-3 col-md-3 col-sm-5 col-4"><img src="img/benthanh.jpg" class="img-fluidBT"></div>
+                <div class="col-lg-4 col-md-4 col-sm-7 col-8">
+                    <div class="">
+                        <img class="logoAir ml-2 mr-1" src="img/logoAir.png">
+                    </div>
+                    <div class="row">
+                        <p><i class="fas fa-calendar-alt fa-lg ml-5 mr-1" style="color: #ff0066;"></i>30/3/2024</p>
+                        <p><i class="fad fa-clock fa-lg fa-shake ml-3 mr-1 mb-2" style="color: #ff0066;"></i>8:am</p>
+                    </div>
+                    <div class="row khoi2-1">
+                        <div class="timeBooking ml-5">
+                            <div>8:00</div>
+                            <div>SNG</div>
+                        </div>
+                        <div class="row khoi1-3 ml-1" style="color: #ff0066;">
+                            <i class="fa-regular fa-circle fa-md"></i>
+                            <i class="fa-duotone fa-horizontal-rule fa-md"></i>
+                            <i class="fa-regular fa-circle fa-md"></i>
+                            <i class="fa-duotone fa-horizontal-rule fa-md"></i>
+                            <i class="fa-solid fa-circle fa-md mr-1"></i>
+                        </div>
+                        <div class="timeBooking ml-3">
+                            <div>13:30</div>
+                            <div>SNG</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-5 col-md-5 col-sm-12">
+                    <div class=""><p class="fontPrice headcomment2"><i class="fas fa-tags fa-lg tagPrice mr-auto ml-auto" style="color: #ff0066;"></i>2.000.000VND/<i class="fas fa-user fa-lg" style="color: #ff0066;"></i>
+                    </p> </div>   
+                    <a href="#" class="book-now-link">
+                        <button class="btn btn-primary btn-block tagPrice mr-auto ml-auto" style="width: 50%; font-size: 15px;"><b>Book Now</b></button>
+                    </a> 
+                </div>
+            </div>
+            <div class="mr-auto ml-auto">
+                <div class="row pt-2 pb-2 col-lg-12 col-md-12 col-sm-12">
+                    <div class="row ml-0 pt-2 pb-2 mr-2 ml-3 benthanh_detail" style="width: 100px; height: 30px;">
+                        <i class="fas fa-utensils fa-sm mr-2 ml-2" style="color: #ff0066;"></i>
+                        <i class="fas fa-shopping-bag fa-sm mr-2" style="color: #ff0066;"></i>
+                        <i class="far fa-money-bill-alt fa-sm" style="color: #3e7e6b;"></i>
+                    </div>
+                    <div class="row ml-0 pt-2 pb-2 mr-2 benthanh_detail" style="width: 100px; height: 30px;">
+                        <i class="fas fa-user fa-sm ml-4" style="color: #ff0066;"></i>
+                    </div>
+                    <div class="row ml-0 pt-2 pb-2 benthanh_detail" style="width: 100px; height: 30px;">
+                        <i class="fas fa-bus ml-4 mr-2" style="color: #ff0066;"></i>
+                        <i class="fas fa-map-marker-alt" style="color: #ff0066;"></i>
+                    </div>
+                    
+                </div>
+                
+                <div class="row mr-auto ml-auto col-lg-12 col-md-12">
+                    <p class="borderBT mr-4"><b>Smart combo</b></p>
+                    <p class="borderBT mr-4"><b>Coupon</b></p>
+                    <p class="borderBT mr-4"><b>Change date</b></p>
+                    <p class="borderBT mr-4"><b>Add coupon</b></p>
+                    <p class="borderBT mr-4"><b>Return the ticket</b></p>
+                </div>
+            </div>
+        </div>
+    </form>-->
+
+
+    <!--<div class="d-flex flex-column display-10" style="min-height: 400px">-->
+        <!--<form class="formBT col-8 col-s-12">
+            <div class="formBT d-flex flex-column">
+                <div class="row mr-auto ml-auto">
+                    <div class="col-3"><img src="img/benthanh.jpg" class="img-fluidBT"></div>
+                    <div class="col-4">
+                        <div class="">
+                            <img class="logoAir ml-2 mr-1" src="img/logoAir.png">
+                        </div>
+                        <div class="row">
+                            <p><i class="fas fa-calendar-alt fa-lg ml-5 mr-1" style="color: #ff0066;"></i>30/3/2024</p>
+                            <p><i class="fad fa-clock fa-lg fa-shake ml-3 mr-1 mb-2" style="color: #ff0066;"></i>8:am</p>
+                        </div>
+                        <div class="row khoi2-1">
+                            <div class="timeBooking ml-5">
+                                <div>8:00</div>
+                                <div>SNG</div>
+                            </div>
+                            <div class="row khoi1-3 ml-1" style="color: #ff0066;">
+                                <i class="fa-regular fa-circle fa-md"></i>
+                                <i class="fa-duotone fa-horizontal-rule fa-md"></i>
+                                <i class="fa-regular fa-circle fa-md"></i>
+                                <i class="fa-duotone fa-horizontal-rule fa-md"></i>
+                                <i class="fa-solid fa-circle fa-md mr-1"></i>
+                            </div>
+                            <div class="timeBooking ml-3">
+                                <div>13:30</div>
+                                <div>SNG</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-5">
+                        <div class=""><p class="fontPrice headcomment2"><i class="fas fa-tags fa-lg tagPrice mr-auto ml-auto" style="color: #ff0066;"></i>2.000.000VND/<i class="fas fa-user fa-lg" style="color: #ff0066;"></i>
+                        </p> </div>   
+                        <a href="#" class="book-now-link1">
+                            <button class="btn btn-primary btn-block tagPrice mr-auto ml-auto" style="width: 50%; font-size: 15px;"><b>Book Now</b></button>
+                        </a> 
+                        <div class="row pt-4 pb-2">
+                            <div class="row ml-0 pt-2 pb-2 mr-2 ml-3 benthanh_detail" style="width: 100px; height: 30px;">
+                                <i class="fas fa-utensils fa-sm mr-2 ml-2" style="color: #ff0066;"></i>
+                                <i class="fas fa-shopping-bag fa-sm mr-2" style="color: #ff0066;"></i>
+                                <i class="far fa-money-bill-alt fa-sm" style="color: #3e7e6b;"></i>
+                            </div>
+                            <div class="row ml-0 pt-2 pb-2 mr-2 benthanh_detail" style="width: 100px; height: 30px;">
+                                <i class="fas fa-user fa-sm ml-4" style="color: #ff0066;"></i>
+                            </div>
+                            <div class="row ml-0 pt-2 pb-2 benthanh_detail" style="width: 100px; height: 30px;">
+                                <i class="fas fa-bus ml-4 mr-2" style="color: #ff0066;"></i>
+                                <i class="fas fa-map-marker-alt" style="color: #ff0066;"></i>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+
+
+                
+                <div class="mr-auto ml-auto col-12">
+                    <div class="row pt-2 pb-2">
+                        <div class="row ml-0 pt-2 pb-2 mr-2 ml-3 benthanh_detail" style="width: 100px; height: 30px;">
+                            <i class="fas fa-utensils fa-sm mr-2 ml-2" style="color: #ff0066;"></i>
+                            <i class="fas fa-shopping-bag fa-sm mr-2" style="color: #ff0066;"></i>
+                            <i class="far fa-money-bill-alt fa-sm" style="color: #3e7e6b;"></i>
+                        </div>
+                        <div class="row ml-0 pt-2 pb-2 mr-2 benthanh_detail" style="width: 100px; height: 30px;">
+                            <i class="fas fa-user fa-sm ml-4" style="color: #ff0066;"></i>
+                        </div>
+                        <div class="row ml-0 pt-2 pb-2 benthanh_detail" style="width: 100px; height: 30px;">
+                            <i class="fas fa-bus ml-4 mr-2" style="color: #ff0066;"></i>
+                            <i class="fas fa-map-marker-alt" style="color: #ff0066;"></i>
+                        </div>
+                        
+                    </div>
+                    
+                    <div class="row mr-auto ml-auto">
+                        <p class="borderBT mr-4"><b>Smart combo</b></p>
+                        <p class="borderBT mr-4"><b>Coupon</b></p>
+                        <p class="borderBT mr-4"><b>Change date</b></p>
+                        <p class="borderBT mr-4"><b>Add coupon</b></p>
+                        <p class="borderBT mr-4"><b>Return the ticket</b></p>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>-->
+
+    
+    <div class="container">
+        <div class="list-group pt-3 pb-3">
+            <div class="list-group-item bg-white">
+                <div class="row">
+                    <div class=" col-lg-3"><img src="img/benthanh.jpg" class="img-fluidBT"></div>
+                    <div class="row col-lg-4 col-md-7 col-sm-12 ml-auto mr-auto">
+                        <p class="ml-4">
+                            <i class="fas fa-map-marker-alt fa-lg" style="color: #ff0066;"></i><b>Ben Thanh market</b>
+                        </p>
+                        <p><i class="fas fa-calendar-alt fa-lg ml-4 mr-1 mt-1" style="color: #ff0066;"></i><b>30/3/2024</b></p>
+                        <p>
+                            <i class="fas fa-clock fa-lg fa-shake ml-4 mr-1" style="color: #ff0066;"></i><b>8:am</b>
+                            <i class="fa-duotone fa-horizontal-rule fa-md" style="color: #ff0066;"></i>
+                            <i class="fas fa-clock fa-lg fa-shake mr-1" style="color: #ff0066;"></i><b>13:30pm</b>
+                        </p>
+                        <div class="row">
+                            <div class="row ml-0 pb-2 mr-2 ml-4 mr-2 benthanh_detail" style="width: 100px; height: 30px;">
+                                <i class="fas fa-utensils fa-sm" style="color: #ff0066;"><i class="fas fa-shopping-bag fa-sm ml-1" style="color: #ff0066;"></i><i class="far fa-money-bill-alt fa-sm ml-1" style="color: #3e7e6b;"></i></i>
+                            </div>
+                            <div class="row ml-0 pt-2 pb-2 mr-2 benthanh_detail" style="width: 100px; height: 30px;">
+                                <i class="fas fa-user fa-sm ml-3" style="color: #ff0066;"></i>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <div class="col-lg-5 col-md-5 col-sm-12 ml-auto mr-auto">
+                        <div class=""><p class="fontPrice headcomment2"><i class="fas fa-tags fa-lg tagPrice mr-auto ml-auto" style="color: #ff0066;"></i>2.000.000VND/<i class="fas fa-user fa-lg" style="color: #ff0066;"></i>
+                        </p> </div>   
+                        <a href="#" class="book-now-link1">
+                            <button class="btn btn-primary btn-block tagPrice mr-auto ml-auto" style="width: 50%; font-size: 15px;"><b>Book Now</b></button>
+                        </a> 
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-fUuOJuJueS0CZ9FPvWV/iGNE9R4MnVNjNs7aYVw1qcmO8zWEiDO2suRWPFNIlXZ" crossorigin="anonymous"></script>
+</body>
+</html>
 </head>
 <body>
     

@@ -115,3 +115,7 @@ ScrollReveal().reveal(".section__header_hotel2", {
 });
 
 
+// Dark mode
+
+
+

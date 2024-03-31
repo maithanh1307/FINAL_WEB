@@ -10890,3 +10890,32 @@ font-family: "Poppins", sans-serif;
   color: #F4538A;
   padding-left: 2px;
 }
+
+/* Dark Mode */
+.col-lg-6 button{
+  border: none;
+  background: none;
+  cursor: pointer;
+  outline: none;
+}
+
+body.dark{
+  background-color: #000;
+  color: #F4538A;
+}
+
+body.dark h1{
+  color: #f5c6cb;
+}
+
+body.dark h5{
+  color: #f5c6cb;
+}
+
+body.dark .nav-bar::before{
+  background-color: #000;
+}
+
+body.dark .service-item h5{
+  color: #000;
+}

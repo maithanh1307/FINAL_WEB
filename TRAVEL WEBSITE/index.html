@@ -58,7 +58,7 @@
     <link href="css/style.css" rel="stylesheet">
 </head>
 
-<body>
+<body class="">
     <!-- Topbar Start -->
     <div class="container-fluid pt-3 d-none d-lg-block">
         <div class="container">
@@ -72,6 +72,9 @@
                 </div>
                 <div class="col-lg-6 text-center text-lg-right">
                     <div class="d-inline-flex align-items-center">
+                        <button id="switch-mode">
+                            <i style="font-size: 23px; color: #f10d5b;" class="fa-duotone fa-moon-stars"></i>
+                        </button>
                         <a class="text-primary px-3" href="https://www.facebook.com/profile.php?id=61557250007525" target="_blank"  title="Visit the Reis Adventures fanpage.">
                             <i class="fab fa-facebook-f"></i>
                         </a>
@@ -87,6 +90,14 @@
                         <a class="text-primary pl-3" href="https://www.youtube.com/channel/UCzpbRAodCMdAfjL9tjk4Gfw" target="_blank"  title="Visit the Reis Adventures Youtube Channel.">
                             <i class="fab fa-youtube"></i>
                         </a>
+                        <div class="data1">
+                            <i class="fa-duotone fa-right-to-bracket fa-fade"></i>
+                            <a href="register.html" class="btn2 btn-primary2 mt-1"><b>Login /</b></a>
+                        </div>
+                        <div class="data2">
+                            <i class="fa-solid fa-registered fa-fade"></i>
+                            <a href="register.html" class="btn2 btn-primary2 mt-1"><b>Register</b></a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -488,7 +499,7 @@
                 </div>
                 <div class="col-lg-4 col-md-6 mb-4">
                     <div class="service-item bg-white text-center mb-2 py-5 px-4">
-                        <a href="ticketbooking.html">
+                        <a href="ticket_demo.html">
                             <i class="fa-duotone fa-ticket fa-2xl mx-auto mb-4"></i>
                         </a>
                         <h5 class="mb-2">Ticket Booking</h5>
@@ -1079,6 +1090,8 @@
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
+    <script src="js/dark.js"></script>
+    
 </body>
 
 </html>

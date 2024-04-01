@@ -10050,6 +10050,7 @@ h6,
 .page-headerBT {
   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../img/benthanh.jpg), no-repeat center center;
   background-size: cover;
+  margin-top: -42px;
 }
 
 .page-headerCA {
@@ -10060,16 +10061,19 @@ h6,
 .page-headerIN {
   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../img/padarIsland.jpg), no-repeat center center;
   background-size: cover;
+  margin-top: -42px;
 }
 
 .page-headerLA {
   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../img/xiengthongWat.jpg), no-repeat center center;
   background-size: cover;
+  margin-top: -42px;
 }
 
 .page-headerSI {
   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../img/marinaBaySands.jpg), no-repeat center center;
   background-size: cover;
+  margin-top: -42px;
 }
 
 .page-headerTL {
@@ -10083,7 +10087,26 @@ h6,
   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../img/ChiangMai.jpg), no-repeat center center;
   background-size: cover;
 }
-
+.page-headerBA {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../img/Bali_d.jpg), no-repeat center center;
+  background-size: cover;
+  margin-top: -42px;
+}
+.page-headerLP {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../img/Lao_LuangPrabang.jpg), no-repeat center center;
+  background-size: cover;
+  margin-top: -42px;
+}
+.page-headerML {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../img/Sing_merlionpark.jpg), no-repeat center center;
+  background-size: cover;
+  margin-top: -42px;
+}
+.page-headerBR {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../img/Brunie_d.jpg), no-repeat center center;
+  background-size: cover;
+  margin-top: -42px;
+}
 /*.destination-item img {
   transition: .5s;
 }*/
@@ -10782,6 +10805,7 @@ img {
     width: 316px;
     padding-inline: 2.5rem;
   }
+
 
   .slide01 .left-info{
     position:absolute;

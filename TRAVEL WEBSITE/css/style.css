@@ -10994,3 +10994,21 @@ body.dark .nav-bar::before{
 body.dark .service-item h5{
   color: #000;
 }
+
+
+body.dark h1{
+  color: #f5c6cb;
+}
+
+body.dark .m-0{
+  color: #f10d5b;
+}
+
+body.dark .text-truncate{
+  color: #000;
+}
+
+
+
+
+

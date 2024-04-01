@@ -65,6 +65,116 @@ body {
   background-color: #f7e9e9;
 }
 
+/* size */
+[class*="col-"] {
+  float: left;
+  padding: 20px;
+  width: 100%;
+}
+
+@media all and (min-width: 640px) {
+  .col-s-1 {
+      width: 8.3333%;
+  }
+  
+  .col-s-2 {
+      width: 16.6666%;
+  }
+  
+  .col-s-3 {
+      width: 25%;
+  }
+  
+  .col-s-4 {
+      width: 33.3333%;
+  }
+  
+  .col-s-5 {
+      width: 41.6666%;
+  }
+  
+  .col-s-6 {
+      width: 50%;
+  }
+  
+  .col-s-7 {
+      width: 58.3333%;
+  }
+  
+  .col-s-8 {
+      width: 66.6666%;
+  }
+  
+  .col-s-9 {
+      width: 75%;
+  }
+  
+  .col-s-10 {
+      width: 83.3333%;
+  }
+  
+  .col-s-11 {
+      width: 91.6666%;
+  }
+  
+  .col-s-12 {
+      width: 100%;
+  }
+  
+}
+
+@media all and (min-width: 900px) {
+  .col-1 {
+      width: 8.3333%;
+  }
+  
+  .col-2 {
+      width: 16.6666%;
+  }
+  
+  .col-3 {
+      width: 25%;
+  }
+  
+  .col-4 {
+      width: 33.3333%;
+  }
+  
+  .col-5 {
+      width: 41.6666%;
+  }
+  
+  .col-6 {
+      width: 50%;
+  }
+  
+  .col-7 {
+      width: 58.3333%;
+  }
+  
+  .col-8 {
+      width: 66.6666%;
+  }
+  
+  .col-9 {
+      width: 75%;
+  }
+  
+  .col-10 {
+      width: 83.3333%;
+  }
+  
+  .col-11 {
+      width: 91.6666%;
+  }
+  
+  .col-12 {
+      width: 100%;
+  }
+  
+}
+
+
 [tabindex="-1"]:focus:not(:focus-visible) {
   outline: 0 !important;
 }
@@ -471,6 +581,18 @@ h6, .h6 {
   }
 }
 
+.display-10 {
+  font-size: medium;
+  line-height: 1.2;
+}
+
+
+.book-now-link1 {
+  width: 100%;
+  max-width: 150px; 
+  margin-top: 10px; 
+}
+
 hr {
   margin-top: 1rem;
   margin-bottom: 1rem;
@@ -730,10 +852,10 @@ pre code {
   
 }
 
-.container-fluidBT {
+.container-fluid-BT {
   display: block;
   border-radius: 10px;
-  width: 850px;
+  width: 900px;
   height: auto;
   padding: 25px;
   margin-top: 30px;
@@ -749,19 +871,37 @@ pre code {
   border-radius: 10px;
 }
 
-.tagPrice {
-  margin-top: 30px;
-  margin-left: 150px;
+
+.formBT {
+  width: 900px;
+  height: auto;
+  background-color: #eed2de;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+}
+
+.tagPrice { 
+  margin-top: 20px;
+  margin-left: 100px;
 }
 
 .fontPrice {
-  font-size: x-large;
+  font-size: medium;
+  margin-right: 5px;
 }
 
 .img-fluidBT {
-  width: 208px;
-  height: 150px;
+  margin-top: 5px;
   border-radius: 10px;
+}
+
+.logoAir {
+  margin-left: 5px;
+  width: 100px;
+  height: 50px;
 }
 
 .container-fluidCM {
@@ -772,7 +912,8 @@ pre code {
 .benthanh_detail {
   border-style: solid;
   border-color: #ff0066;
-  margin-top: 10px;
+  margin-top: 5px;
+  margin-bottom: 5px;
   padding: 10px;
   width: 90px;
   border-radius: 10px;
@@ -780,17 +921,26 @@ pre code {
 
 .borderBT {
   border-style: solid;
-  border-color: #000;
+  border-color: #ff0066;
   color: #000;
   text-align: center;
-  font-size:x-small;
+  font-size:small;
   margin-top: 5px;
   padding: 5px;
-  width: 100px;
+  width: 150px;
   height: 30px;
   border-radius: 10px;
 }
 
+.timeBooking {
+  font-size: small;
+  color: #e83e8c;
+}
+
+.timeBooking1 {
+  font-size: small;
+  margin-left: 10px;
+}
 .buttonBooking {
   margin-left: 160px;
   
@@ -813,6 +963,16 @@ pre code {
   color: #e83e8c;
   text-align: center;
   margin-top: 70px;
+  -webkit-animation: my 1000ms infinite;
+  -moz-animation: my 1000ms infinite;
+  -o-animation: my 1000ms infinite;
+  animation: my 1000ms infinite;
+}
+
+.headcomment2 {
+  font-family: "Poppins", sans-serif;
+  color: #e83e8c;
+  text-align: center;
   -webkit-animation: my 1000ms infinite;
   -moz-animation: my 1000ms infinite;
   -o-animation: my 1000ms infinite;
@@ -10645,4 +10805,301 @@ img {
     width: 316px;
     padding-inline: 2.5rem;
   }
+
+
+  .slide01 .left-info{
+    position:absolute;
+    top: 100px;
+    bottom: 100px;
+    left:0;
+    width: 50%;
+    height: 150%;
+    background: pink;
+  }
+  .left-info .pentrate-bur{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0);
+  }
+}
+
+
+/* thanh toans  */
+.block1{
+  background-color: #f7e9e9;
+  border-radius: 10px;
+  margin: 20px 0;
+  padding: 10px 10px;
+}
+.block1-1-1{
+  display: flex;
+}
+.block1-1-1 p{
+  margin: 0 5px;
+  font-size: 18px;
+  color: #6c6c6c;
+}
+.block1-1-2 a{
+  color: #f10d5b;
+  font-size: 25px;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.block4, .block5-1, .block5-2{
+  display: flex;
+}
+.block4-1,.block4-3{
+  margin: 5px 10px;
+}
+.block4-2{
+  margin: 5px 5px;
+}
+.khoi-phai{
+  background-color: #f7e9e9;
+  border-radius: 10px;
+  margin: 20px 0;
+  padding: 0 10px;
+}
+.block2{
+  display: flex;
+  margin: 10px 0 0 0;
+  padding: 0 10px;
+}
+.block2-2-1{
+  text-align: center;
+  margin: 10px 0;
+}
+.block2-2-1 a{
+  text-decoration: none;
+  font-size: 20px ;
+}
+.block2-2-2 p{
+  color: #000;
+  font-size: 20px;
+}
+
+.block2-2-2 label{
+  padding: -5px 0 0 10px;
+}
+.block1-1{
+  background-color: #f7e9e9;
+  margin: 20px 0;
+  padding: 10px 10px;
+  border-radius: 10px;
+}
+
+.block1-1-3 h5{
+font-size: 20px;
+font-weight: 600;
+color: #000;
+padding: 10px 0 0 0;
+font-family: "Poppins", sans-serif;
+}
+.luu a{
+  text-decoration: none;
+  float: inline-end;
+  color: #f10d5b ;
+  font-size: 20px;
+  font-weight: 600;
+}
+.block2-1-1 label{
+font-size: 18px;
+padding: 5px 0;
+}
+.block2-1-1 input{
+  width: 300px;
+  height: 45px;
+  border-radius: 5px;
+}
+.block2-1-2 label{
+  font-size: 18px;
+  padding: 5px 0;
+}
+.block2-1-2 select{
+  width: 100px;
+  height: 45px;
+  border-radius: 5px 0 0 5px;
+}
+.block2-1-2 input{
+  width: 200px;
+  height: 46px;
+  border-radius:0 5px 5px 0;
+  margin: 0 0 0 -5px;
+}
+.block2-1-3 label{
+  font-size: 18px;
+  padding: 5px 0;
+}
+.block2-1-3 input{
+  width: 300px;
+  height: 45px;
+  border-radius: 5px;
+}
+.block1-2{
+  background-color: #f7e9e9;
+  margin: 10px 0;
+  padding: 10px 10px;
+  border-radius: 10px;
+}
+.block1-2-3 h5{
+  font-size: 20px;
+font-weight: 600;
+color: #000;
+padding: 10px 0 0 0;
+font-family: "Poppins", sans-serif;
+}
+.block1-2-1{
+  background-color: #e6c8d2; 
+  margin: 0 -10px 0 -10px;
+}
+.block1-3{
+  display: flex;
+  margin: 0 0 0 5px;
+  font-size: 19px;
+}
+.block1-3 p{
+  margin: 0 10px;
+  color: #f10d5b;
+  font-weight: 900;
+}
+
+.block1-4 h5{
+  margin: 0 10px;
+  color: #000;
+  font-size: 20px;
+  font-family:"Poppins", sans-serif ;
+}
+.block1-5 a{
+  color: #f10d5b;
+  font-size: 20px;
+  font-weight: 500;
+  text-decoration: none;
+  margin: 0 10px;
+}
+
+.block2-1{
+  margin: 10px 0;
+}
+.block2-1 label{
+  font-size: 18px;
+  padding: 5px 0;
+}
+.block2-1 select{
+  width: 100px;
+  height: 45px;
+  border-radius: 5px;
+}
+.block2-1-4 label{
+  font-size: 18px;
+  padding: 5px 0;
+}
+.block2-1-4 input{
+  width: 300px;
+  height: 45px;
+  border-radius: 5px;
+}
+
+.block2-1-5 label{
+  font-size: 18px;
+  padding: 5px 0;
+}
+.block2-1-5 input{
+  width: 300px;
+  height: 45px;
+  border-radius: 5px;
+}
+.block2-1-6 {
+  margin: 0 10px 0 0;
+}
+.block2-1-6 select{
+  width: 70px;
+  height: 45px;
+  border-radius: 5px;
+}
+.block2-1-7 select{
+  width: 120px;
+  height: 45px;
+  border-radius: 5px;
+}
+.block2-1-8 select{
+  width: 300px;
+  height: 45px;
+  border-radius: 5px;
+  font-size: 18px;
+}
+.tieptuc {
+  background-color: #F4538A;
+  float: right;
+  width: 300px;
+  height: 60px;
+  border-radius: 30px;
+  text-align: center;
+  margin: 20px 0;
+  display: flex; 
+  justify-content: center; 
+  align-items: center; 
+}
+
+.tieptuc a {
+  text-decoration: none;
+  color: #000;
+  font-size: 20px;
+  text-align: center;
+}
+
+
+.block5-1 p{
+  margin-top: 15px;
+}
+
+.block5-2 p{
+  margin-top: 15px;
+}
+
+.col-lg-2 img{
+  width: 100%;
+}
+
+
+/* login-logout Button */
+
+.data1{
+  padding-left: 20px;
+  color: #F4538A;
+}
+
+.data2{
+  color: #F4538A;
+  padding-left: 2px;
+}
+
+/* Dark Mode */
+.col-lg-6 button{
+  border: none;
+  background: none;
+  cursor: pointer;
+  outline: none;
+}
+
+body.dark{
+  background-color: #000;
+  color: #F4538A;
+}
+
+body.dark h1{
+  color: #f5c6cb;
+}
+
+body.dark h5{
+  color: #f5c6cb;
+}
+
+body.dark .nav-bar::before{
+  background-color: #000;
+}
+
+body.dark .service-item h5{
+  color: #000;
 }

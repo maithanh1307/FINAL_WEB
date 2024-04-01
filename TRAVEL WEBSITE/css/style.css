@@ -65,6 +65,116 @@ body {
   background-color: #f7e9e9;
 }
 
+/* size */
+[class*="col-"] {
+  float: left;
+  padding: 20px;
+  width: 100%;
+}
+
+@media all and (min-width: 640px) {
+  .col-s-1 {
+      width: 8.3333%;
+  }
+  
+  .col-s-2 {
+      width: 16.6666%;
+  }
+  
+  .col-s-3 {
+      width: 25%;
+  }
+  
+  .col-s-4 {
+      width: 33.3333%;
+  }
+  
+  .col-s-5 {
+      width: 41.6666%;
+  }
+  
+  .col-s-6 {
+      width: 50%;
+  }
+  
+  .col-s-7 {
+      width: 58.3333%;
+  }
+  
+  .col-s-8 {
+      width: 66.6666%;
+  }
+  
+  .col-s-9 {
+      width: 75%;
+  }
+  
+  .col-s-10 {
+      width: 83.3333%;
+  }
+  
+  .col-s-11 {
+      width: 91.6666%;
+  }
+  
+  .col-s-12 {
+      width: 100%;
+  }
+  
+}
+
+@media all and (min-width: 900px) {
+  .col-1 {
+      width: 8.3333%;
+  }
+  
+  .col-2 {
+      width: 16.6666%;
+  }
+  
+  .col-3 {
+      width: 25%;
+  }
+  
+  .col-4 {
+      width: 33.3333%;
+  }
+  
+  .col-5 {
+      width: 41.6666%;
+  }
+  
+  .col-6 {
+      width: 50%;
+  }
+  
+  .col-7 {
+      width: 58.3333%;
+  }
+  
+  .col-8 {
+      width: 66.6666%;
+  }
+  
+  .col-9 {
+      width: 75%;
+  }
+  
+  .col-10 {
+      width: 83.3333%;
+  }
+  
+  .col-11 {
+      width: 91.6666%;
+  }
+  
+  .col-12 {
+      width: 100%;
+  }
+  
+}
+
+
 [tabindex="-1"]:focus:not(:focus-visible) {
   outline: 0 !important;
 }
@@ -471,6 +581,18 @@ h6, .h6 {
   }
 }
 
+.display-10 {
+  font-size: medium;
+  line-height: 1.2;
+}
+
+
+.book-now-link1 {
+  width: 100%;
+  max-width: 150px; 
+  margin-top: 10px; 
+}
+
 hr {
   margin-top: 1rem;
   margin-bottom: 1rem;
@@ -730,10 +852,10 @@ pre code {
   
 }
 
-.container-fluidBT {
+.container-fluid-BT {
   display: block;
   border-radius: 10px;
-  width: 850px;
+  width: 900px;
   height: auto;
   padding: 25px;
   margin-top: 30px;
@@ -749,19 +871,37 @@ pre code {
   border-radius: 10px;
 }
 
-.tagPrice {
-  margin-top: 30px;
-  margin-left: 150px;
+
+.formBT {
+  width: 900px;
+  height: auto;
+  background-color: #eed2de;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+}
+
+.tagPrice { 
+  margin-top: 20px;
+  margin-left: 100px;
 }
 
 .fontPrice {
-  font-size: x-large;
+  font-size: medium;
+  margin-right: 5px;
 }
 
 .img-fluidBT {
-  width: 208px;
-  height: 150px;
+  margin-top: 5px;
   border-radius: 10px;
+}
+
+.logoAir {
+  margin-left: 5px;
+  width: 100px;
+  height: 50px;
 }
 
 .container-fluidCM {
@@ -772,7 +912,8 @@ pre code {
 .benthanh_detail {
   border-style: solid;
   border-color: #ff0066;
-  margin-top: 10px;
+  margin-top: 5px;
+  margin-bottom: 5px;
   padding: 10px;
   width: 90px;
   border-radius: 10px;
@@ -780,17 +921,26 @@ pre code {
 
 .borderBT {
   border-style: solid;
-  border-color: #000;
+  border-color: #ff0066;
   color: #000;
   text-align: center;
-  font-size:x-small;
+  font-size:small;
   margin-top: 5px;
   padding: 5px;
-  width: 100px;
+  width: 150px;
   height: 30px;
   border-radius: 10px;
 }
 
+.timeBooking {
+  font-size: small;
+  color: #e83e8c;
+}
+
+.timeBooking1 {
+  font-size: small;
+  margin-left: 10px;
+}
 .buttonBooking {
   margin-left: 160px;
   
@@ -813,6 +963,16 @@ pre code {
   color: #e83e8c;
   text-align: center;
   margin-top: 70px;
+  -webkit-animation: my 1000ms infinite;
+  -moz-animation: my 1000ms infinite;
+  -o-animation: my 1000ms infinite;
+  animation: my 1000ms infinite;
+}
+
+.headcomment2 {
+  font-family: "Poppins", sans-serif;
+  color: #e83e8c;
+  text-align: center;
   -webkit-animation: my 1000ms infinite;
   -moz-animation: my 1000ms infinite;
   -o-animation: my 1000ms infinite;

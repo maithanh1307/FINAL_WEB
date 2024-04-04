@@ -9947,6 +9947,7 @@ h6,
 .page-headerCA {
   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../img/phnomPenh.jpg), no-repeat center center;
   background-size: cover;
+  margin-top: -42px;
 }
 
 .page-headerIN {
@@ -9970,13 +9971,13 @@ h6,
 .page-headerTL {
   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../img/aoPhraNangBeach.jpg), no-repeat center center;
   background-size: cover;
-}
-.page-headerCM {
   margin-top: -42px;
 }
+
 .page-headerCM {
   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../img/ChiangMai.jpg), no-repeat center center;
   background-size: cover;
+  margin-top: -42px;
 }
 .page-headerBA {
   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../img/Bali_d.jpg), no-repeat center center;
@@ -9995,6 +9996,36 @@ h6,
 }
 .page-headerBR {
   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../img/Brunie_d.jpg), no-repeat center center;
+  background-size: cover;
+  margin-top: -42px;
+}
+.page-headerVN {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../img/vietnam1.jpg), no-repeat center center;
+  background-size: cover;
+  margin-top: -42px;
+}
+.page-headerCB {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../img/cambodia1.jpg), no-repeat center center;
+  background-size: cover;
+  margin-top: -42px;
+}
+.page-headerTL {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../img/thailand.jpg), no-repeat center center;
+  background-size: cover;
+  margin-top: -42px;
+}
+.page-headerMM {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../img/myanmar_des.jpg), no-repeat center center;
+  background-size: cover;
+  margin-top: -42px;
+}
+.page-headerML {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../img/malaysia_des.jpg), no-repeat center center;
+  background-size: cover;
+  margin-top: -42px;
+}
+.page-headerPL {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../img/philippines_des.jpg), no-repeat center center;
   background-size: cover;
   margin-top: -42px;
 }

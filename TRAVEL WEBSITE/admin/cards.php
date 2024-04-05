@@ -12,7 +12,7 @@
         VALUES ('$destinationName', '$voteLike', '$destinationImage')";
         $query = mysqli_query($conn, $sql);
         move_uploaded_file($destinationImage_tmp, 'img_topdestination/'. $destinationImage);
-        header('location: buttons.php');
+        header('location: buttons.php');//thay manh sua goi np
     }
 ?>
 

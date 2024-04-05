@@ -12,10 +12,12 @@ $pass = '';
 $error = '';
 
 
+
 $conn = new mysqli('localhost', 'root', '', 'finalweb'); //servername, username, password, database's name
 if ($conn->connect_error) {
   die("Connection Failed : " . $conn->connect_error);
-} else {
+} 
+else {
   if (isset($_POST['user']) && isset($_POST['pass'])) { // kiem tra xem bien co ton tai hay hong
     $user = $_POST['user'];
     $pass = $_POST['pass'];
@@ -39,8 +41,50 @@ if ($conn->connect_error) {
       $conn->close();
     }
   }
+
+  if (isset($_POST['sbm'])) {
+    print_r($_POST);
+    // Process form data
+    $userName = $_POST["userName"];
+    $email = $_POST["email"];
+    $password = $_POST["loginpassword"];
+
+    $sql = "INSERT INTO login (userName, email, loginpassword)
+    VALUES ('$userName', '$email', '$password')";
+    $query = mysqli_query($conn, $sql);
+    echo 'success';
+    
+    // Here you would typically validate the form data and save it to a database
+    
+    // Redirect user to another page after successful registration
+    //header("Location: index.php");
+    //exit();
+  }
+  else {
+    echo 'failed';
+  }
+
 }
+
+//require_once '../admin/connectData.php';
+  
+
+
+   // require_once '../admin/connectData.php';
+    
+    //if(isset($_POST['sbm'])) {
+      //  $userName = $_POST['userName'];
+      //  $userEmail = $_POST['email'];
+        //$userPassword = $_POST['loginpassword'];
+        
+
+        //$sql = "INSERT INTO login (userName, email, loginpassword)
+        //VALUES ('$userName', '$userEmail', '$userPassword')";
+        //$query = mysqli_query($conn, $sql);
+        //header('location: index.php');
+    //}
 ?>
+
 
 
 <!DOCTYPE html>
@@ -139,7 +183,9 @@ if ($conn->connect_error) {
               </div>
             </form>
 
-            <form action="register.html" autocomplete="off" class="sign-up-form">
+            <!--sign in-->
+
+            <form action="<?php echo $_SERVER['PHP_SELF'];?>" autocomplete="off" class="sign-up-form">
               <div class="logo">
                 <img src="img/icon.png" alt="easyclass" />
                 <h4 style="font-size: 40px ;">REIS</h4>
@@ -156,6 +202,7 @@ if ($conn->connect_error) {
                   <input
                     type="text"
                     minlength="4"
+                    name="userName"
                     class="input-field"
                     autocomplete="off"
                     required
@@ -166,6 +213,7 @@ if ($conn->connect_error) {
                 <div class="input-wrap">
                   <input
                     type="email"
+                    name="email"
                     class="input-field"
                     autocomplete="off"
                     required
@@ -177,6 +225,7 @@ if ($conn->connect_error) {
                   <input
                     type="password"
                     minlength="4"
+                    name="loginpassword"
                     class="input-field"
                     autocomplete="off"
                     required
@@ -184,7 +233,7 @@ if ($conn->connect_error) {
                   <label>Password</label>
                 </div>
 
-                <input type="submit" value="Sign Up" class="sign-btn" />
+                <button name="sbm" class="sign-btn" type="submit">Sign up</button>
 
                 <p class="text">
                   By signing up, I agree to the

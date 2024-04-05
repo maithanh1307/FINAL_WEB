@@ -1,3 +1,21 @@
+<!--php-->
+<?php
+    require_once 'connectData.php';
+    
+    if(isset($_POST['sbm'])) {
+        $destinationName = $_POST['vnName'];
+        $destinationImage = $_FILES['vnImage']['name'];
+        $destinationImage_tmp = $_FILES['vnImage']['tmp_name'];
+
+        $sql = "INSERT INTO addVietnam (vnName, vnImage)
+        VALUES ('$destinationName', '$destinationImage')";
+        $query = mysqli_query($conn, $sql);
+        move_uploaded_file($destinationImage_tmp, 'img/'. $destinationImage);
+        header('location: buttonsVietnam.php');
+    }
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,6 +37,8 @@
 
     <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="css/sb-admin-2.css" rel="stylesheet">
+
 
 </head>
 
@@ -31,19 +51,19 @@
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.php">
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
                 </div>
-                <div class="sidebar-brand-text mx-3">Reis Admin <sup>2</sup></div>
+                <div class="sidebar-brand-text mx-3">Reis-Admin <sup>2</sup></div>
             </a>
 
             <!-- Divider -->
             <hr class="sidebar-divider my-0">
 
             <!-- Nav Item - Dashboard -->
-            <li class="nav-item active">
-                <a class="nav-link" href="index.html">
+            <li class="nav-item">
+                <a class="nav-link" href="index.php">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
             </li>
@@ -57,21 +77,22 @@
             </div>
 
             <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
-                    aria-expanded="true" aria-controls="collapseTwo">
+            <li class="nav-item active">
+                <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true"
+                    aria-controls="collapseTwo">
                     <i class="fas fa-fw fa-cog"></i>
                     <span>Top địa điểm</span>
                 </a>
-                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo"
+                    data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Custom Components:</h6>
-                        <a class="collapse-item" href="buttons.php">Danh Sách top địa điểm</a>
+                        <a class="collapse-item active" href="buttons.php">Danh Sách top địa điểm</a>
                         <a class="collapse-item" href="buttonsVietnam.php">Danh Sách top địa điểm tại Viet Nam</a>
                         <a class="collapse-item" href="buttonsMember.php">Danh Sách người đăng kí</a>
                         <a class="collapse-item" href="cards.php">Add top destination</a>
-                        <a class="collapse-item" href="cards.php">Add top destination</a>
-                        <a class="collapse-item" href="cardsVietnam.php">Add Viet Nam</a>
+                        <a class="collapse-item" href="cardsVietnam.php">Add viet nam</a>
+                        
                     </div>
                 </div>
             </li>
@@ -144,13 +165,6 @@
             <!-- Sidebar Toggler (Sidebar) -->
             <div class="text-center d-none d-md-inline">
                 <button class="rounded-circle border-0" id="sidebarToggle"></button>
-            </div>
-
-            <!-- Sidebar Message -->
-            <div class="sidebar-card d-none d-lg-flex">
-                <img class="sidebar-card-illustration mb-2" src="img/undraw_rocket.svg" alt="...">
-                <p class="text-center mb-2"><strong>SB Admin Pro</strong> is packed with premium features, components, and more!</p>
-                <a class="btn btn-success btn-sm" href="https://startbootstrap.com/theme/sb-admin-pro">Upgrade to Pro!</a>
             </div>
 
         </ul>
@@ -368,34 +382,42 @@
 
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
+                    <form method="POST" enctype="multipart/form-data">
 
-                    <!-- Page Heading -->
-                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
+                        <!-- Page Heading -->
+                        <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                            <h1 class="h3 mb-0 text-gray-800">Thêm địa điểm Viet Nam</h1>
+                        </div>
+                        <div class="admin-main-content"> 
+                            <div class="admin-main-content-topdestination-add">
+                                <div class="admin-main-content-left">
+                                    <div class="admin-main-content-two-input">
+                                        <input name="vnName" type="text" placeholder="Tên Top địa điểm" required>
+                                    </div>
+                                    <div class="admin-main-content-right-image">
+                                        <label for="file">Ảnh top địa điểm</label>
+                                        <input name="vnImage" id="file" type="file">
+                                        <button name="sbm" class="btn btn-primary" type="submit">Thêm địa điểm</button>
+                                        <div class="image-show">
+        
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+
                         
                     </div>
 
-                </div>    
+                    
+                <!-- /.container-fluid -->
+
             </div>
-
-
-
-
-
-
-
+            <!-- End of Main Content -->
 
             
-
-            <!-- Footer -->
-            <footer class="sticky-footer bg-white">
-                <div class="container my-auto">
-                    <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Your Website 2021</span>
-                    </div>
-                </div>
-            </footer>
-            <!-- End of Footer -->
 
         </div>
         <!-- End of Content Wrapper -->
@@ -437,13 +459,6 @@
 
     <!-- Custom scripts for all pages-->
     <script src="js/sb-admin-2.min.js"></script>
-
-    <!-- Page level plugins -->
-    <script src="vendor/chart.js/Chart.min.js"></script>
-
-    <!-- Page level custom scripts -->
-    <script src="js/demo/chart-area-demo.js"></script>
-    <script src="js/demo/chart-pie-demo.js"></script>
 
 </body>
 

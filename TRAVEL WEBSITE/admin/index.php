@@ -68,6 +68,7 @@
                         <h6 class="collapse-header">Custom Components:</h6>
                         <a class="collapse-item" href="buttons.php">Danh Sách top địa điểm</a>
                         <a class="collapse-item" href="cards.php">Thêm</a>
+                        <a class="collapse-item" href="edit.php">Sửa</a>
                     </div>
                 </div>
             </li>

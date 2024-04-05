@@ -481,27 +481,25 @@
                         </a>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="destination-item position-relative overflow-hidden mb-2">
-                        <?php
-                        // Thực hiện truy vấn và lặp qua kết quả
-                        $query = mysqli_query($conn, $sql);
-                        while ($destination = mysqli_fetch_assoc($query)) {
-                        ?>
-                            <img class="img-fluid5" src="img/<?php echo $destination['destinationImage'];?>" alt="">
-                            <a class="destination-overlay text-white text-decoration-none" href="#">
-                                <h5 class="text-white"><?php echo $destination['destinationName'];?></h5>
-                                <div class="analytics">
-                                    <div class="data">
-                                        <i class="fa-solid fa-heart-circle-check fa-beat"></i>
-                                        <span class="number"><?php echo $destination['voteLike'];?></span>
+                <?php
+                    // Thực hiện truy vấn và lặp qua kết quả
+                    $query = mysqli_query($conn, $sql);
+                    while ($destination = mysqli_fetch_assoc($query)) {?>
+                        <div class="col-lg-4 col-md-6 mb-4">
+                            <div class="destination-item position-relative overflow-hidden mb-2">
+                                <img class="img-fluid5" src="img/<?php echo $destination['destinationImage'];?>" alt="">
+                                <a class="destination-overlay text-white text-decoration-none" href="#">
+                                    <h5 class="text-white"><?php echo $destination['destinationName'];?></h5>
+                                    <div class="analytics">
+                                        <div class="data">
+                                            <i class="fa-solid fa-heart-circle-check fa-beat"></i>
+                                            <span class="number"><?php echo $destination['voteLike'];?></span>
+                                        </div>
                                     </div>
-                                </div>
-                            </a> <!-- Thẻ anchor đóng -->
-                        <?php }?>
-                    </div>
-                </div>
-
+                                </a> <!-- Thẻ anchor đóng -->
+                            </div>
+                        </div>
+                <?php }?>
 
             </div>
         </div>

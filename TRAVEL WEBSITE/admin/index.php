@@ -66,8 +66,8 @@
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Custom Components:</h6>
-                        <a class="collapse-item" href="buttons.html">Danh Sách top địa điểm</a>
-                        <a class="collapse-item" href="cards.html">Thêm</a>
+                        <a class="collapse-item" href="buttons.php">Danh Sách top địa điểm</a>
+                        <a class="collapse-item" href="cards.php">Thêm</a>
                     </div>
                 </div>
             </li>

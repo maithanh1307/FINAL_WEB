@@ -13,17 +13,17 @@ if ($result->num_rows > 0) {
     while ($row = $result->fetch_assoc()) {
         echo '
         <tr>
-                                        <td>'.$row['destinationID'].'</td>
-                                        <td><img style="width: 200px ;" src="img_topdestination/'.$row['destinationImage'].'" alt=""></td>
-                                        <td>'.$row['destinationName'].'</td>
-                                        <td>'.$row['voteLike'].'</td>
-                                        <td>'.$row['datePost'].'</td>
-                                        <td>
-                                            <a class="edit-class" href="">Sửa</a>
-                                            |
-                                            <a class="delete-class" href="">Xoá</a>
-                                        </td>
-                                    </tr>';
+            <td>'.$row['destinationID'].'</td>
+            <td><img style="width: 200px ;" src="img_topdestination/'.$row['destinationImage'].'" alt=""></td>
+            <td>'.$row['destinationName'].'</td>
+            <td>'.$row['voteLike'].'</td>
+            <td>'.$row['datePost'].'</td>
+            <td>
+                <a class="edit-class" href="">Sửa</a>
+                |
+                <a class="delete-class" href="delTopdestination.php?destinationID='.$row['destinationID'].'">Xoá</a>
+            </td>
+        </tr>';
     }
 }
 ?>

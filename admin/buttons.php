@@ -385,7 +385,7 @@
                                 </thead>
                                 <tbody>
                                     <?php
-                                        include('connection\connection.php');
+                                        include('connection/connection.php');
                                     ?>
                                     
                                 </tbody>

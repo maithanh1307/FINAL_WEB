@@ -1,3 +1,10 @@
+<!--php--> 
+<?php
+    require_once 'connectData.php';
+
+    $sql = "SELECT *, CURDATE() AS datePost from addvietnam";
+    $query = mysqli_query($conn, $sql);
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,6 +26,7 @@
 
     <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="css/sb-admin-2.css" rel="stylesheet">
 
 </head>
 
@@ -31,18 +39,18 @@
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.php">
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
                 </div>
-                <div class="sidebar-brand-text mx-3">Reis Admin <sup>2</sup></div>
+                <div class="sidebar-brand-text mx-3">Reis Admin<sup>2</sup></div>
             </a>
 
             <!-- Divider -->
             <hr class="sidebar-divider my-0">
 
             <!-- Nav Item - Dashboard -->
-            <li class="nav-item active">
+            <li class="nav-item">
                 <a class="nav-link" href="index.html">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
@@ -57,22 +65,21 @@
             </div>
 
             <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
-                    aria-expanded="true" aria-controls="collapseTwo">
+            <li class="nav-item active">
+                <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true"
+                    aria-controls="collapseTwo">
                     <i class="fas fa-fw fa-cog"></i>
                     <span>Top địa điểm</span>
                 </a>
-                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo"
+                    data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Custom Components:</h6>
-                        <a class="collapse-item" href="buttons.php">Danh Sách top địa điểm</a>
-
+                        <a class="collapse-item active" href="buttons.php">Danh Sách top địa điểm</a>
                         <a class="collapse-item" href="buttonsVietnam.php">Danh Sách top địa điểm tại Viet Nam</a>
                         <a class="collapse-item" href="buttonsMember.php">Danh Sách người đăng kí</a>
                         <a class="collapse-item" href="cards.php">Add top destination</a>
-                        <a class="collapse-item" href="cards.php">Add top destination</a>
-                        <a class="collapse-item" href="cardsVietnam.php">Add Viet Nam</a>
+                        <a class="collapse-item" href="cardsVietnam.php">Add viet nam</a>
                     </div>
                 </div>
             </li>
@@ -145,13 +152,6 @@
             <!-- Sidebar Toggler (Sidebar) -->
             <div class="text-center d-none d-md-inline">
                 <button class="rounded-circle border-0" id="sidebarToggle"></button>
-            </div>
-
-            <!-- Sidebar Message -->
-            <div class="sidebar-card d-none d-lg-flex">
-                <img class="sidebar-card-illustration mb-2" src="img/undraw_rocket.svg" alt="...">
-                <p class="text-center mb-2"><strong>SB Admin Pro</strong> is packed with premium features, components, and more!</p>
-                <a class="btn btn-success btn-sm" href="https://startbootstrap.com/theme/sb-admin-pro">Upgrade to Pro!</a>
             </div>
 
         </ul>
@@ -371,28 +371,68 @@
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
-                        
+                    <h1 class="h3 mb-4 text-gray-800">Danh sách top địa điểm</h1>
+                    <div class="admin-main-content">
+                        <div class="admin-main-content-topdestination-list">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Ảnh top địa điểm</th>
+                                        <th>Tên top địa điểm</th>
+                                        <th>Ngày đăng</th>
+                                        <th>Điều chỉnh</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td><img style="width: 200px ;" src="img_topdestination/vietnam1.jpg" alt=""></td>
+                                        <td>Viet Nam</td>
+                                        <td>2024-04-03</td>
+                                        <td>
+                                            <a class="edit-class" href="">Sửa</a>
+                                            |
+                                            <a class="delete-class" href="">Xoá</a>
+                                        </td>
+                                    </tr>
+                                    
+                                    <?php
+                                    $i = 2;
+                                        while($row = mysqli_fetch_assoc($query)) {?>
+                                            <tr>
+                                                <td><?php echo $i++; ?></td>
+                                                <td>
+                                                    <img style="width: 200px;" src="img/<?php echo $row['vnImage'];?>">
+                                                </td>
+                                                <td><?php echo $row['vnName'];?></td>
+                                                <td><?php echo $row['datePost'];?></td>
+                                                <td>
+                                                    <a class="edit-class" href="">Sửa</a>
+                                                    |
+                                                    <a class="delete-class" href="">Xoá</a>
+                                                </td>
+                                            </tr>
+                                        <?php } ?>
+                                </tbody>
+                            </table>
+                            <a class="btn btn-primary mt-3" href="cardsVietnam.php">Add more</a>
+                        </div>
                     </div>
+                
+                    
 
-                </div>    
+                </div>
+                <!-- /.container-fluid -->
+
             </div>
-
-
-
-
-
-
-
-
-            
+            <!-- End of Main Content -->
 
             <!-- Footer -->
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Your Website 2021</span>
+                        <span>Copyright &copy; Your Website 2020</span>
                     </div>
                 </div>
             </footer>
@@ -438,13 +478,6 @@
 
     <!-- Custom scripts for all pages-->
     <script src="js/sb-admin-2.min.js"></script>
-
-    <!-- Page level plugins -->
-    <script src="vendor/chart.js/Chart.min.js"></script>
-
-    <!-- Page level custom scripts -->
-    <script src="js/demo/chart-area-demo.js"></script>
-    <script src="js/demo/chart-pie-demo.js"></script>
 
 </body>
 

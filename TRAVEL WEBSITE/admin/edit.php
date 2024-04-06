@@ -1,21 +1,35 @@
-<!--php-->
 <?php
     require_once 'connectData.php';
+    $voteLike = $_POST['voteLike'];
+    $sql_add = "SELECT *, CURDATE() AS datePost from addinformation";
+    $query_add = mysqli_query($conn, $sql_add);
+
     
+    $sql_up = "SELECT * FROM addinformation where voteLike = $voteLike ";
+    $query_up = mysqli_query($conn, $sql_up);
+    $row_up = mysqli_fetch_assoc($query_up);
+    
+
     if(isset($_POST['sbm'])) {
+        
         $destinationName = $_POST['destinationName'];
+
+        if($_FILES['image']['name']==''){
+            $image = $row_up['destinationName'];
+        }else{
+            $image = $row_up['destinationName'];
+        }
         $voteLike = $_POST['voteLike'];
         $destinationImage = $_FILES['destinationImage']['name'];
         $destinationImage_tmp = $_FILES['destinationImage']['tmp_name'];
-        $date = date ("Y/m/d");
-        $sql = "INSERT INTO addinformation (destinationName, voteLike, destinationImage,datePost)
-        VALUES ('$destinationName', '$voteLike', '$destinationImage','$date')";
-        $query = mysqli_query($conn, $sql);
-        move_uploaded_file($destinationImage_tmp, 'img_topdestination/'. $destinationImage);
-        header('location: buttons.php');//thay manh sua goi np
-    }
-?>
 
+        $sql = "INSERT INTO addinformation (destinationName, voteLike, destinationImage)
+        VALUES ('$destinationName', '$voteLike', '$destinationImage')";
+        $query = mysqli_query($conn, $sql);
+        header('location: buttons.php');
+    }
+
+?>
 
 <!DOCTYPE html>
 <html lang="en">

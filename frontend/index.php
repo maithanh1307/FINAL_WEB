@@ -3,6 +3,13 @@
     require_once '../admin/connectData.php';
     $sql = "SELECT * FROM addinformation";
     $query = mysqli_query($conn, $sql);
+
+   session_start();
+   if (!isset($_SESSION['user'])){
+      header('Location: signin.php');
+      die();
+   }
+
 ?>
 
 <!DOCTYPE html>

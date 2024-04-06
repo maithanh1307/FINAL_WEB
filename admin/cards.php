@@ -106,7 +106,9 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Custom Components:</h6>
                         <a class="collapse-item" href="buttons.php">Danh Sách top địa điểm</a>
-                        <a class="collapse-item active" href="cards.php">Thêm</a>
+                        <a class="collapse-item" href="cards.php">Add top destination</a>
+                        <a class="collapse-item" href="cardsVietnam.php">Add Viet Nam</a>
+                        <a class="collapse-item" href="buttonMembers.php">List of members</a>
                     </div>
                 </div>
             </li>

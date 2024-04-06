@@ -15,7 +15,8 @@ $error = '';
 $conn = new mysqli('localhost', 'root', '', 'finalweb'); //servername, username, password, database's name
 if ($conn->connect_error) {
   die("Connection Failed : " . $conn->connect_error);
-} else {
+} 
+else {
   if (isset($_POST['user']) && isset($_POST['pass'])) { // kiem tra xem bien co ton tai hay hong
     $user = $_POST['user'];
     $pass = $_POST['pass'];
@@ -39,7 +40,96 @@ if ($conn->connect_error) {
       $conn->close();
     }
   }
+  // if (isset($_POST['userName']) && isset($_POST['email']) && isset($_POST['loginpassword'])) {
+  //   // Registration form submission
+  //   $userName = $_POST["userName"];
+  //   $email = $_POST["email"];
+  //   $loginpassword = $_POST["loginpassword"];
+
+  //   $stmt = $conn->prepare("INSERT INTO login (userName, email, loginpassword) VALUES (?, ?, ?)");
+  //   $stmt->bind_param("sss", $userName, $email, $loginpassword);
+  //   $result = $stmt->execute();
+
+  //   if ($result === false) {
+  //       echo "Error: " . $conn->error;
+  //   } else {
+  //       echo 'success';
+  //   }
+  //   $stmt->close();
+  // }
+  // else {
+  //   echo 'failed';
+  // }
+  if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Kiểm tra xem các trường đã được điền đầy đủ hay không
+    if (isset($_POST['userName']) && isset($_POST['email']) && isset($_POST['password'])) {
+        // Kết nối đến cơ sở dữ liệu
+        $conn = new mysqli('localhost', 'username', '', 'finalweb');
+        if ($conn->connect_error) {
+            die("Kết nối không thành công: " . $conn->connect_error);
+        }
+
+        // Lấy dữ liệu từ form
+        $userName = $_POST['userName'];
+        $email = $_POST['email'];
+        $password = $_POST['loginpassword'];
+
+        // Chuẩn bị truy vấn SQL để chèn dữ liệu
+        $sql = "INSERT INTO login (userName, email, loginpassword) VALUES (?, ?, ?)";
+        $stmt = $conn->prepare($sql);
+
+        // Kiểm tra lỗi khi chuẩn bị truy vấn
+        if ($stmt === false) {
+            echo "Lỗi khi chuẩn bị truy vấn: " . $conn->error;
+        } else {
+            // Bind các tham số vào truy vấn
+            $stmt->bind_param("sss", $userName, $email, $password);
+
+            // Thực thi truy vấn
+            $result = $stmt->execute();
+
+            // Kiểm tra xem truy vấn có thành công hay không
+            if ($result === false) {
+                echo "Lỗi khi thực thi truy vấn: " . $conn->error;
+            } else {
+                echo "Đăng ký thành công!";
+            }
+
+            // Đóng kết nối và giải phóng tài nguyên
+            $stmt->close();
+        }
+
+        // Đóng kết nối
+        $conn->close();
+    } else {
+        echo "Vui lòng điền đầy đủ thông tin.";
+    }
+  
+  }
+  else {
+    echo 'failed';
+  }
+
 }
+//require_once '../admin/connection/connect_sign.php';
+
+//require_once '../admin/connectData.php';
+  
+
+
+   // require_once '../admin/connectData.php';
+    
+    //if(isset($_POST['sbm'])) {
+      //  $userName = $_POST['userName'];
+      //  $userEmail = $_POST['email'];
+        //$userPassword = $_POST['loginpassword'];
+        
+
+        //$sql = "INSERT INTO login (userName, email, loginpassword)
+        //VALUES ('$userName', '$userEmail', '$userPassword')";
+        //$query = mysqli_query($conn, $sql);
+        //header('location: index.php');
+    //}
 ?>
 
 
@@ -139,7 +229,7 @@ if ($conn->connect_error) {
               </div>
             </form>
 
-            <form action="register.html" autocomplete="off" class="sign-up-form">
+            <form action="<?php echo $_SERVER['PHP_SELF'];?>" autocomplete="off" class="sign-up-form">
               <div class="logo">
                 <img src="img/icon.png" alt="easyclass" />
                 <h4 style="font-size: 40px ;">REIS</h4>
@@ -156,6 +246,7 @@ if ($conn->connect_error) {
                   <input
                     type="text"
                     minlength="4"
+                    name="userName"
                     class="input-field"
                     autocomplete="off"
                     required
@@ -166,6 +257,7 @@ if ($conn->connect_error) {
                 <div class="input-wrap">
                   <input
                     type="email"
+                    name="email"
                     class="input-field"
                     autocomplete="off"
                     required
@@ -176,6 +268,7 @@ if ($conn->connect_error) {
                 <div class="input-wrap">
                   <input
                     type="password"
+                    name="loginpassword"
                     minlength="4"
                     class="input-field"
                     autocomplete="off"

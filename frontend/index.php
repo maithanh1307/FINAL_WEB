@@ -6,6 +6,7 @@
     $query = mysqli_query($conn, $sql);
 
 
+
     // session_start();
     // if (isset($_SESSION['user'])){
     //    header('Location: ../frontend/register.php');
@@ -113,6 +114,7 @@
                         <div class="data2">
                             <i class="fa-solid fa-registered fa-fade"></i>
                             <a href="signup.php" class="btn2 btn-primary2 mt-1"><b>Register</b></a>
+
                         </div>
                     </div>
                 </div>

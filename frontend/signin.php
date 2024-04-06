@@ -1,3 +1,4 @@
+<!--loginn--> 
 <?php
   session_start();
 
@@ -69,6 +70,7 @@
     //         header('location: index.php');
     //     }
     // }
+
 ?>
 
 
@@ -78,7 +80,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Reis-Explore the World</title>
+    <title>Sign in & Sign up</title>
     <link rel="stylesheet" href="css/register_style.css" />
 
     <!-- Favicon -->
@@ -122,7 +124,9 @@
       <div class="box">
         <div class="inner-box">
           <div class="forms-wrap">
+
             <form action="signin.php" autocomplete="off" class="sign-in-form">
+
               <div class="logo">
                 <img src="img/icon.png" alt="easyclass" />
                 <h4 style="font-size: 40px ;">REIS</h4>
@@ -131,18 +135,17 @@
               <div class="heading">
                 <h2>Welcome Back</h2>
                 <h6>Not registred yet?</h6>
+
                 <a href="signup.php" class="toggle">Sign up</a>
+
               </div>
 
               <div class="actual-form">
                 <div class="input-wrap">
                   <input
-                    value="<?= $user?>" 
-                    name="user" 
-                    id="username"
-                    placeholder="Username"
                     type="text"
                     minlength="4"
+                    name="user"
                     class="input-field"
                     autocomplete="off"
                     required
@@ -152,12 +155,9 @@
 
                 <div class="input-wrap">
                   <input
-                    value="<?= $pass?>" 
-                    name="pass" 
-                    id="password"
                     type="password"
-                    placeholder="Password"
                     minlength="4"
+                    name="pass"
                     class="input-field"
                     autocomplete="off"
                     required
@@ -174,8 +174,7 @@
               </div>
             </form>
 
-            
-        </div>
+          </div>
 
           <div class="carousel">
             <div class="images-wrapper">

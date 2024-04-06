@@ -1,3 +1,11 @@
+<?php
+
+// session_start();
+// if (isset($_SESSION['user'])){
+//    header('Location: ../frontend/register.php');
+//    die();
+// }
+?>
 <!DOCTYPE html>
 <html lang="en">
 

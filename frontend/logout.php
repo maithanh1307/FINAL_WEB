@@ -29,7 +29,7 @@
         <div class="col-md-6 mt-5 mx-auto p-3 border rounded">
             <h4>Logout successful</h4>
             <p>Your account has been successfully logged out of the system.</p>
-            <p>Click <a href="signin.php">here</a> to return to the login page, or the website will automatically redirect in  <span id="counter" class="text-danger">10</span> second.</p>
+            <p>Click <a href="register.php">here</a> to return to the login page, or the website will automatically redirect in  <span id="counter" class="text-danger">10</span> second.</p>
             <button class="btn btn-success px-5">Sign in</button>
         </div>
       </div>

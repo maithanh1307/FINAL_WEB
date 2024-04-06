@@ -1,14 +1,16 @@
 <!--php--> 
 <?php
+
     require_once '../admin/connectData.php';
     $sql = "SELECT * FROM addinformation";
     $query = mysqli_query($conn, $sql);
 
-   session_start();
-   if (!isset($_SESSION['user'])){
-      header('Location: signin.php');
-      die();
-   }
+
+    // session_start();
+    // if (isset($_SESSION['user'])){
+    //    header('Location: ../frontend/register.php');
+    //    die();
+    // }
 
 ?>
 
@@ -106,11 +108,11 @@
                         </a>
                         <div class="data1">
                             <i class="fa-duotone fa-right-to-bracket fa-fade"></i>
-                            <a href="register.html" class="btn2 btn-primary2 mt-1"><b>Login /</b></a>
+                            <a href="logout.php" class="btn2 btn-primary2 mt-1"><b>Logout /</b></a>
                         </div>
                         <div class="data2">
                             <i class="fa-solid fa-registered fa-fade"></i>
-                            <a href="register.html" class="btn2 btn-primary2 mt-1"><b>Register</b></a>
+                            <a href="signup.php" class="btn2 btn-primary2 mt-1"><b>Register</b></a>
                         </div>
                     </div>
                 </div>

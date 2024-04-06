@@ -2,10 +2,10 @@
 <?php
 session_start();
 
-//if (isset($_SESSION['user'])) {
-  //header('Location: ../admin/index.php');
-  //die();;
-//}
+// if (!isset($_SESSION['user'])) {
+//   header('Location: ../admin/index.php');
+//   die();
+// }
 
 $user = '';
 $pass = '';
@@ -102,7 +102,7 @@ if ($conn->connect_error) {
               <div class="heading">
                 <h2>Welcome Back</h2>
                 <h6>Not registred yet?</h6>
-                <a href="#" class="toggle">Sign up</a>
+                <a href="signupForm.php" class="toggle">Sign up</a>
               </div>
 
               <div class="actual-form">
@@ -139,7 +139,7 @@ if ($conn->connect_error) {
               </div>
             </form>
 
-            <form action="register.html" autocomplete="off" class="sign-up-form">
+            <!-- <form action="register.html" autocomplete="off" class="sign-up-form">
               <div class="logo">
                 <img src="img/icon.png" alt="easyclass" />
                 <h4 style="font-size: 40px ;">REIS</h4>
@@ -192,7 +192,7 @@ if ($conn->connect_error) {
                   <a href="#">Privacy Policy</a>
                 </p>
               </div>
-            </form>
+            </form> -->
           </div>
 
           <div class="carousel">

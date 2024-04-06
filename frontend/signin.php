@@ -1,52 +1,76 @@
 <!--loginn--> 
 <?php
-session_start();
+  session_start();
 
-if (isset($_SESSION['user'])) {
-    if ($_SESSION['user'] === 'admin') {
+  //if (isset($_SESSION['user'])) {
+    //header('Location: ../admin/index.php');
+    //die();;
+  //}
+  
+  $user = '';
+  $pass = '';
+  $error = '';
+  
+  
+  $conn = new mysqli('localhost', 'root', '', 'finalweb'); //servername, username, password, database's name
+  if ($conn->connect_error) {
+    die("Connection Failed : " . $conn->connect_error);
+  } else {
+    if (isset($_POST['user']) && isset($_POST['pass'])) { // kiem tra xem bien co ton tai hay hong
+      $user = $_POST['user'];
+      $pass = $_POST['pass'];
+  
+      if ($user === 'admin' && $pass === '1230') {
+        $_SESSION['user'] = 'admin';
         header('Location: ../admin/index.php');
-    } else {
-        header('Location: ../frontend/index.php');
-    }
-    die();
-}
-
-
-$user = '';
-$pass = '';
-$error = '';
-
-
-$conn = new mysqli('localhost', 'root', '', 'finalweb'); //servername, username, password, database's name
-if ($conn->connect_error) {
-  die("Connection Failed : " . $conn->connect_error);
-} else {
-  if (isset($_POST['user']) && isset($_POST['pass'])) { // kiem tra xem bien co ton tai hay hong
-    $user = $_POST['user'];
-    $pass = $_POST['pass'];
-
-    if ($user === 'admin' && $pass === '1230') {
-      $_SESSION['user'] = 'admin';
-      header('Location: ../admin/index.php');
-    } else {
-      $stmt = $conn->prepare("SELECT * FROM login WHERE userName = ? AND loginpassword = ?"); // so sanh bien nhap vao voi database
-      $stmt->bind_param("ss", $user, $pass);
-      $stmt->execute();
-      $result = $stmt->get_result();
-
-      if ($result->num_rows <= 0) {
-        $error = 'Invalid username or password';
-      } else if ($result->num_rows > 0) {
-        $_SESSION['user'] = $user;
-        header('Location: ../frontend/index.php');
-        
+      } else {
+        $stmt = $conn->prepare("SELECT * FROM login WHERE userName = ? AND loginpassword = ?"); // so sanh bien nhap vao voi database
+        $stmt->bind_param("ss", $user, $pass);
+        $stmt->execute();
+        $result = $stmt->get_result();
+  
+        if ($result->num_rows <= 0) {
+          $error = 'Invalid username or password';
+        } else if ($result->num_rows > 0) {
+          $_SESSION['user'] = $user;
+          header('Location: ../index.php');
+        }
+        $stmt->close();
+        $conn->close();
       }
-      $stmt->close();
-      $conn->close();
-      
     }
   }
-}
+
+    
+    // session_start();
+    //     if (isset($_SESSION['user'])){
+    //         header('Location: index.php');
+    //         die();
+    //     }
+    // $user= '';
+    // $pass='';
+    // $error='';  //no error
+
+    // if (isset($_POST['user']) && isset ($_POST['pass'])){
+    //     $user=$_POST['user'];
+    //     $pass=$_POST['pass'];
+
+    //     if(empty($user)){
+    //         $error='Please enter your user name';
+
+    //     }else if(empty($pass)){
+    //         $error='Please enter your password';
+    //     }else if(strlen($pass)<3){
+    //         $error='Password must have at laest 4 characters';
+    //     }else if($user !== 'admin' || $pass !=='4567'){
+    //         $error= 'Invalid username or password';
+    //     }else{
+    //         //login success
+    //         $_SESSION['user']=$user;
+    //         header('location: index.php');
+    //     }
+    // }
+
 ?>
 
 
@@ -100,7 +124,9 @@ if ($conn->connect_error) {
       <div class="box">
         <div class="inner-box">
           <div class="forms-wrap">
-            <form action="<?php echo $_SERVER['PHP_SELF'];?>" method="post" autocomplete="off" class="sign-in-form">
+
+            <form action="signin.php" autocomplete="off" class="sign-in-form">
+
               <div class="logo">
                 <img src="img/icon.png" alt="easyclass" />
                 <h4 style="font-size: 40px ;">REIS</h4>
@@ -109,7 +135,9 @@ if ($conn->connect_error) {
               <div class="heading">
                 <h2>Welcome Back</h2>
                 <h6>Not registred yet?</h6>
-                <a href="#" class="toggle">Sign up</a>
+
+                <a href="signup.php" class="toggle">Sign up</a>
+
               </div>
 
               <div class="actual-form">

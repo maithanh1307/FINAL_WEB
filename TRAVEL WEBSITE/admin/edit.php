@@ -1,3 +1,36 @@
+<?php
+    require_once 'connectData.php';
+    $voteLike = $_POST['voteLike'];
+    $sql_add = "SELECT *, CURDATE() AS datePost from addinformation";
+    $query_add = mysqli_query($conn, $sql_add);
+
+    
+    $sql_up = "SELECT * FROM addinformation where voteLike = $voteLike ";
+    $query_up = mysqli_query($conn, $sql_up);
+    $row_up = mysqli_fetch_assoc($query_up);
+    
+
+    if(isset($_POST['sbm'])) {
+        
+        $destinationName = $_POST['destinationName'];
+
+        if($_FILES['image']['name']==''){
+            $image = $row_up['destinationName'];
+        }else{
+            $image = $row_up['destinationName'];
+        }
+        $voteLike = $_POST['voteLike'];
+        $destinationImage = $_FILES['destinationImage']['name'];
+        $destinationImage_tmp = $_FILES['destinationImage']['tmp_name'];
+
+        $sql = "INSERT INTO addinformation (destinationName, voteLike, destinationImage)
+        VALUES ('$destinationName', '$voteLike', '$destinationImage')";
+        $query = mysqli_query($conn, $sql);
+        header('location: buttons.php');
+    }
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -21,6 +54,7 @@
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
     <link href="css/sb-admin-2.css" rel="stylesheet">
 
+
 </head>
 
 <body id="page-top">
@@ -36,7 +70,7 @@
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
                 </div>
-                <div class="sidebar-brand-text mx-3">Reis Admin<sup>2</sup></div>
+                <div class="sidebar-brand-text mx-3">Reis-Admin <sup>2</sup></div>
             </a>
 
             <!-- Divider -->
@@ -44,7 +78,7 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item">
-                <a class="nav-link" href="index.html">
+                <a class="nav-link" href="index.php">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
             </li>
@@ -68,8 +102,9 @@
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Custom Components:</h6>
-                        <a class="collapse-item active" href="buttons.html">Danh Sách top địa điểm</a>
-                        <a class="collapse-item" href="cards.html">Thêm</a>
+                        <a class="collapse-item" href="buttons.php">Danh Sách top địa điểm</a>
+                        <a class="collapse-item active" href="cards.php">Thêm</a>
+                        <a class="collapse-item active" href="cards.php">Sửa</a>
                     </div>
                 </div>
             </li>
@@ -359,153 +394,43 @@
 
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
+                    <form method="POST" enctype="multipart/form-data">
 
-                    <!-- Page Heading -->
-                    <h1 class="h3 mb-4 text-gray-800">Danh sách top địa điểm</h1>
-                    <div class="admin-main-content">
-                        <div class="admin-main-content-topdestination-list">
-                            <table>
-                                <thead>
-                                    <tr>
-                                        <th>ID</th>
-                                        <th>Ảnh top địa điểm</th>
-                                        <th>Tên top địa điểm</th>
-                                        <th>Lượt quan tâm</th>
-                                        <th>Ngày đăng</th>
-                                        <th>Điều chỉnh</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td><img style="width: 200px ;" src="img_topdestination/vietnam1.jpg" alt=""></td>
-                                        <td>Viet Nam</td>
-                                        <td>1748 interests</td>
-                                        <td>2024-04-03</td>
-                                        <td>
-                                            <a class="edit-class" href="">Sửa</a>
-                                            |
-                                            <a class="delete-class" href="">Xoá</a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td><img style="width: 200px ;" src="img_topdestination/cambodia1.jpg" alt=""></td>
-                                        <td>Cambodia</td>
-                                        <td>2789 interests</td>
-                                        <td>2024-04-03</td>
-                                        <td>
-                                            <a class="edit-class" href="">Sửa</a>
-                                            |
-                                            <a class="delete-class" href="">Xoá</a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>3</td>
-                                        <td><img style="width: 200px ;" src="img_topdestination/aoPhraNangBeach.jpg" alt=""></td>
-                                        <td>ThaiLand</td>
-                                        <td>1789 interests</td>
-                                        <td>2024-04-03</td>
-                                        <td>
-                                            <a class="edit-class" href="">Sửa</a>
-                                            |
-                                            <a class="delete-class" href="">Xoá</a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>4</td>
-                                        <td><img style="width: 200px ;" src="img_topdestination/padarIsland.jpg" alt=""></td>
-                                        <td>Indonesia</td>
-                                        <td>1609 interests</td>
-                                        <td>2024-04-03</td>
-                                        <td>
-                                            <a class="edit-class" href="">Sửa</a>
-                                            |
-                                            <a class="delete-class" href="">Xoá</a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>5</td>
-                                        <td><img style="width: 200px ;" src="img_topdestination/xiengthongWat.jpg" alt=""></td>
-                                        <td>Laos </td>
-                                        <td>1209 interests</td>
-                                        <td>2024-04-03</td>
-                                        <td>
-                                            <a class="edit-class" href="">Sửa</a>
-                                            |
-                                            <a class="delete-class" href="">Xoá</a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>6</td>
-                                        <td><img style="width: 200px ;" src="img_topdestination/marinaBaySands.jpg" alt=""></td>
-                                        <td>Singapore </td>
-                                        <td>1307 interests</td>
-                                        <td>2024-04-03</td>
-                                        <td>
-                                            <a class="edit-class" href="">Sửa</a>
-                                            |
-                                            <a class="delete-class" href="">Xoá</a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>7</td>
-                                        <td><img style="width: 200px ;" src="img_topdestination/myanmar_des.jpg" alt=""></td>
-                                        <td>Myanmar</td>
-                                        <td>1238 interests</td>
-                                        <td>2024-04-03</td>
-                                        <td>
-                                            <a class="edit-class" href="">Sửa</a>
-                                            |
-                                            <a class="delete-class" href="">Xoá</a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>8</td>
-                                        <td><img style="width: 200px ;" src="img_topdestination/malaysia_des.jpg" alt=""></td>
-                                        <td>Malaysia</td>
-                                        <td>1372 interests</td>
-                                        <td>2024-04-03</td>
-                                        <td>
-                                            <a class="edit-class" href="">Sửa</a>
-                                            |
-                                            <a class="delete-class" href="">Xoá</a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>9</td>
-                                        <td><img style="width: 200px ;" src="img_topdestination/philippines_des.jpg" alt=""></td>
-                                        <td>Philippines</td>
-                                        <td>1832 interests</td>
-                                        <td>2024-04-03</td>
-                                        <td>
-                                            <a class="edit-class" href="">Sửa</a>
-                                            |
-                                            <a class="delete-class" href="">Xoá</a>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                        <!-- Page Heading -->
+                        <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                            <h1 class="h3 mb-0 text-gray-800">Thêm Top địa điểm</h1>
                         </div>
-                    </div>
-                
-                    
+                        <div class="admin-main-content"> 
+                            <div class="admin-main-content-topdestination-add">
+                                <div class="admin-main-content-left">
+                                    <div class="admin-main-content-two-input">
+                                        <input name="destinationName" type="text" placeholder="Tên Top địa điểm" required>
+                                        <input name="voteLike" type="text" placeholder="Lượt quan tâm" required>
+                                    </div>
+                                    <div class="admin-main-content-right-image">
+                                        <label for="file">Ảnh top địa điểm</label>
+                                        <input name="destinationImage" id="file" type="file">
+                                        <button name="sbm" class="btn btn-primary" type="submit">Thêm top địa điểm</button>
+                                        <div class="image-show">
+        
+                                        </div>
+                                    </div>
 
-                </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+
+                        
+                    </div>
+
+                    
                 <!-- /.container-fluid -->
 
             </div>
             <!-- End of Main Content -->
 
-            <!-- Footer -->
-            <footer class="sticky-footer bg-white">
-                <div class="container my-auto">
-                    <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Your Website 2020</span>
-                    </div>
-                </div>
-            </footer>
-            <!-- End of Footer -->
+            
 
         </div>
         <!-- End of Content Wrapper -->

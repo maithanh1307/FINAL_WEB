@@ -7,12 +7,12 @@
         $voteLike = $_POST['voteLike'];
         $destinationImage = $_FILES['destinationImage']['name'];
         $destinationImage_tmp = $_FILES['destinationImage']['tmp_name'];
-
-        $sql = "INSERT INTO addinformation (destinationName, voteLike, destinationImage)
-        VALUES ('$destinationName', '$voteLike', '$destinationImage')";
+        $date = date ("Y/m/d");
+        $sql = "INSERT INTO addinformation (destinationName, voteLike, destinationImage,datePost)
+        VALUES ('$destinationName', '$voteLike', '$destinationImage','$date')";
         $query = mysqli_query($conn, $sql);
         move_uploaded_file($destinationImage_tmp, 'img_topdestination/'. $destinationImage);
-        header('location: buttons.php');
+        header('location: buttons.php');//thay manh sua goi np
     }
 ?>
 
@@ -90,6 +90,7 @@
                         <h6 class="collapse-header">Custom Components:</h6>
                         <a class="collapse-item" href="buttons.php">Danh Sách top địa điểm</a>
                         <a class="collapse-item active" href="cards.php">Thêm</a>
+                        <a class="collapse-item active" href="cards.php">Sửa</a>
                     </div>
                 </div>
             </li>

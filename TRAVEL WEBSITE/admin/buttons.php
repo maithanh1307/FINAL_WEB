@@ -77,6 +77,7 @@
                         <h6 class="collapse-header">Custom Components:</h6>
                         <a class="collapse-item active" href="buttons.html">Danh Sách top địa điểm</a>
                         <a class="collapse-item" href="cards.html">Thêm</a>
+                        <a class="collapse-item" href="edit.html">Sửa</a>
                     </div>
                 </div>
             </li>
@@ -383,132 +384,10 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td><img style="width: 200px ;" src="img_topdestination/vietnam1.jpg" alt=""></td>
-                                        <td>Viet Nam</td>
-                                        <td>1748 interests</td>
-                                        <td>2024-04-03</td>
-                                        <td>
-                                            <a class="edit-class" href="">Sửa</a>
-                                            |
-                                            <a class="delete-class" href="">Xoá</a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td><img style="width: 200px ;" src="img_topdestination/cambodia1.jpg" alt=""></td>
-                                        <td>Cambodia</td>
-                                        <td>2789 interests</td>
-                                        <td>2024-04-03</td>
-                                        <td>
-                                            <a class="edit-class" href="">Sửa</a>
-                                            |
-                                            <a class="delete-class" href="">Xoá</a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>3</td>
-                                        <td><img style="width: 200px ;" src="img_topdestination/aoPhraNangBeach.jpg" alt=""></td>
-                                        <td>ThaiLand</td>
-                                        <td>1789 interests</td>
-                                        <td>2024-04-03</td>
-                                        <td>
-                                            <a class="edit-class" href="">Sửa</a>
-                                            |
-                                            <a class="delete-class" href="">Xoá</a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>4</td>
-                                        <td><img style="width: 200px ;" src="img_topdestination/padarIsland.jpg" alt=""></td>
-                                        <td>Indonesia</td>
-                                        <td>1609 interests</td>
-                                        <td>2024-04-03</td>
-                                        <td>
-                                            <a class="edit-class" href="">Sửa</a>
-                                            |
-                                            <a class="delete-class" href="">Xoá</a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>5</td>
-                                        <td><img style="width: 200px ;" src="img_topdestination/xiengthongWat.jpg" alt=""></td>
-                                        <td>Laos </td>
-                                        <td>1209 interests</td>
-                                        <td>2024-04-03</td>
-                                        <td>
-                                            <a class="edit-class" href="">Sửa</a>
-                                            |
-                                            <a class="delete-class" href="">Xoá</a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>6</td>
-                                        <td><img style="width: 200px ;" src="img_topdestination/marinaBaySands.jpg" alt=""></td>
-                                        <td>Singapore </td>
-                                        <td>1307 interests</td>
-                                        <td>2024-04-03</td>
-                                        <td>
-                                            <a class="edit-class" href="">Sửa</a>
-                                            |
-                                            <a class="delete-class" href="">Xoá</a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>7</td>
-                                        <td><img style="width: 200px ;" src="img_topdestination/myanmar_des.jpg" alt=""></td>
-                                        <td>Myanmar</td>
-                                        <td>1238 interests</td>
-                                        <td>2024-04-03</td>
-                                        <td>
-                                            <a class="edit-class" href="">Sửa</a>
-                                            |
-                                            <a class="delete-class" href="">Xoá</a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>8</td>
-                                        <td><img style="width: 200px ;" src="img_topdestination/malaysia_des.jpg" alt=""></td>
-                                        <td>Malaysia</td>
-                                        <td>1372 interests</td>
-                                        <td>2024-04-03</td>
-                                        <td>
-                                            <a class="edit-class" href="">Sửa</a>
-                                            |
-                                            <a class="delete-class" href="">Xoá</a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>9</td>
-                                        <td><img style="width: 200px ;" src="img_topdestination/philippines_des.jpg" alt=""></td>
-                                        <td>Philippines</td>
-                                        <td>1832 interests</td>
-                                        <td>2024-04-03</td>
-                                        <td>
-                                            <a class="edit-class" href="">Sửa</a>
-                                            |
-                                            <a class="delete-class" href="">Xoá</a>
-                                        </td>
-                                    </tr>
                                     <?php
-                                    $i = 10;
-                                        while($row = mysqli_fetch_assoc($query)) {?>
-                                            <tr>
-                                                <td><?php echo $i++; ?></td>
-                                                <td>
-                                                    <img style="width: 200px;" src="img_topdestination/<?php echo $row['destinationImage'];?>">
-                                                </td>
-                                                <td><?php echo $row['destinationName'];?></td>
-                                                <td><?php echo $row['voteLike'];?></td>
-                                                <td><?php echo $row['datePost'];?></td>
-                                                <td>
-                                                    <a class="edit-class" href="">Sửa</a>
-                                                    |
-                                                    <a class="delete-class" href="">Xoá</a>
-                                                </td>
-                                            </tr>
-                                        <?php } ?>
+                                        include('connection\connection.php');
+                                    ?>
+                                    
                                 </tbody>
                             </table>
                             <a class="btn btn-primary mt-3" href="cards.php">Add more</a>

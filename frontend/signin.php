@@ -1,34 +1,52 @@
+<!--loginn--> 
 <?php
+session_start();
 
-    
-    session_start();
-        if (isset($_SESSION['user'])){
-            header('Location: index.php');
-            die();
-        }
-    $user= '';
-    $pass='';
-    $error='';  //no error
-
-    if (isset($_POST['user']) && isset ($_POST['pass'])){
-        $user=$_POST['user'];
-        $pass=$_POST['pass'];
-
-        if(empty($user)){
-            $error='Please enter your user name';
-
-        }else if(empty($pass)){
-            $error='Please enter your password';
-        }else if(strlen($pass)<3){
-            $error='Password must have at laest 4 characters';
-        }else if($user !== 'admin' || $pass !=='4567'){
-            $error= 'Invalid username or password';
-        }else{
-            //login success
-            $_SESSION['user']=$user;
-            header('location: index.php');
-        }
+if (isset($_SESSION['user'])) {
+    if ($_SESSION['user'] === 'admin') {
+        header('Location: ../admin/index.php');
+    } else {
+        header('Location: ../frontend/index.php');
     }
+    die();
+}
+
+
+$user = '';
+$pass = '';
+$error = '';
+
+
+$conn = new mysqli('localhost', 'root', '', 'finalweb'); //servername, username, password, database's name
+if ($conn->connect_error) {
+  die("Connection Failed : " . $conn->connect_error);
+} else {
+  if (isset($_POST['user']) && isset($_POST['pass'])) { // kiem tra xem bien co ton tai hay hong
+    $user = $_POST['user'];
+    $pass = $_POST['pass'];
+
+    if ($user === 'admin' && $pass === '1230') {
+      $_SESSION['user'] = 'admin';
+      header('Location: ../admin/index.php');
+    } else {
+      $stmt = $conn->prepare("SELECT * FROM login WHERE userName = ? AND loginpassword = ?"); // so sanh bien nhap vao voi database
+      $stmt->bind_param("ss", $user, $pass);
+      $stmt->execute();
+      $result = $stmt->get_result();
+
+      if ($result->num_rows <= 0) {
+        $error = 'Invalid username or password';
+      } else if ($result->num_rows > 0) {
+        $_SESSION['user'] = $user;
+        header('Location: ../frontend/index.php');
+        
+      }
+      $stmt->close();
+      $conn->close();
+      
+    }
+  }
+}
 ?>
 
 
@@ -38,7 +56,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Reis-Explore the World</title>
+    <title>Sign in & Sign up</title>
     <link rel="stylesheet" href="css/register_style.css" />
 
     <!-- Favicon -->
@@ -82,7 +100,7 @@
       <div class="box">
         <div class="inner-box">
           <div class="forms-wrap">
-            <form action="register.html" autocomplete="off" class="sign-in-form">
+            <form action="<?php echo $_SERVER['PHP_SELF'];?>" method="post" autocomplete="off" class="sign-in-form">
               <div class="logo">
                 <img src="img/icon.png" alt="easyclass" />
                 <h4 style="font-size: 40px ;">REIS</h4>
@@ -91,18 +109,15 @@
               <div class="heading">
                 <h2>Welcome Back</h2>
                 <h6>Not registred yet?</h6>
-                <a href="signup.html" class="toggle">Sign up</a>
+                <a href="#" class="toggle">Sign up</a>
               </div>
 
               <div class="actual-form">
                 <div class="input-wrap">
                   <input
-                    value="<?= $user?>" 
-                    name="user" 
-                    id="username"
-                    placeholder="Username"
                     type="text"
                     minlength="4"
+                    name="user"
                     class="input-field"
                     autocomplete="off"
                     required
@@ -112,12 +127,9 @@
 
                 <div class="input-wrap">
                   <input
-                    value="<?= $pass?>" 
-                    name="pass" 
-                    id="password"
                     type="password"
-                    placeholder="Password"
                     minlength="4"
+                    name="pass"
                     class="input-field"
                     autocomplete="off"
                     required
@@ -125,7 +137,7 @@
                   <label>Password</label>
                 </div>
 
-                <input type="submit" value="Sign In" class="sign-btn" />
+                <input type="submit" name="signin" value="Sign In" class="sign-btn" />
 
                 <p class="text">
                   Forgotten your password or you login datails?
@@ -134,8 +146,7 @@
               </div>
             </form>
 
-            
-        </div>
+          </div>
 
           <div class="carousel">
             <div class="images-wrapper">

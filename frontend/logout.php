@@ -46,7 +46,7 @@
           counter.innerHTML = countdown.toString();
           if(countdown==0){
             clearInterval(id);
-            window.location.href='../frontend/signin.php'
+            window.location.href='../frontend/register.php'
           }
         }, 1000);
       }

@@ -1,9 +1,9 @@
 <!--php-->
 <?php
     require_once 'connectData.php';
-    
+    // them 
     if(isset($_POST['sbm'])) {
-        echo "Test1<br>";
+        // echo "Test1<br>";
         $destinationName = $_POST['destinationName'];
         $voteLike = $_POST['voteLike'];
         $destinationImage = $_FILES['destinationImage']['name'];
@@ -30,7 +30,9 @@
         //echo "Test7<br>";
         //die();
     }
-    else echo "Test2<br>";
+    // xoa 
+    
+    //else echo "Test2<br>";
 ?>
 
 

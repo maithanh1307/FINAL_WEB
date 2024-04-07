@@ -369,7 +369,7 @@
                 <div class="col-lg-4 col-md-6 mb-4">
                     <div class="destination-item position-relative overflow-hidden mb-2">
                         <img class="img-fluid5" src="img/vietnam1.jpg" alt="">
-                        <a class="destination-overlay text-white text-decoration-none" href="vietnam.html">
+                        <a class="destination-overlay text-white text-decoration-none" href="vietnam.php">
                             <h5 class="text-white">Viet Nam</h5><!--hello-->
                             <div class="analytics">
                                 <div class="data">

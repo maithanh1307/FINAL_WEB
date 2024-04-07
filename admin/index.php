@@ -80,6 +80,7 @@
                         <a class="collapse-item" href="cards.php">Add top destination</a>
                         <a class="collapse-item" href="cardsVietnam.php">Add Viet Nam</a>
                         <a class="collapse-item" href="buttonMembers.php">List of members</a>
+                        <a class="collapse-item" href="buttonsTicket.php">List of ticket</a>
                     </div>
                 </div>
             </li>

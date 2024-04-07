@@ -9999,24 +9999,14 @@ h6,
   margin-top: -42px;
 }
 
+<<<<<<< HEAD
 .page-headerMA {
+=======
+.page-headerMy {
+>>>>>>> 3db8851071dbffb852a05700518681c087d41cf9
   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../img/myanmar_des.jpg), no-repeat center center;
   background-size: cover;
-  margin-top: -42px;
-}
 
-
-
-.page-headerMalaysia {
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../img/malaysia_des.jpg), no-repeat center center;
-  background-size: cover;
-  margin-top: -42px;
-}
-
-.page-headerPhilippine {
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../img/philippines_des.jpg), no-repeat center center;
-  background-size: cover;
-  margin-top: -42px;
 }
 /*.destination-item img {
   transition: .5s;

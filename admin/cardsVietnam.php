@@ -6,9 +6,9 @@
         $destinationName = $_POST['vnName'];
         $destinationImage = $_FILES['vnImage']['name'];
         $destinationImage_tmp = $_FILES['vnImage']['tmp_name'];
-
-        $sql = "INSERT INTO addVietnam (vnName, vnImage)
-        VALUES ('$destinationName', '$destinationImage')";
+        $date = date("Y/m/d"); //thay sua
+        $sql = "INSERT INTO addVietnam (vnName, vnImage, datePost)
+        VALUES ('$destinationName', '$destinationImage','$date')";
         $query = mysqli_query($conn, $sql);
         move_uploaded_file($destinationImage_tmp, 'img/'. $destinationImage);
         header('location: buttonsVietnam.php');

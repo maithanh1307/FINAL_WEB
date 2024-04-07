@@ -13,15 +13,15 @@ if ($result->num_rows > 0) {
     while ($row = $result->fetch_assoc()) {
         echo '
         <tr>
-                                        <td>'.$row['userID'].'</td>
-                                        <td>'.$row['userName'].'</td>
-                                        <td>'.$row['email'].'</td>
-                                        <td>
-                                            <a class="edit-class" href="">Sửa</a>
-                                            |
-                                            <a class="delete-class" href="">Xoá</a>
-                                        </td>
-                                    </tr>';
+            <td>'.$row['userID'].'</td>
+            <td>'.$row['userName'].'</td>
+            <td>'.$row['email'].'</td>
+            <td>
+                <a class="edit-class" href="">Sửa</a>
+                |
+                <a class="delete-class" href="delMember.php?userID='.$row['userID'].'">Xoá</a>            
+            </td>
+        </tr>';
     }
 }
 ?>

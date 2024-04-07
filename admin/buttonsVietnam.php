@@ -392,7 +392,7 @@
                                         <td>
                                             <a class="edit-class" href="">Sửa</a>
                                             |
-                                            <a class="delete-class" href="">Xoá</a>
+                                            <a class="delete-class" href="delVietNam.php?vnID=<?php echo $row['vnID'];?>">Xoá</a>   
                                         </td>
                                     </tr>
                                     
@@ -409,7 +409,7 @@
                                                 <td>
                                                     <a class="edit-class" href="">Sửa</a>
                                                     |
-                                                    <a class="delete-class" href="">Xoá</a>
+                                                    <a class="delete-class" href="delVietNam.php?vnID=<?php echo $row['vnID'];?>">Xoá</a>   
                                                 </td>
                                             </tr>
                                         <?php } ?>

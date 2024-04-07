@@ -233,52 +233,76 @@
     <!-- Booking Start -->
     <div class="container-fluid booking mt-5 pb-5">
         <div class="container pb-5">
-            <div class="bg-light shadow" style="padding: 30px;">
-                <div class="row align-items-center" style="min-height: 60px;">
-                    <div class="col-md-10">
-                        <h4>Make Your Plan</h4>
-                        <div class="row">
-                            <div class="col-md-3">
-                                <div class="mb-3 mb-md-0">
-                                    <select class="custom-select px-4" style="height: 47px;">
-                                        <option selected>Destination</option>
-                                        <option value="1">Destination 1</option>
-                                        <option value="2">Destination 1</option>
-                                        <option value="3">Destination 1</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="mb-3 mb-md-0">
-                                    <div class="date" id="date1" data-target-input="nearest">
-                                        <input type="text" class="form-control p-4 datetimepicker-input" placeholder="Depart Date" data-target="#date1" data-toggle="datetimepicker"/>
+            <form action="connect_search.php" method="post" autocomplete="off" class="sign-in-form">
+                <div class="bg-light shadow" style="padding: 30px;">
+                    <div class="row align-items-center" style="min-height: 60px;">
+                        <div class="col-md-10">
+                            <h4>Make Your Plan</h4>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="mb-3 mb-md-0">
+                                        <select name="destination" class="custom-select px-4" style="height: 47px;">
+                                            <option selected>Destination</option>
+                                            <option>Viet Nam</option>
+                                            <option>Cambodia</option>
+                                            <option>Thai Lan</option>
+                                            <option>Indonesia</option>
+                                            <option>Laos</option>
+                                            <option>Singapore</option>
+                                            <option>Myanmar</option>
+                                            <option>Malaysia</option>
+                                            <option>Philippinese</option>
+                                        </select>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="mb-3 mb-md-0">
-                                    <div class="date" id="date2" data-target-input="nearest">
-                                        <input type="text" class="form-control p-4 datetimepicker-input" placeholder="Return Date" data-target="#date2" data-toggle="datetimepicker"/>
+                                <div class="col-md-3">
+                                    <div class="mb-3 mb-md-0">
+                                        <div class="date" id="date1" data-target-input="nearest">
+                                            <input name="dateDepart" type="text" class="form-control p-4 datetimepicker-input" placeholder="Depart Date" data-target="#date1" data-toggle="datetimepicker"/>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="mb-3 mb-md-0">
-                                    <select class="custom-select px-4" style="height: 47px;">
-                                        <option selected>Duration</option>
-                                        <option value="1">Duration 1</option>
-                                        <option value="2">Duration 1</option>
-                                        <option value="3">Duration 1</option>
-                                    </select>
+                                <div class="col-md-3">
+                                    <div class="mb-3 mb-md-0">
+                                        <div class="date" id="date2" data-target-input="nearest">
+                                            <input name="dateReturn" type="text" class="form-control p-4 datetimepicker-input" placeholder="Return Date" data-target="#date2" data-toggle="datetimepicker"/>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="mb-3 mb-md-0">
+                                        <select name="duration" class="custom-select px-4" style="height: 47px;">
+                                            <option selected>Duration</option>
+                                            <option>6:00:00</option>
+                                            <option>7:00:00</option>
+                                            <option>8:00:00</option>
+                                            <option>9:00:00</option>
+                                            <option>10:00:00</option>
+                                            <option>11:00:00</option>
+                                            <option>12:00:00</option>
+                                            <option>13:00:00</option>
+                                            <option>14:00:00</option>
+                                            <option>15:00:00</option>
+                                            <option>16:00:00</option>
+                                            <option>17:00:00</option>
+                                            <option>18:00:00</option>
+                                            <option>19:00:00</option>
+                                            <option>20:00:00</option>
+                                            <option>21:00:00</option>
+                                            <option>22:00:00</option>
+                                            <option>23:00:00</option>
+                                            <option>24:00:00</option>
+                                        </select>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-md-2">
-                        <button class="btn btn-primary btn-block" type="submit" style="height: 47px; margin-top: 30px;"><b>Submit</b></button>
+                        <div class="col-md-2">
+                            <button name="payment" class="btn btn-primary btn-block" type="submit" style="height: 47px; margin-top: 30px;"><b>Submit</b></button>
+                        </div>
                     </div>
                 </div>
-            </div>
+            </form>
         </div>
     </div>
     <!-- Booking End -->

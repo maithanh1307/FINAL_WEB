@@ -4,6 +4,7 @@
     $query = mysqli_query($conn, $sql);
 ?>
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -155,52 +156,23 @@
     </div>
 
     <!--demo ticket-->
-
+    <div class=" container mt-3">
+        <form method="post">
+            <input  style="padding:3px; "  type="text" placeholder="search" name="search">
+            <button class=" btn btn-sm btn-outline-primary ml-2" style="padding:3px;" name="submit">Search</button>
+        </form>
+    </div>
     
 
     
     <div class="container">
-        <div class="list-group pt-3 pb-3">
-            <div class="list-group-item bg-white">
-                <div class="row">
-                    <div class=" col-lg-3"><img src="img/benthanh.jpg" class="img-fluidBT"></div>
-                    <div class="row col-lg-4 col-md-7 col-sm-12 ml-auto mr-auto">
-                        <p class="ml-4">
-                            <i class="fas fa-map-marker-alt fa-lg" style="color: #ff0066;"></i><b>Ben Thanh market</b>
-                        </p>
-                        <p><i class="fas fa-calendar-alt fa-lg ml-4 mr-1 mt-1" style="color: #ff0066;"></i><b>30/3/2024</b></p>
-                        <p>
-                            <i class="fas fa-clock fa-lg fa-shake ml-4 mr-1" style="color: #ff0066;"></i><b>8:am</b>
-                            <i class="fa-duotone fa-horizontal-rule fa-md" style="color: #ff0066;"></i>
-                            <i class="fas fa-clock fa-lg fa-shake mr-1" style="color: #ff0066;"></i><b>13:30pm</b>
-                        </p>
-                        <div class="row">
-                            <div class="row ml-0 pb-2 mr-2 ml-4 mr-2 benthanh_detail" style="width: 100px; height: 30px;">
-                                <i class="fas fa-utensils fa-sm" style="color: #ff0066;"><i class="fas fa-shopping-bag fa-sm ml-1" style="color: #ff0066;"></i><i class="far fa-money-bill-alt fa-sm ml-1" style="color: #3e7e6b;"></i></i>
-                            </div>
-                            <div class="row ml-0 pt-2 pb-2 mr-2 benthanh_detail" style="width: 100px; height: 30px;">
-                                <i class="fas fa-user fa-sm ml-3" style="color: #ff0066;"></i>
-                            </div>
-                        </div>
-                        
-                    </div>
-                    <div class="col-lg-5 col-md-5 col-sm-12 ml-auto mr-auto">
-                        <div class=""><p class="fontPrice headcomment2"><i class="fas fa-tags fa-lg tagPrice mr-auto ml-auto" style="color: #ff0066;"></i>$80/<i class="fas fa-user fa-lg" style="color: #ff0066;"></i>
-                        </p> </div>   
-                        <a href="#" class="book-now-link1">
-                            <button class="btn btn-primary btn-block tagPrice mr-auto ml-auto" style="width: 50%; font-size: 15px;"><b>Book Now</b></button>
-                        </a> 
-                    </div>
-                </div>
-                
-            </div>
-        </div>
-
+       
         <?php
+            include('searchData.php');
             // Thực hiện truy vấn và lặp qua kết quả
             $query = mysqli_query($conn, $sql);
             while ($ticket = mysqli_fetch_assoc($query)) {
-                if ($ticket['destination'] === 'Viet Nam') { ?>
+                if ($ticket['destination'] === 'Viet Nam') {?> 
                     <div class="list-group pt-3 pb-3">
                         <div class="list-group-item bg-white">
                             <div class="row">

@@ -10021,6 +10021,18 @@ h6,
   border-radius: 10px;
 }
 
+.ticketSearch {
+  transform: translateX(500px);
+}
+
+.palm-margin {
+  transform: translateX(500px); /* Adjust spacing here */
+}
+.row i .icontree{
+  display:none;
+  padding:0 14px;
+  position : relative;
+}
 .img-fluid8 {
   border-radius: 50%;
 }
@@ -11018,7 +11030,9 @@ body.dark .mb-3{
   color: #000;
 }
 
-
+.color113{
+  background-color: #e83e8c;
+}
 
 
 

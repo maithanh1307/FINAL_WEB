@@ -81,6 +81,7 @@
                         <a class="collapse-item" href="cardsVietnam.php">Add Viet Nam</a>
                         <a class="collapse-item" href="buttonMembers.php">List of members</a>
                         <a class="collapse-item" href="buttonsTicket.php">List of ticket</a>
+                        <a class="collapse-item" href="buttonHotel.php">List of hotel</a>
                     </div>
                 </div>
             </li>

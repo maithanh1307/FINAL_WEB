@@ -134,14 +134,14 @@ $query = mysqli_query($conn, $sql);
 
 
     <!-- Header Start -->
-    <div class="container-fluid page-header">
+    <div class="container-fluid page-headerHotel">
         <div class="container">
             <div class="d-flex flex-column align-items-center justify-content-center" style="min-height: 400px">
-                <h3 style="color:#f7c1c6 ;" class="display-4 text-uppercase">Hotel Details</h3>
+                <h3 style="color:#f7c1c6 ;"  class="display-4 text-uppercase">Hotel Details</h3>
                 <div class="d-inline-flex text-white">
-                    <p class="m-0 text-uppercase"><a style="color:#f7c1c6 ;" href="">Home</a></p>
+                    <p class="m-0 text-uppercase"><a style="color:#f7c1c6 ;"  href="">Home</a></p>
                     <i style="color:#f7c1c6;" class="fa fa-angle-double-right pt-1 px-3"></i>
-                    <p style="color: #fff;" class="m-0 text-uppercase">Hotel Details</p>
+                    <p style="color: #fff;"  class="m-0 text-uppercase">Hotel Details</p>
                 </div>
             </div>
         </div>
@@ -164,7 +164,7 @@ $query = mysqli_query($conn, $sql);
             <div class="left-col">
                 <p>200+ Options</p>
                 <h1>Recommended Places Deluxe Ocean View</h1>
-                <div class="house">
+                <div class="house Villa">
                     <div class="house-img">
                         <img src="img_hotel/room-1.jpg">
                     </div>
@@ -188,7 +188,7 @@ $query = mysqli_query($conn, $sql);
                     </div>
 
                 </div>
-                <div class="house">
+                <div class="house House">
                     <div class="house-img">
                         <img src="img_hoteldetails/image-s1.png">
                     </div>
@@ -212,7 +212,7 @@ $query = mysqli_query($conn, $sql);
                     </div>
 
                 </div>
-                <div class="house">
+                <div class="house Flat">
                     <div class="house-img">
                         <img src="img_hoteldetails/image-s2.png">
                     </div>
@@ -236,7 +236,7 @@ $query = mysqli_query($conn, $sql);
                     </div>
 
                 </div>
-                <div class="house">
+                <div class="house GuestSuit">
                     <div class="house-img">
                         <img src="img_hoteldetails/image-s3.png">
                     </div>
@@ -260,7 +260,7 @@ $query = mysqli_query($conn, $sql);
                     </div>
 
                 </div>
-                <div class="house">
+                <div class="house Hotel">
                     <div class="house-img">
                         <img src="img_hoteldetails/image-s4.png">
                     </div>
@@ -284,7 +284,7 @@ $query = mysqli_query($conn, $sql);
                     </div>
 
                 </div>
-                <div class="house">
+                <div class="house Hotel">
                     <div class="house-img">
                         <img src="img_hoteldetails/image-s5.png">
                     </div>
@@ -312,11 +312,11 @@ $query = mysqli_query($conn, $sql);
 
                     <?php
                     // Thực hiện truy vấn và lặp qua kết quả
-                    $query = mysqli_query($conn, $sql);
+                    //$query = mysqli_query($conn, $sql);
                     while ($hotel = mysqli_fetch_assoc($query)) {
 
                         ?>
-                        <div class="house">
+                        <div class="house <?php echo $hotel['hotelType']; ?>">
                             <div class="house-img">
                                 <img src="img_hoteldetails/<?php echo $hotel['hotelImage']; ?>" alt="">
                             </div>
@@ -358,45 +358,45 @@ $query = mysqli_query($conn, $sql);
                     <h2>Select Filters</h2>
                     <h3>Property Type</h3>
                     <div class="filter">
-                        <input type="radio" name="propertyType" value="house" onchange="getSelectedValue()">
-                        <p>House</p> <span>(0)</span><br>
+                        <input type="radio" name="propertyType" value="House" onchange="getSelectedValue()">
+                        <p>House</p><br>
                     </div>
                     <div class="filter">
-                        <input type="radio" name="propertyType" value="hotel" onchange="getSelectedValue()">
-                        <p>Hotel</p> <span>(0)</span><br>
+                        <input type="radio" name="propertyType" value="Hotel" onchange="getSelectedValue()">
+                        <p>Hotel</p> <br>
                     </div>
                     <div class="filter">
-                        <input type="radio" name="propertyType" value="flat" onchange="getSelectedValue()">
-                        <p>Flat</p><span>(0)</span>
+                        <input type="radio" name="propertyType" value="Flat" onchange="getSelectedValue()">
+                        <p>Flat</p>
                     </div>
                     <div class="filter">
-                        <input type="radio" name="propertyType" value="villa" onchange="getSelectedValue()">
-                        <p>Villa</p><span>(0)</span>
+                        <input type="radio" name="propertyType" value="Villa" onchange="getSelectedValue()">
+                        <p>Villa</p>
                     </div>
                     <div class="filter">
-                        <input type="radio" name="propertyType" value="guest suit" onchange="getSelectedValue()">
-                        <p>Guest Suit</p><span>(0)</span>
+                        <input type="radio" name="propertyType" value="GuestSuit" onchange="getSelectedValue()">
+                        <p>Guest Suit</p>
                     </div>
                     <h3>Amenities</h3>
                     <div class="filter">
                         <input type="checkbox">
-                        <p>Air Conditioning</p><span>(0)</span>
+                        <p>Air Conditioning</p>
                     </div>
                     <div class="filter">
                         <input type="checkbox">
-                        <p>Wifi</p><span>(0)</span>
+                        <p>Wifi</p>
                     </div>
                     <div class="filter">
                         <input type="checkbox">
-                        <p>Gym</p><span>(0)</span>
+                        <p>Gym</p>
                     </div>
                     <div class="filter">
                         <input type="checkbox">
-                        <p>Pool</p><span>(0)</span>
+                        <p>Pool</p>
                     </div>
                     <div class="filter">
                         <input type="checkbox">
-                        <p>Kitchen</p><span>(0)</span>
+                        <p>Kitchen</p>
                     </div>
                 </div>
                 <div class="sidebar-link">
@@ -410,27 +410,24 @@ $query = mysqli_query($conn, $sql);
                 function getSelectedValue() {
                     // Lấy ra radio button được chọn
                     var selectedRadioButton = document.querySelector('input[name="propertyType"]:checked');
-                    console.log(selectedRadioButton);
                     if (selectedRadioButton) {
                         var selectedValue = selectedRadioButton.value;
-                        console.log(selectedValue);
-                        // Sử dụng jQuery AJAX để gửi giá trị selectedValue đến propertyType.php
-                        $.ajax({
-                            type: "POST",
-                            url: "propertyType.php",
-                            data: { selectedValue: selectedValue },
-                            success: function (response) {
-                                // Xử lý phản hồi từ propertyType.php (nếu cần)
-                                console.log(response);
-                            },
-                            error: function (xhr, status, error) {
-                                // Xử lý lỗi nếu có
-                                console.error(xhr.responseText);
+                        // Lấy tất cả các phần tử có class "house"
+                        var allHouses = document.querySelectorAll('.house');
+                        // Lặp qua từng phần tử
+                        allHouses.forEach(function(house) {
+                            // Kiểm tra nếu phần tử có class tương ứng với giá trị đã chọn
+                            if (house.classList.contains(selectedValue)) {
+                                house.style.display = 'block'; // Hiển thị phần tử này
+                            } else {
+                                house.style.display = 'none'; // Ẩn phần tử này
                             }
                         });
                     }
                 }
             </script>
+
+
 
         </div>
 

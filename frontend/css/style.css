@@ -5383,6 +5383,7 @@ a.badge-dark:focus, a.badge-dark.focus {
   padding: 0.75rem 1.25rem;
   background-color: #fff;
   border: 1px solid rgba(0, 0, 0, 0.125);
+  border:none;
 }
 
 .list-group-item.disabled, .list-group-item:disabled {
@@ -10013,6 +10014,63 @@ h6,
   margin-top: -42px;
 }
 
+.page-headerMalaysia {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../img/Petronas1.jpg), no-repeat center center;
+  background-size: cover;
+  margin-top: -42px;
+}
+
+.page-headerPhilippines {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../img/balabacCity.jpg), no-repeat center center;
+  background-size: cover;
+  margin-top: -42px;
+}
+.page-headerHotel1 {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../img/balabacCity.jpg), no-repeat center center;
+  background-size: cover;
+  margin-top: -42px;
+}
+
+.page-headerECR{
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../img_hotel/room-4.jpg), no-repeat center center;
+  background-size: cover;
+  margin-top: -42px;
+} 
+
+.page-headerFGR{
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../img_hoteldetails/FGR1.jpg), no-repeat center center;
+  background-size: cover;
+  margin-top: -42px; 
+} 
+
+.page-headerPSS{
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../img_hotel/room-2.jpg), no-repeat center center;
+  background-size: cover;
+  margin-top: -42px; 
+} 
+
+.page-headerGMV{
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../img_hoteldetails/FGR2.jpg), no-repeat center center;
+  background-size: cover;
+  margin-top: -42px; 
+}
+
+.page-headerSLH{
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../img_hoteldetails/FGR3.jpg), no-repeat center center;
+  background-size: cover;
+  margin-top: -42px; 
+} 
+.page-headerGuide{
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../img/guide.jpg), no-repeat center center;
+  background-size: cover;
+  margin-top: -42px; 
+} 
+
+.page-headerDestination{
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../img/vietnamheader.jpg), no-repeat center center;
+  background-size: cover;
+  margin-top: -42px; 
+} 
 
 /*.destination-item img {
   transition: .5s;

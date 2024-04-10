@@ -5383,7 +5383,6 @@ a.badge-dark:focus, a.badge-dark.focus {
   padding: 0.75rem 1.25rem;
   background-color: #fff;
   border: 1px solid rgba(0, 0, 0, 0.125);
-  border:none;
 }
 
 .list-group-item.disabled, .list-group-item:disabled {
@@ -9974,12 +9973,11 @@ h6,
   background-size: cover;
   margin-top: -42px;
 }
-.page-headerCM {
-  margin-top: -42px;
-}
+
 .page-headerCM {
   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../img/ChiangMai.jpg), no-repeat center center;
   background-size: cover;
+  margin-top: -42px;
 }
 .page-headerBA {
   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../img/Bali_d.jpg), no-repeat center center;
@@ -10001,63 +9999,35 @@ h6,
   background-size: cover;
   margin-top: -42px;
 }
-
-.page-headerMA {
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../img/Shwedagon1.jpg), no-repeat center center;
-  background-size: cover;
-  margin-top: -42px;
-} 
-
-.page-headerHotel {
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../img/headerhotel.jpg), no-repeat center center;
+.page-headerVN {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../img/vietnam1.jpg), no-repeat center center;
   background-size: cover;
   margin-top: -42px;
 }
-
-.page-headerMalaysia {
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../img/Petronas1.jpg), no-repeat center center;
+.page-headerCB {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../img/cambodia1.jpg), no-repeat center center;
   background-size: cover;
   margin-top: -42px;
 }
-
-.page-headerPhilippines {
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../img/balabacCity.jpg), no-repeat center center;
+.page-headerTL {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../img/thailand.jpg), no-repeat center center;
   background-size: cover;
   margin-top: -42px;
 }
-.page-headerHotel1 {
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../img/balabacCity.jpg), no-repeat center center;
+.page-headerMM {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../img/myanmar_des.jpg), no-repeat center center;
   background-size: cover;
   margin-top: -42px;
 }
-
-.page-headerECR{
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../img_hotel/room-4.jpg), no-repeat center center;
+.page-headerML {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../img/malaysia_des.jpg), no-repeat center center;
   background-size: cover;
   margin-top: -42px;
-} 
-
-.page-headerFGR{
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../img_hoteldetails/FGR1.jpg), no-repeat center center;
-  background-size: cover;
-  margin-top: -42px; 
-} 
-
-.page-headerPSS{
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../img_hotel/room-2.jpg), no-repeat center center;
-  background-size: cover;
-  margin-top: -42px; 
-} 
-
-.page-headerGMV{
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../img_hoteldetails/FGR2.jpg), no-repeat center center;
-  background-size: cover;
-  margin-top: -42px; 
 }
-
-.page-headerSLH{
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../img_hoteldetails/FGR3.jpg), no-repeat center center;
+.page-headerPL {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../img/philippines_des.jpg), no-repeat center center;
   background-size: cover;
+<<<<<<< HEAD
   margin-top: -42px; 
 } 
 .page-headerGuide{
@@ -10100,6 +10070,9 @@ h6,
   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../img/indo.jpg), no-repeat center center;
   background-size: cover;
   margin-top: -42px; 
+=======
+  margin-top: -42px;
+>>>>>>> b0f8b23f9e74609f050f37b130396feb32dccd37
 }
 /*.destination-item img {
   transition: .5s;
@@ -10118,18 +10091,6 @@ h6,
   border-radius: 10px;
 }
 
-.ticketSearch {
-  transform: translateX(500px);
-}
-
-.palm-margin {
-  transform: translateX(500px); /* Adjust spacing here */
-}
-.row i .icontree{
-  display:none;
-  padding:0 14px;
-  position : relative;
-}
 .img-fluid8 {
   border-radius: 50%;
 }
@@ -10608,6 +10569,7 @@ h6,
 }
 
 /*=============== GOOGLE FONTS ===============*/
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap");
 
 /*=============== VARIABLES CSS ===============*/
 :root {
@@ -11126,9 +11088,7 @@ body.dark .mb-3{
   color: #000;
 }
 
-.color113{
-  background-color: #e83e8c;
-}
+
 
 
 

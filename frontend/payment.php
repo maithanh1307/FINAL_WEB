@@ -1,3 +1,13 @@
+<?php
+    require_once '../admin/connectData.php';
+    
+    $sql = "SELECT * FROM planning order by idPLan desc";
+    $query = mysqli_query($conn, $sql);
+
+    $sql1 = "SELECT * FROM addhotel order by hotelID desc";
+    $query1 = mysqli_query($conn, $sql1);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -140,7 +150,7 @@
         <p style="font-size: 20px;color: #000;">Fill in your details and review your booking.</p>
         <div class="row">
             <div class="col-lg-8">
-                <div class="block1">
+                <!-- <div class="block1">
                     <div class="row">
                         <div class="col-lg-2">
                             <img importance="low" loading="lazy"
@@ -162,8 +172,8 @@
                             </div>
                         </div>
                     </div>
-                </div>
-                <h4 style="font-size: 30px;margin: 10px 0;">Contact Details</h4>
+                </div> -->
+                <!-- <h4 style="font-size: 30px;margin: 10px 0;">Contact Details</h4>
                 <div class="block1-1">
                     <div class="row">
                         <div class="col-lg-8 block1-1-3">
@@ -215,7 +225,7 @@
                         </div>
                     </div>
 
-                </div>
+                </div> -->
                 <h4 style="font-size: 30px;margin: 10px 0;">Traveler Details</h4>
                 <div class="block1-2">
                     <div class="row">
@@ -344,29 +354,31 @@
                     </div>
                 </div>
                 <div class="tieptuc btn btn-primary mt-1">
-                    <a href="#"><b>Continue</b></a>
+                    <a href="#"><b>Book now</b></a>
                 </div>
                 
             </div>
 
+            <?php $query = mysqli_query($conn, $sql); 
+            $ticket = mysqli_fetch_assoc($query);?>
             <div class="col-lg-4">
                 <div class="khoi-phai">
                     <div class="row">
-                        <div class="col-lg-8 block2">
+                        <div class="block2">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                                 xmlns="http://www.w3.org/2000/svg" data-id="IcProductFlightFill">
                                 <path fill-rule="evenodd" clip-rule="evenodd"
                                     d="M4.24315 18.6216C4.14242 19.2724 4.72762 19.8576 5.37843 19.7569L6.5885 22.177C6.82109 22.6422 7.37143 22.8515 7.85432 22.6583L8.06676 22.5733C8.91113 22.2356 9.42133 21.3707 9.30853 20.4683L9 18L13.2857 14.4286L18.5103 22.2655C18.7901 22.6851 19.3385 22.8308 19.7896 22.6052L20.2243 22.3879C20.6694 22.1653 20.8831 21.6494 20.7257 21.1772L19 16L19.7929 15.2071C20.1834 14.8166 20.1834 14.1834 19.7929 13.7929L19.2071 13.2071C18.8837 12.8838 18.394 12.8282 18.0134 13.0403L17.1493 10.4478L21.8613 4.85221C22.5053 4.08744 22.457 2.95701 21.75 2.25003C21.043 1.54305 19.9126 1.49469 19.1478 2.13871L13.5522 6.85077L10.9597 5.9866C11.1719 5.60602 11.1163 5.11629 10.7929 4.79292L10.2071 4.20713C9.81658 3.81661 9.18342 3.81661 8.79289 4.20713L8 5.00003L2.82279 3.27429C2.35068 3.11692 1.83469 3.33065 1.61213 3.77576L1.39479 4.21044C1.16925 4.66152 1.3149 5.20996 1.73452 5.48971L9.57143 10.7143L6 15L3.53173 14.6915C2.62934 14.5787 1.76445 15.0889 1.4267 15.9333L1.34173 16.1457C1.14857 16.6286 1.35781 17.1789 1.82299 17.4115L4.24315 18.6216Z"
                                     fill="#30C5F7"></path>
                             </svg>
-                            <p style="margin:0 0 0 5px;font-size: 20px;color: #000;">TP HCM → Bangkok</p>
+                            <p style="margin:0 0 0 5px;font-size: 20px;color: #000;" name="destination">TP HCM → <?php echo $ticket['destination'];?></p>
                         </div>
-                        <div class="col-lg-4 block2-2-1">
+                        <!-- <div class="col-lg-4 block2-2-1">
                             <a href="#">Details</a>
-                        </div>
+                        </div> -->
                     </div>
                     <hr>
-                    <h5>Departure • Sun, 31 Mar 2024</h5>
+                    <h5 name="dateDepart">Departure <?php echo $ticket['dateDepart'];?></h5>
                     <div class="block3">
                         <div class="row">
                             <div class="col-lg-2">
@@ -375,7 +387,7 @@
                                     srcset="https://ik.imagekit.io/tvlk/image/imageResource/2021/03/08/1615183128719-eb20dcaed13e5b74629b222345995b7a.png?tr=h-20,q-75 1x, https://ik.imagekit.io/tvlk/image/imageResource/2021/03/08/1615183128719-eb20dcaed13e5b74629b222345995b7a.png?tr=dpr-2,h-20,q-75 2x, https://ik.imagekit.io/tvlk/image/imageResource/2021/03/08/1615183128719-eb20dcaed13e5b74629b222345995b7a.png?tr=dpr-3,h-20,q-75 3x"
                                     decoding="async" height="20" style="object-fit: fill; object-position: 50% 50%;">
                             </div>
-                            <div class="col-lg-8 block2-2-2">
+                            <div class="col-lg-12 block2-2-2">
                                 <p>Vietravel Airlines</p>
                                 <label >Economy </label>
                             </div>
@@ -383,7 +395,7 @@
                     </div>
                     <div class="block4">
                         <div class="block4-1">
-                            <h5>13:20</h5>
+                            <h5 name="duration"><?php echo $ticket['duration'];?></h5>
                             <label>SGN</label>
                         </div>
                         <div class="block4-2">
@@ -392,7 +404,7 @@
                             <i class="fa-solid fa-circle"></i>
                         </div>
                         <div class="block4-3">
-                            <h5>14:50</h5>
+                            <h5 name="duration"><?php echo $ticket['duration'];?></h5>
                             <label>BKK</label>
                         </div>
                     </div>
@@ -409,8 +421,11 @@
                         </div>
                     </div>
                     <hr>
-                    <h5>Return • Sun, 07 April 2024</h5>
-                    <div class="block3">
+
+                    <?php $query1 = mysqli_query($conn, $sql1); 
+                    $hotel = mysqli_fetch_assoc($query1);?>
+                    <h5 style="color: #ff0066;"><b><?php echo $hotel['hotelName'];?></b></h5>
+                    <!-- <div class="block3">
                         <div class="row">
                             <div class="col-lg-2">
                                 <img importance="low" loading="lazy"
@@ -423,33 +438,34 @@
                                 <label >Promo </label>
                             </div>
                         </div>
+                    </div> -->
+                    <div>
+                        <img style='width:200px;' src="img_hoteldetails/<?php echo $hotel['hotelImage'];?>">
                     </div>
-                    <div class="block4">
-                        <div class="block4-1">
+                    <div>
+                        <!-- <div class="block4-1">
                             <h5>11:30</h5>
                             <label>BKK</label>
-                        </div>
+                        </div> -->
                         <div class="block4-2">
-                            <i class="fa-regular fa-circle"></i>
-                            <i class="fa-solid fa-minus"></i>
-                            <i class="fa-solid fa-circle"></i>
+                            <h5 style="color: #ff0066;" class='mt-3'><b><?php echo $hotel['hotelPrice'];?></b></h5>
                         </div>
-                        <div class="block4-3">
+                        <!-- <div class="block4-3">
                             <h5>13:00</h5>
                             <label>SGN</label>
-                        </div>
+                        </div> -->
                     </div>
                     <div class="block5">
                         <div class="block5-1">
                             <img src="https://d1785e74lyxkqq.cloudfront.net/_next/static/v2/0/0451207408e414bb8a1664153973b3c8.svg"
                                 width="12" height="12" style="margin-right: 8px; flex-shrink: 0;">
-                            <p>Tickets can be completed</p>
+                            <p>Room can be completed</p>
                         </div>
-                        <div class="block5-2">
+                        <!-- <div class="block5-2">
                             <img src="https://d1785e74lyxkqq.cloudfront.net/_next/static/v2/0/0451207408e414bb8a1664153973b3c8.svg"
                                 width="12" height="12" style="margin-right: 8px; flex-shrink: 0;">
                             <p>Flight rescheduling applies</p>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
                 

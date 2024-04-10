@@ -1,7 +1,18 @@
 <?php
     require_once '../admin/connectData.php';
-    $sql = "SELECT * FROM planning";
+    $sql = "SELECT * FROM planning order by idPlan desc";
     $query = mysqli_query($conn, $sql);
+    if(isset($_POST['sbm'])) {
+        // $destination = $_POST['destination'];
+        // $dateDepart = $_POST['dateDepart'];
+        // $dateReturn = $_POST['dateReturn'];
+        // $duration = $_POST['duration'];
+        // $sql = "SELECT * FROM planning where destination=?, duration=?, dateDepart=?, dateReturn=?";
+        // $stmt_check->bind_param("ssss", $destination, $dateDepart, $dateReturn, $duration);
+        // $stmt_check->execute();
+        // $result = $stmt_check->get_result();
+        header('location: payment.php');
+    }
 ?>
 
 
@@ -118,15 +129,15 @@
                 </button>
                 <div class="collapse navbar-collapse justify-content-between px-3" id="navbarCollapse">
                     <div class="navbar-nav ml-auto py-0">
-                        <a href="index.html" class="nav-item nav-link">Home</a>
+                        <a href="index.html" class="nav-item nav-link active">Home</a>
                         <a href="about.html" class="nav-item nav-link">About</a>
                         <a href="service.html" class="nav-item nav-link">Services</a>
                         <a href="package.html" class="nav-item nav-link">Tour Packages</a>
                         <div class="nav-item dropdown">
-                            <a href="#" class="nav-link dropdown-toggle active" data-toggle="dropdown">Pages</a>
+                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Pages</a>
                             <div class="dropdown-menu border-0 rounded-0 m-0">
                                 <a href="blog.html" class="dropdown-item">Blog Grid</a>
-                                <a href="single.html" class="dropdown-item active">Blog Detail</a>
+                                <a href="single.html" class="dropdown-item">Blog Detail</a>
                                 <a href="destination.html" class="dropdown-item">Destination</a>
                                 <a href="guide.html" class="dropdown-item">Travel Guides</a>
                                 <a href="testimonial.html" class="dropdown-item">Testimonial</a>
@@ -173,345 +184,363 @@
             $query = mysqli_query($conn, $sql);
             while ($ticket = mysqli_fetch_assoc($query)) {
                 if ($ticket['destination'] === 'Viet Nam') {?> 
-                    <div class="list-group pt-3 pb-3">
-                        <div class="list-group-item bg-white">
-                            <div class="row">
-                                <div class=" col-lg-3"><img src="img/VietNam.jpg" class="img-fluidBT"></div>
-                                <div class="row col-lg-4 col-md-7 col-sm-12 ml-auto mr-auto">
-                                    <p class="ml-4">
-                                        <i class="fas fa-map-marker-alt fa-lg" style="color: #ff0066;"></i><b><?php echo $ticket['destination']; ?></b>
-                                    </p>
-                                    <p><i class="fas fa-clock fa-lg fa-shake fa-lg ml-4 mr-1 mt-1" style="color: #ff0066;"></i><b><?php echo $ticket['duration']; ?></b></p>
-                                    <p>
-                                        <i class="fas fa-calendar-alt fa-lg ml-4 mr-1" style="color: #ff0066;"></i><b><?php echo $ticket['dateDepart']; ?></b>
-                                        <i class="fa-duotone fa-horizontal-rule fa-md" style="color: #ff0066;"></i>
-                                        <i class="fas fa-calendar-alt fa-lg mr-1" style="color: #ff0066;"></i><b><?php echo $ticket['dateReturn']; ?></b>
-                                    </p>
-                                    <div class="row">
-                                        <div class="row ml-0 pb-2 mr-2 ml-4 mr-2 benthanh_detail" style="width: 100px; height: 30px;">
-                                            <i class="fas fa-utensils fa-sm" style="color: #ff0066;"><i class="fad fa-tree-palm fa-md ml-2" style="--fa-primary-color: #ff0066; --fa-secondary-color: #ff0066;"></i>
-                                        </i>
+                    <form method="POST" enctype="multipart/form-data">
+                        <div class="list-group pt-3 pb-3">
+                            <div class="list-group-item bg-white">
+                                <div class="row">
+                                    <div class=" col-lg-3"><img src="img/VietNam.jpg" class="img-fluidBT"></div>
+                                    <div class="row col-lg-4 col-md-7 col-sm-12 ml-auto mr-auto">
+                                        <p class="ml-4">
+                                            <i class="fas fa-map-marker-alt fa-lg" style="color: #ff0066;"></i><b><?php echo $ticket['destination']; ?></b>
+                                        </p>
+                                        <p><i class="fas fa-clock fa-lg fa-shake fa-lg ml-4 mr-1 mt-1" style="color: #ff0066;"></i><b><?php echo $ticket['duration']; ?></b></p>
+                                        <p>
+                                            <i class="fas fa-calendar-alt fa-lg ml-4 mr-1" style="color: #ff0066;"></i><b><?php echo $ticket['dateDepart']; ?></b>
+                                            <i class="fa-duotone fa-horizontal-rule fa-md" style="color: #ff0066;"></i>
+                                            <i class="fas fa-calendar-alt fa-lg mr-1" style="color: #ff0066;"></i><b><?php echo $ticket['dateReturn']; ?></b>
+                                        </p>
+                                        <div class="row">
+                                            <div class="row ml-0 pb-2 mr-2 ml-4 mr-2 benthanh_detail" style="width: 100px; height: 30px;">
+                                                <i class="fas fa-utensils fa-sm" style="color: #ff0066;"><i class="fad fa-tree-palm fa-md ml-2" style="--fa-primary-color: #ff0066; --fa-secondary-color: #ff0066;"></i>
+                                            </i>
+                                            </div>
+                                            <div class="row ml-0 pt-2 pb-2 mr-2 benthanh_detail" style="width: 100px; height: 30px;">
+                                                <i class="fas fa-users ml-3" style="color: #ff0066;"></i>
+                                            </div>
                                         </div>
-                                        <div class="row ml-0 pt-2 pb-2 mr-2 benthanh_detail" style="width: 100px; height: 30px;">
-                                            <i class="fas fa-users ml-3" style="color: #ff0066;"></i>
-                                        </div>
+
                                     </div>
+                                    <div class="col-lg-5 col-md-5 col-sm-12 ml-auto mr-auto">
+                                        <div class=""><p class="fontPrice headcomment2"><i class="fas fa-tags fa-lg tagPrice mr-auto ml-auto" style="color: #ff0066;"></i>$80/<i class="fas fa-user fa-lg" style="color: #ff0066;"></i>
+                                            </p> </div>
+                                        <!-- <a href="payment.php" class="book-now-link1"> -->
+                                        <button name="sbm" class="btn btn-primary btn-block tagPrice mr-auto ml-auto " type="submit" style="width: 50%; font-size: 15px;"><b>Book Now</b></button>
+                                        <!-- </a> -->
+                                    </div>
+                                </div>
 
-                                </div>
-                                <div class="col-lg-5 col-md-5 col-sm-12 ml-auto mr-auto">
-                                    <div class=""><p class="fontPrice headcomment2"><i class="fas fa-tags fa-lg tagPrice mr-auto ml-auto" style="color: #ff0066;"></i>$80/<i class="fas fa-user fa-lg" style="color: #ff0066;"></i>
-                                        </p> </div>
-                                    <a href="#" class="book-now-link1">
-                                        <button class="btn btn-primary btn-block tagPrice mr-auto ml-auto" style="width: 50%; font-size: 15px;"><b>Book Now</b></button>
-                                    </a>
-                                </div>
                             </div>
-
                         </div>
-                    </div>
+                    </form>
                 <?php } else if ($ticket['destination'] === 'Cambodia') { ?>
-                    <div class="list-group pt-3 pb-3">
-                        <div class="list-group-item bg-white">
-                            <div class="row">
-                                <div class=" col-lg-3"><img src="img/campuchia.jpg" class="img-fluidBT"></div>
-                                <div class="row col-lg-4 col-md-7 col-sm-12 ml-auto mr-auto">
-                                    <p class="ml-4">
-                                        <i class="fas fa-map-marker-alt fa-lg" style="color: #ff0066;"></i><b><?php echo $ticket['destination']; ?></b>
-                                    </p>
-                                    <p><i class="fas fa-clock fa-lg fa-shake fa-lg ml-4 mr-1 mt-1" style="color: #ff0066;"></i><b><?php echo $ticket['duration']; ?></b></p>
-                                    <p>
-                                        <i class="fas fa-calendar-alt fa-lg ml-4 mr-1" style="color: #ff0066;"></i><b><?php echo $ticket['dateDepart']; ?></b>
-                                        <i class="fa-duotone fa-horizontal-rule fa-md" style="color: #ff0066;"></i>
-                                        <i class="fas fa-calendar-alt fa-lg mr-1" style="color: #ff0066;"></i><b><?php echo $ticket['dateReturn']; ?></b>
-                                    </p>
-                                    <div class="row">
-                                        <div class="row ml-0 pb-2 mr-2 ml-4 mr-2 benthanh_detail" style="width: 100px; height: 30px;">
-                                            <i class="fas fa-utensils fa-sm" style="color: #ff0066;"><i class="fad fa-tree-palm fa-md ml-2" style="--fa-primary-color: #ff0066; --fa-secondary-color: #ff0066;"></i>
-                                        </i>
+                    <form method="POST" enctype="multipart/form-data">
+                        <div class="list-group pt-3 pb-3">
+                            <div class="list-group-item bg-white">
+                                <div class="row">
+                                    <div class=" col-lg-3"><img src="img/campuchia.jpg" class="img-fluidBT"></div>
+                                    <div class="row col-lg-4 col-md-7 col-sm-12 ml-auto mr-auto">
+                                        <p class="ml-4">
+                                            <i class="fas fa-map-marker-alt fa-lg" style="color: #ff0066;"></i><b><?php echo $ticket['destination']; ?></b>
+                                        </p>
+                                        <p><i class="fas fa-clock fa-lg fa-shake fa-lg ml-4 mr-1 mt-1" style="color: #ff0066;"></i><b><?php echo $ticket['duration']; ?></b></p>
+                                        <p>
+                                            <i class="fas fa-calendar-alt fa-lg ml-4 mr-1" style="color: #ff0066;"></i><b><?php echo $ticket['dateDepart']; ?></b>
+                                            <i class="fa-duotone fa-horizontal-rule fa-md" style="color: #ff0066;"></i>
+                                            <i class="fas fa-calendar-alt fa-lg mr-1" style="color: #ff0066;"></i><b><?php echo $ticket['dateReturn']; ?></b>
+                                        </p>
+                                        <div class="row">
+                                            <div class="row ml-0 pb-2 mr-2 ml-4 mr-2 benthanh_detail" style="width: 100px; height: 30px;">
+                                                <i class="fas fa-utensils fa-sm" style="color: #ff0066;"><i class="fad fa-tree-palm fa-md ml-2" style="--fa-primary-color: #ff0066; --fa-secondary-color: #ff0066;"></i>
+                                            </i>
+                                            </div>
+                                            <div class="row ml-0 pt-2 pb-2 mr-2 benthanh_detail" style="width: 100px; height: 30px;">
+                                                <i class="fas fa-users ml-3" style="color: #ff0066;"></i>
+                                            </div>
                                         </div>
-                                        <div class="row ml-0 pt-2 pb-2 mr-2 benthanh_detail" style="width: 100px; height: 30px;">
-                                            <i class="fas fa-users ml-3" style="color: #ff0066;"></i>
-                                        </div>
+
                                     </div>
+                                    <div class="col-lg-5 col-md-5 col-sm-12 ml-auto mr-auto">
+                                        <div class=""><p class="fontPrice headcomment2"><i class="fas fa-tags fa-lg tagPrice mr-auto ml-auto" style="color: #ff0066;"></i>$100/<i class="fas fa-user fa-lg" style="color: #ff0066;"></i>
+                                            </p> </div>
+                                        <!-- <a href="#" class="book-now-link1"> -->
+                                        <button name="sbm" class="btn btn-primary btn-block tagPrice mr-auto ml-auto" style="width: 50%; font-size: 15px;"><b>Book Now</b></button>
+                                        <!-- </a> -->
+                                    </div>
+                                </div>
 
-                                </div>
-                                <div class="col-lg-5 col-md-5 col-sm-12 ml-auto mr-auto">
-                                    <div class=""><p class="fontPrice headcomment2"><i class="fas fa-tags fa-lg tagPrice mr-auto ml-auto" style="color: #ff0066;"></i>$100/<i class="fas fa-user fa-lg" style="color: #ff0066;"></i>
-                                        </p> </div>
-                                    <a href="#" class="book-now-link1">
-                                        <button class="btn btn-primary btn-block tagPrice mr-auto ml-auto" style="width: 50%; font-size: 15px;"><b>Book Now</b></button>
-                                    </a>
-                                </div>
                             </div>
-
                         </div>
-                    </div>
+                    </form>
 
                 <?php } else if ($ticket['destination'] === 'Thai Lan') { ?>
-                    <div class="list-group pt-3 pb-3">
-                        <div class="list-group-item bg-white">
-                            <div class="row">
-                                <div class=" col-lg-3"><img src="img/thailan3.jpg" class="img-fluidBT"></div>
-                                <div class="row col-lg-4 col-md-7 col-sm-12 ml-auto mr-auto">
-                                    <p class="ml-4">
-                                        <i class="fas fa-map-marker-alt fa-lg" style="color: #ff0066;"></i><b><?php echo $ticket['destination']; ?></b>
-                                    </p>
-                                    <p><i class="fas fa-clock fa-lg fa-shake fa-lg ml-4 mr-1 mt-1" style="color: #ff0066;"></i><b><?php echo $ticket['duration']; ?></b></p>
-                                    <p>
-                                        <i class="fas fa-calendar-alt fa-lg ml-4 mr-1" style="color: #ff0066;"></i><b><?php echo $ticket['dateDepart']; ?></b>
-                                        <i class="fa-duotone fa-horizontal-rule fa-md" style="color: #ff0066;"></i>
-                                        <i class="fas fa-calendar-alt fa-lg mr-1" style="color: #ff0066;"></i><b><?php echo $ticket['dateReturn']; ?></b>
-                                    </p>
-                                    <div class="row">
-                                        <div class="row ml-0 pb-2 mr-2 ml-4 mr-2 benthanh_detail" style="width: 100px; height: 30px;">
-                                            <i class="fas fa-utensils fa-sm" style="color: #ff0066;"><i class="fad fa-tree-palm fa-md ml-2" style="--fa-primary-color: #ff0066; --fa-secondary-color: #ff0066;"></i>
-                                        </i>
+                    <form method="POST" enctype="multipart/form-data">
+                        <div class="list-group pt-3 pb-3">
+                            <div class="list-group-item bg-white">
+                                <div class="row">
+                                    <div class=" col-lg-3"><img src="img/thailan3.jpg" class="img-fluidBT"></div>
+                                    <div class="row col-lg-4 col-md-7 col-sm-12 ml-auto mr-auto">
+                                        <p class="ml-4">
+                                            <i class="fas fa-map-marker-alt fa-lg" style="color: #ff0066;"></i><b><?php echo $ticket['destination']; ?></b>
+                                        </p>
+                                        <p><i class="fas fa-clock fa-lg fa-shake fa-lg ml-4 mr-1 mt-1" style="color: #ff0066;"></i><b><?php echo $ticket['duration']; ?></b></p>
+                                        <p>
+                                            <i class="fas fa-calendar-alt fa-lg ml-4 mr-1" style="color: #ff0066;"></i><b><?php echo $ticket['dateDepart']; ?></b>
+                                            <i class="fa-duotone fa-horizontal-rule fa-md" style="color: #ff0066;"></i>
+                                            <i class="fas fa-calendar-alt fa-lg mr-1" style="color: #ff0066;"></i><b><?php echo $ticket['dateReturn']; ?></b>
+                                        </p>
+                                        <div class="row">
+                                            <div class="row ml-0 pb-2 mr-2 ml-4 mr-2 benthanh_detail" style="width: 100px; height: 30px;">
+                                                <i class="fas fa-utensils fa-sm" style="color: #ff0066;"><i class="fad fa-tree-palm fa-md ml-2" style="--fa-primary-color: #ff0066; --fa-secondary-color: #ff0066;"></i>
+                                            </i>
+                                            </div>
+                                            <div class="row ml-0 pt-2 pb-2 mr-2 benthanh_detail" style="width: 100px; height: 30px;">
+                                                <i class="fas fa-users ml-3" style="color: #ff0066;"></i>
+                                            </div>
                                         </div>
-                                        <div class="row ml-0 pt-2 pb-2 mr-2 benthanh_detail" style="width: 100px; height: 30px;">
-                                            <i class="fas fa-users ml-3" style="color: #ff0066;"></i>
-                                        </div>
+
                                     </div>
+                                    <div class="col-lg-5 col-md-5 col-sm-12 ml-auto mr-auto">
+                                        <div class=""><p class="fontPrice headcomment2"><i class="fas fa-tags fa-lg tagPrice mr-auto ml-auto" style="color: #ff0066;"></i>$200/<i class="fas fa-user fa-lg" style="color: #ff0066;"></i>
+                                            </p> </div>
+                                        <!-- <a href="#" class="book-now-link1"> -->
+                                        <button name="sbm" class="btn btn-primary btn-block tagPrice mr-auto ml-auto" style="width: 50%; font-size: 15px;"><b>Book Now</b></button>
+                                        <!-- </a> -->
+                                    </div>
+                                </div>
 
-                                </div>
-                                <div class="col-lg-5 col-md-5 col-sm-12 ml-auto mr-auto">
-                                    <div class=""><p class="fontPrice headcomment2"><i class="fas fa-tags fa-lg tagPrice mr-auto ml-auto" style="color: #ff0066;"></i>$200/<i class="fas fa-user fa-lg" style="color: #ff0066;"></i>
-                                        </p> </div>
-                                    <a href="#" class="book-now-link1">
-                                        <button class="btn btn-primary btn-block tagPrice mr-auto ml-auto" style="width: 50%; font-size: 15px;"><b>Book Now</b></button>
-                                    </a>
-                                </div>
                             </div>
-
                         </div>
-                    </div>
+                    </form>
 
                 <?php } else if ($ticket['destination'] === 'Indonesia') { ?>
-                    <div class="list-group pt-3 pb-3">
-                        <div class="list-group-item bg-white">
-                            <div class="row">
-                                <div class=" col-lg-3"><img src="img/indo.jpg" class="img-fluidBT"></div>
-                                <div class="row col-lg-4 col-md-7 col-sm-12 ml-auto mr-auto">
-                                    <p class="ml-4">
-                                        <i class="fas fa-map-marker-alt fa-lg" style="color: #ff0066;"></i><b><?php echo $ticket['destination']; ?></b>
-                                    </p>
-                                    <p><i class="fas fa-clock fa-lg fa-shake fa-lg ml-4 mr-1 mt-1" style="color: #ff0066;"></i><b><?php echo $ticket['duration']; ?></b></p>
-                                    <p>
-                                        <i class="fas fa-calendar-alt fa-lg ml-4 mr-1" style="color: #ff0066;"></i><b><?php echo $ticket['dateDepart']; ?></b>
-                                        <i class="fa-duotone fa-horizontal-rule fa-md" style="color: #ff0066;"></i>
-                                        <i class="fas fa-calendar-alt fa-lg mr-1" style="color: #ff0066;"></i><b><?php echo $ticket['dateReturn']; ?></b>
-                                    </p>
-                                    <div class="row">
-                                        <div class="row ml-0 pb-2 mr-2 ml-4 mr-2 benthanh_detail" style="width: 100px; height: 30px;">
-                                            <i class="fas fa-utensils fa-sm" style="color: #ff0066;"><i class="fad fa-tree-palm fa-md ml-2" style="--fa-primary-color: #ff0066; --fa-secondary-color: #ff0066;"></i>
-                                        </i>
+                    <form method="POST" enctype="multipart/form-data">
+                        <div class="list-group pt-3 pb-3">
+                            <div class="list-group-item bg-white">
+                                <div class="row">
+                                    <div class=" col-lg-3"><img src="img/indo.jpg" class="img-fluidBT"></div>
+                                    <div class="row col-lg-4 col-md-7 col-sm-12 ml-auto mr-auto">
+                                        <p class="ml-4">
+                                            <i class="fas fa-map-marker-alt fa-lg" style="color: #ff0066;"></i><b><?php echo $ticket['destination']; ?></b>
+                                        </p>
+                                        <p><i class="fas fa-clock fa-lg fa-shake fa-lg ml-4 mr-1 mt-1" style="color: #ff0066;"></i><b><?php echo $ticket['duration']; ?></b></p>
+                                        <p>
+                                            <i class="fas fa-calendar-alt fa-lg ml-4 mr-1" style="color: #ff0066;"></i><b><?php echo $ticket['dateDepart']; ?></b>
+                                            <i class="fa-duotone fa-horizontal-rule fa-md" style="color: #ff0066;"></i>
+                                            <i class="fas fa-calendar-alt fa-lg mr-1" style="color: #ff0066;"></i><b><?php echo $ticket['dateReturn']; ?></b>
+                                        </p>
+                                        <div class="row">
+                                            <div class="row ml-0 pb-2 mr-2 ml-4 mr-2 benthanh_detail" style="width: 100px; height: 30px;">
+                                                <i class="fas fa-utensils fa-sm" style="color: #ff0066;"><i class="fad fa-tree-palm fa-md ml-2" style="--fa-primary-color: #ff0066; --fa-secondary-color: #ff0066;"></i>
+                                            </i>
+                                            </div>
+                                            <div class="row ml-0 pt-2 pb-2 mr-2 benthanh_detail" style="width: 100px; height: 30px;">
+                                                <i class="fas fa-users ml-3" style="color: #ff0066;"></i>
+                                            </div>
                                         </div>
-                                        <div class="row ml-0 pt-2 pb-2 mr-2 benthanh_detail" style="width: 100px; height: 30px;">
-                                            <i class="fas fa-users ml-3" style="color: #ff0066;"></i>
-                                        </div>
+
                                     </div>
+                                    <div class="col-lg-5 col-md-5 col-sm-12 ml-auto mr-auto">
+                                        <div class=""><p class="fontPrice headcomment2"><i class="fas fa-tags fa-lg tagPrice mr-auto ml-auto" style="color: #ff0066;"></i>$90/<i class="fas fa-user fa-lg" style="color: #ff0066;"></i>
+                                            </p> </div>
+                                        <!-- <a href="#" class="book-now-link1"> -->
+                                        <button name="sbm" class="btn btn-primary btn-block tagPrice mr-auto ml-auto" style="width: 50%; font-size: 15px;"><b>Book Now</b></button>
+                                        <!-- </a> -->
+                                    </div>
+                                </div>
 
-                                </div>
-                                <div class="col-lg-5 col-md-5 col-sm-12 ml-auto mr-auto">
-                                    <div class=""><p class="fontPrice headcomment2"><i class="fas fa-tags fa-lg tagPrice mr-auto ml-auto" style="color: #ff0066;"></i>$90/<i class="fas fa-user fa-lg" style="color: #ff0066;"></i>
-                                        </p> </div>
-                                    <a href="#" class="book-now-link1">
-                                        <button class="btn btn-primary btn-block tagPrice mr-auto ml-auto" style="width: 50%; font-size: 15px;"><b>Book Now</b></button>
-                                    </a>
-                                </div>
                             </div>
-
                         </div>
-                    </div>
+                    </form>
 
                 <?php } else if ($ticket['destination'] === 'Laos') { ?>
-                    <div class="list-group pt-3 pb-3">
-                        <div class="list-group-item bg-white">
-                            <div class="row">
-                                <div class=" col-lg-3"><img src="img/lao.jpg" class="img-fluidBT"></div>
-                                <div class="row col-lg-4 col-md-7 col-sm-12 ml-auto mr-auto">
-                                    <p class="ml-4">
-                                        <i class="fas fa-map-marker-alt fa-lg" style="color: #ff0066;"></i><b><?php echo $ticket['destination']; ?></b>
-                                    </p>
-                                    <p><i class="fas fa-clock fa-lg fa-shake fa-lg ml-4 mr-1 mt-1" style="color: #ff0066;"></i><b><?php echo $ticket['duration']; ?></b></p>
-                                    <p>
-                                        <i class="fas fa-calendar-alt fa-lg ml-4 mr-1" style="color: #ff0066;"></i><b><?php echo $ticket['dateDepart']; ?></b>
-                                        <i class="fa-duotone fa-horizontal-rule fa-md" style="color: #ff0066;"></i>
-                                        <i class="fas fa-calendar-alt fa-lg mr-1" style="color: #ff0066;"></i><b><?php echo $ticket['dateReturn']; ?></b>
-                                    </p>
-                                    <div class="row">
-                                        <div class="row ml-0 pb-2 mr-2 ml-4 mr-2 benthanh_detail" style="width: 100px; height: 30px;">
-                                            <i class="fas fa-utensils fa-sm" style="color: #ff0066;"><i class="fad fa-tree-palm fa-md ml-2" style="--fa-primary-color: #ff0066; --fa-secondary-color: #ff0066;"></i>
-                                        </i>
+                    <form method="POST" enctype="multipart/form-data">
+                        <div class="list-group pt-3 pb-3">
+                            <div class="list-group-item bg-white">
+                                <div class="row">
+                                    <div class=" col-lg-3"><img src="img/lao.jpg" class="img-fluidBT"></div>
+                                    <div class="row col-lg-4 col-md-7 col-sm-12 ml-auto mr-auto">
+                                        <p class="ml-4">
+                                            <i class="fas fa-map-marker-alt fa-lg" style="color: #ff0066;"></i><b><?php echo $ticket['destination']; ?></b>
+                                        </p>
+                                        <p><i class="fas fa-clock fa-lg fa-shake fa-lg ml-4 mr-1 mt-1" style="color: #ff0066;"></i><b><?php echo $ticket['duration']; ?></b></p>
+                                        <p>
+                                            <i class="fas fa-calendar-alt fa-lg ml-4 mr-1" style="color: #ff0066;"></i><b><?php echo $ticket['dateDepart']; ?></b>
+                                            <i class="fa-duotone fa-horizontal-rule fa-md" style="color: #ff0066;"></i>
+                                            <i class="fas fa-calendar-alt fa-lg mr-1" style="color: #ff0066;"></i><b><?php echo $ticket['dateReturn']; ?></b>
+                                        </p>
+                                        <div class="row">
+                                            <div class="row ml-0 pb-2 mr-2 ml-4 mr-2 benthanh_detail" style="width: 100px; height: 30px;">
+                                                <i class="fas fa-utensils fa-sm" style="color: #ff0066;"><i class="fad fa-tree-palm fa-md ml-2" style="--fa-primary-color: #ff0066; --fa-secondary-color: #ff0066;"></i>
+                                            </i>
+                                            </div>
+                                            <div class="row ml-0 pt-2 pb-2 mr-2 benthanh_detail" style="width: 100px; height: 30px;">
+                                                <i class="fas fa-users ml-3" style="color: #ff0066;"></i>
+                                            </div>
                                         </div>
-                                        <div class="row ml-0 pt-2 pb-2 mr-2 benthanh_detail" style="width: 100px; height: 30px;">
-                                            <i class="fas fa-users ml-3" style="color: #ff0066;"></i>
-                                        </div>
+
                                     </div>
+                                    <div class="col-lg-5 col-md-5 col-sm-12 ml-auto mr-auto">
+                                        <div class=""><p class="fontPrice headcomment2"><i class="fas fa-tags fa-lg tagPrice mr-auto ml-auto" style="color: #ff0066;"></i>$120/<i class="fas fa-user fa-lg" style="color: #ff0066;"></i>
+                                            </p> </div>
+                                        <!-- <a href="#" class="book-now-link1"> -->
+                                        <button name="sbm" class="btn btn-primary btn-block tagPrice mr-auto ml-auto" style="width: 50%; font-size: 15px;"><b>Book Now</b></button>
+                                        <!-- </a> -->
+                                    </div>
+                                </div>
 
-                                </div>
-                                <div class="col-lg-5 col-md-5 col-sm-12 ml-auto mr-auto">
-                                    <div class=""><p class="fontPrice headcomment2"><i class="fas fa-tags fa-lg tagPrice mr-auto ml-auto" style="color: #ff0066;"></i>$120/<i class="fas fa-user fa-lg" style="color: #ff0066;"></i>
-                                        </p> </div>
-                                    <a href="#" class="book-now-link1">
-                                        <button class="btn btn-primary btn-block tagPrice mr-auto ml-auto" style="width: 50%; font-size: 15px;"><b>Book Now</b></button>
-                                    </a>
-                                </div>
                             </div>
-
                         </div>
-                    </div>
+                    </form>
 
                 <?php } else if ($ticket['destination'] === 'Singapore') { ?>
-                    <div class="list-group pt-3 pb-3">
-                        <div class="list-group-item bg-white">
-                            <div class="row">
-                                <div class=" col-lg-3"><img src="img/singapore.jpg" class="img-fluidBT"></div>
-                                <div class="row col-lg-4 col-md-7 col-sm-12 ml-auto mr-auto">
-                                    <p class="ml-4">
-                                        <i class="fas fa-map-marker-alt fa-lg" style="color: #ff0066;"></i><b><?php echo $ticket['destination']; ?></b>
-                                    </p>
-                                    <p><i class="fas fa-clock fa-lg fa-shake fa-lg ml-4 mr-1 mt-1" style="color: #ff0066;"></i><b><?php echo $ticket['duration']; ?></b></p>
-                                    <p>
-                                        <i class="fas fa-calendar-alt fa-lg ml-4 mr-1" style="color: #ff0066;"></i><b><?php echo $ticket['dateDepart']; ?></b>
-                                        <i class="fa-duotone fa-horizontal-rule fa-md" style="color: #ff0066;"></i>
-                                        <i class="fas fa-calendar-alt fa-lg mr-1" style="color: #ff0066;"></i><b><?php echo $ticket['dateReturn']; ?></b>
-                                    </p>
-                                    <div class="row">
-                                        <div class="row ml-0 pb-2 mr-2 ml-4 mr-2 benthanh_detail" style="width: 100px; height: 30px;">
-                                            <i class="fas fa-utensils fa-sm" style="color: #ff0066;"><i class="fad fa-tree-palm fa-md ml-2" style="--fa-primary-color: #ff0066; --fa-secondary-color: #ff0066;"></i>
-                                        </i>
+                    <form method="POST" enctype="multipart/form-data">
+                        <div class="list-group pt-3 pb-3">
+                            <div class="list-group-item bg-white">
+                                <div class="row">
+                                    <div class=" col-lg-3"><img src="img/singapore.jpg" class="img-fluidBT"></div>
+                                    <div class="row col-lg-4 col-md-7 col-sm-12 ml-auto mr-auto">
+                                        <p class="ml-4">
+                                            <i class="fas fa-map-marker-alt fa-lg" style="color: #ff0066;"></i><b><?php echo $ticket['destination']; ?></b>
+                                        </p>
+                                        <p><i class="fas fa-clock fa-lg fa-shake fa-lg ml-4 mr-1 mt-1" style="color: #ff0066;"></i><b><?php echo $ticket['duration']; ?></b></p>
+                                        <p>
+                                            <i class="fas fa-calendar-alt fa-lg ml-4 mr-1" style="color: #ff0066;"></i><b><?php echo $ticket['dateDepart']; ?></b>
+                                            <i class="fa-duotone fa-horizontal-rule fa-md" style="color: #ff0066;"></i>
+                                            <i class="fas fa-calendar-alt fa-lg mr-1" style="color: #ff0066;"></i><b><?php echo $ticket['dateReturn']; ?></b>
+                                        </p>
+                                        <div class="row">
+                                            <div class="row ml-0 pb-2 mr-2 ml-4 mr-2 benthanh_detail" style="width: 100px; height: 30px;">
+                                                <i class="fas fa-utensils fa-sm" style="color: #ff0066;"><i class="fad fa-tree-palm fa-md ml-2" style="--fa-primary-color: #ff0066; --fa-secondary-color: #ff0066;"></i>
+                                            </i>
+                                            </div>
+                                            <div class="row ml-0 pt-2 pb-2 mr-2 benthanh_detail" style="width: 100px; height: 30px;">
+                                                <i class="fas fa-users ml-3" style="color: #ff0066;"></i>
+                                            </div>
                                         </div>
-                                        <div class="row ml-0 pt-2 pb-2 mr-2 benthanh_detail" style="width: 100px; height: 30px;">
-                                            <i class="fas fa-users ml-3" style="color: #ff0066;"></i>
-                                        </div>
+
                                     </div>
+                                    <div class="col-lg-5 col-md-5 col-sm-12 ml-auto mr-auto">
+                                        <div class=""><p class="fontPrice headcomment2"><i class="fas fa-tags fa-lg tagPrice mr-auto ml-auto" style="color: #ff0066;"></i>$150/<i class="fas fa-user fa-lg" style="color: #ff0066;"></i>
+                                            </p> </div>
+                                        <!-- <a href="#" class="book-now-link1"> -->
+                                        <button name="sbm" class="btn btn-primary btn-block tagPrice mr-auto ml-auto" style="width: 50%; font-size: 15px;"><b>Book Now</b></button>
+                                        <!-- </a> -->
+                                    </div>
+                                </div>
 
-                                </div>
-                                <div class="col-lg-5 col-md-5 col-sm-12 ml-auto mr-auto">
-                                    <div class=""><p class="fontPrice headcomment2"><i class="fas fa-tags fa-lg tagPrice mr-auto ml-auto" style="color: #ff0066;"></i>$150/<i class="fas fa-user fa-lg" style="color: #ff0066;"></i>
-                                        </p> </div>
-                                    <a href="#" class="book-now-link1">
-                                        <button class="btn btn-primary btn-block tagPrice mr-auto ml-auto" style="width: 50%; font-size: 15px;"><b>Book Now</b></button>
-                                    </a>
-                                </div>
                             </div>
-
                         </div>
-                    </div>
+                    </form>
 
                 <?php } else if ($ticket['destination'] === 'Myanmar') { ?>
-                    <div class="list-group pt-3 pb-3">
-                        <div class="list-group-item bg-white">
-                            <div class="row">
-                                <div class=" col-lg-3"><img src="img/myanmar_des.jpg" class="img-fluidBT"></div>
-                                <div class="row col-lg-4 col-md-7 col-sm-12 ml-auto mr-auto">
-                                    <p class="ml-4">
-                                        <i class="fas fa-map-marker-alt fa-lg" style="color: #ff0066;"></i><b><?php echo $ticket['destination']; ?></b>
-                                    </p>
-                                    <p><i class="fas fa-clock fa-lg fa-shake fa-lg ml-4 mr-1 mt-1" style="color: #ff0066;"></i><b><?php echo $ticket['duration']; ?></b></p>
-                                    <p>
-                                        <i class="fas fa-calendar-alt fa-lg ml-4 mr-1" style="color: #ff0066;"></i><b><?php echo $ticket['dateDepart']; ?></b>
-                                        <i class="fa-duotone fa-horizontal-rule fa-md" style="color: #ff0066;"></i>
-                                        <i class="fas fa-calendar-alt fa-lg mr-1" style="color: #ff0066;"></i><b><?php echo $ticket['dateReturn']; ?></b>
-                                    </p>
-                                    <div class="row">
-                                        <div class="row ml-0 pb-2 mr-2 ml-4 mr-2 benthanh_detail" style="width: 100px; height: 30px;">
-                                            <i class="fas fa-utensils fa-sm" style="color: #ff0066;"><i class="fad fa-tree-palm fa-md ml-2" style="--fa-primary-color: #ff0066; --fa-secondary-color: #ff0066;"></i>
-                                        </i>
+                    <form method="POST" enctype="multipart/form-data">
+                        <div class="list-group pt-3 pb-3">
+                            <div class="list-group-item bg-white">
+                                <div class="row">
+                                    <div class=" col-lg-3"><img src="img/myanmar_des.jpg" class="img-fluidBT"></div>
+                                    <div class="row col-lg-4 col-md-7 col-sm-12 ml-auto mr-auto">
+                                        <p class="ml-4">
+                                            <i class="fas fa-map-marker-alt fa-lg" style="color: #ff0066;"></i><b><?php echo $ticket['destination']; ?></b>
+                                        </p>
+                                        <p><i class="fas fa-clock fa-lg fa-shake fa-lg ml-4 mr-1 mt-1" style="color: #ff0066;"></i><b><?php echo $ticket['duration']; ?></b></p>
+                                        <p>
+                                            <i class="fas fa-calendar-alt fa-lg ml-4 mr-1" style="color: #ff0066;"></i><b><?php echo $ticket['dateDepart']; ?></b>
+                                            <i class="fa-duotone fa-horizontal-rule fa-md" style="color: #ff0066;"></i>
+                                            <i class="fas fa-calendar-alt fa-lg mr-1" style="color: #ff0066;"></i><b><?php echo $ticket['dateReturn']; ?></b>
+                                        </p>
+                                        <div class="row">
+                                            <div class="row ml-0 pb-2 mr-2 ml-4 mr-2 benthanh_detail" style="width: 100px; height: 30px;">
+                                                <i class="fas fa-utensils fa-sm" style="color: #ff0066;"><i class="fad fa-tree-palm fa-md ml-2" style="--fa-primary-color: #ff0066; --fa-secondary-color: #ff0066;"></i>
+                                            </i>
+                                            </div>
+                                            <div class="row ml-0 pt-2 pb-2 mr-2 benthanh_detail" style="width: 100px; height: 30px;">
+                                                <i class="fas fa-users ml-3" style="color: #ff0066;"></i>
+                                            </div>
                                         </div>
-                                        <div class="row ml-0 pt-2 pb-2 mr-2 benthanh_detail" style="width: 100px; height: 30px;">
-                                            <i class="fas fa-users ml-3" style="color: #ff0066;"></i>
-                                        </div>
+
                                     </div>
+                                    <div class="col-lg-5 col-md-5 col-sm-12 ml-auto mr-auto">
+                                        <div class=""><p class="fontPrice headcomment2"><i class="fas fa-tags fa-lg tagPrice mr-auto ml-auto" style="color: #ff0066;"></i>$120/<i class="fas fa-user fa-lg" style="color: #ff0066;"></i>
+                                            </p> </div>
+                                        <!-- <a href="#" class="book-now-link1"> -->
+                                        <button name="sbm" class="btn btn-primary btn-block tagPrice mr-auto ml-auto" style="width: 50%; font-size: 15px;"><b>Book Now</b></button>
+                                        <!-- </a> -->
+                                    </div>
+                                </div>
 
-                                </div>
-                                <div class="col-lg-5 col-md-5 col-sm-12 ml-auto mr-auto">
-                                    <div class=""><p class="fontPrice headcomment2"><i class="fas fa-tags fa-lg tagPrice mr-auto ml-auto" style="color: #ff0066;"></i>$120/<i class="fas fa-user fa-lg" style="color: #ff0066;"></i>
-                                        </p> </div>
-                                    <a href="#" class="book-now-link1">
-                                        <button class="btn btn-primary btn-block tagPrice mr-auto ml-auto" style="width: 50%; font-size: 15px;"><b>Book Now</b></button>
-                                    </a>
-                                </div>
                             </div>
-
                         </div>
-                    </div>
+                    </form>
 
                 <?php } else if ($ticket['destination'] === 'Malaysia') { ?>
-                    <div class="list-group pt-3 pb-3">
-                        <div class="list-group-item bg-white">
-                            <div class="row">
-                                <div class=" col-lg-3"><img src="img/malaysia_des.jpg" class="img-fluidBT"></div>
-                                <div class="row col-lg-4 col-md-7 col-sm-12 ml-auto mr-auto">
-                                    <p class="ml-4">
-                                        <i class="fas fa-map-marker-alt fa-lg" style="color: #ff0066;"></i><b><?php echo $ticket['destination']; ?></b>
-                                    </p>
-                                    <p><i class="fas fa-clock fa-lg fa-shake fa-lg ml-4 mr-1 mt-1" style="color: #ff0066;"></i><b><?php echo $ticket['duration']; ?></b></p>
-                                    <p>
-                                        <i class="fas fa-calendar-alt fa-lg ml-4 mr-1" style="color: #ff0066;"></i><b><?php echo $ticket['dateDepart']; ?></b>
-                                        <i class="fa-duotone fa-horizontal-rule fa-md" style="color: #ff0066;"></i>
-                                        <i class="fas fa-calendar-alt fa-lg mr-1" style="color: #ff0066;"></i><b><?php echo $ticket['dateReturn']; ?></b>
-                                    </p>
-                                    <div class="row">
-                                        <div class="row ml-0 pb-2 mr-2 ml-4 mr-2 benthanh_detail" style="width: 100px; height: 30px;">
-                                            <i class="fas fa-utensils fa-sm" style="color: #ff0066;"><i class="fad fa-tree-palm fa-md ml-2" style="--fa-primary-color: #ff0066; --fa-secondary-color: #ff0066;"></i>
-                                        </i>
+                    <form method="POST" enctype="multipart/form-data">
+                        <div class="list-group pt-3 pb-3">
+                            <div class="list-group-item bg-white">
+                                <div class="row">
+                                    <div class=" col-lg-3"><img src="img/malaysia_des.jpg" class="img-fluidBT"></div>
+                                    <div class="row col-lg-4 col-md-7 col-sm-12 ml-auto mr-auto">
+                                        <p class="ml-4">
+                                            <i class="fas fa-map-marker-alt fa-lg" style="color: #ff0066;"></i><b><?php echo $ticket['destination']; ?></b>
+                                        </p>
+                                        <p><i class="fas fa-clock fa-lg fa-shake fa-lg ml-4 mr-1 mt-1" style="color: #ff0066;"></i><b><?php echo $ticket['duration']; ?></b></p>
+                                        <p>
+                                            <i class="fas fa-calendar-alt fa-lg ml-4 mr-1" style="color: #ff0066;"></i><b><?php echo $ticket['dateDepart']; ?></b>
+                                            <i class="fa-duotone fa-horizontal-rule fa-md" style="color: #ff0066;"></i>
+                                            <i class="fas fa-calendar-alt fa-lg mr-1" style="color: #ff0066;"></i><b><?php echo $ticket['dateReturn']; ?></b>
+                                        </p>
+                                        <div class="row">
+                                            <div class="row ml-0 pb-2 mr-2 ml-4 mr-2 benthanh_detail" style="width: 100px; height: 30px;">
+                                                <i class="fas fa-utensils fa-sm" style="color: #ff0066;"><i class="fad fa-tree-palm fa-md ml-2" style="--fa-primary-color: #ff0066; --fa-secondary-color: #ff0066;"></i>
+                                            </i>
+                                            </div>
+                                            <div class="row ml-0 pt-2 pb-2 mr-2 benthanh_detail" style="width: 100px; height: 30px;">
+                                                <i class="fas fa-users ml-3" style="color: #ff0066;"></i>
+                                            </div>
                                         </div>
-                                        <div class="row ml-0 pt-2 pb-2 mr-2 benthanh_detail" style="width: 100px; height: 30px;">
-                                            <i class="fas fa-users ml-3" style="color: #ff0066;"></i>
-                                        </div>
+
                                     </div>
+                                    <div class="col-lg-5 col-md-5 col-sm-12 ml-auto mr-auto">
+                                        <div class=""><p class="fontPrice headcomment2"><i class="fas fa-tags fa-lg tagPrice mr-auto ml-auto" style="color: #ff0066;"></i>$200/<i class="fas fa-user fa-lg" style="color: #ff0066;"></i>
+                                            </p> </div>
+                                        <!-- <a href="#" class="book-now-link1"> -->
+                                        <button name="sbm" class="btn btn-primary btn-block tagPrice mr-auto ml-auto" style="width: 50%; font-size: 15px;"><b>Book Now</b></button>
+                                        <!-- </a> -->
+                                    </div>
+                                </div>
 
-                                </div>
-                                <div class="col-lg-5 col-md-5 col-sm-12 ml-auto mr-auto">
-                                    <div class=""><p class="fontPrice headcomment2"><i class="fas fa-tags fa-lg tagPrice mr-auto ml-auto" style="color: #ff0066;"></i>$200/<i class="fas fa-user fa-lg" style="color: #ff0066;"></i>
-                                        </p> </div>
-                                    <a href="#" class="book-now-link1">
-                                        <button class="btn btn-primary btn-block tagPrice mr-auto ml-auto" style="width: 50%; font-size: 15px;"><b>Book Now</b></button>
-                                    </a>
-                                </div>
                             </div>
-
                         </div>
-                    </div>
+                    </form>
 
                 <?php } else if ($ticket['destination'] === 'Philippinese') { ?>
-                    <div class="list-group pt-3 pb-3">
-                        <div class="list-group-item bg-white">
-                            <div class="row">
-                                <div class=" col-lg-3"><img src="img/philippines_des.jpg" class="img-fluidBT"></div>
-                                <div class="row col-lg-4 col-md-7 col-sm-12 ml-auto mr-auto">
-                                    <p class="ml-4">
-                                        <i class="fas fa-map-marker-alt fa-lg" style="color: #ff0066;"></i><b><?php echo $ticket['destination']; ?></b>
-                                    </p>
-                                    <p><i class="fas fa-clock fa-lg fa-shake fa-lg ml-4 mr-1 mt-1" style="color: #ff0066;"></i><b><?php echo $ticket['duration']; ?></b></p>
-                                    <p>
-                                        <i class="fas fa-calendar-alt fa-lg ml-4 mr-1" style="color: #ff0066;"></i><b><?php echo $ticket['dateDepart']; ?></b>
-                                        <i class="fa-duotone fa-horizontal-rule fa-md" style="color: #ff0066;"></i>
-                                        <i class="fas fa-calendar-alt fa-lg mr-1" style="color: #ff0066;"></i><b><?php echo $ticket['dateReturn']; ?></b>
-                                    </p>
-                                    <div class="row">
-                                        <div class="row ml-0 pb-2 mr-2 ml-4 mr-2 benthanh_detail" style="width: 100px; height: 30px;">
-                                            <i class="fas fa-utensils fa-sm" style="color: #ff0066;"><i class="fad fa-tree-palm fa-md ml-2" style="--fa-primary-color: #ff0066; --fa-secondary-color: #ff0066;"></i>
-                                        </i>
+                    <form method="POST" enctype="multipart/form-data">
+                        <div class="list-group pt-3 pb-3">
+                            <div class="list-group-item bg-white">
+                                <div class="row">
+                                    <div class=" col-lg-3"><img src="img/philippines_des.jpg" class="img-fluidBT"></div>
+                                    <div class="row col-lg-4 col-md-7 col-sm-12 ml-auto mr-auto">
+                                        <p class="ml-4">
+                                            <i class="fas fa-map-marker-alt fa-lg" style="color: #ff0066;"></i><b><?php echo $ticket['destination']; ?></b>
+                                        </p>
+                                        <p><i class="fas fa-clock fa-lg fa-shake fa-lg ml-4 mr-1 mt-1" style="color: #ff0066;"></i><b><?php echo $ticket['duration']; ?></b></p>
+                                        <p>
+                                            <i class="fas fa-calendar-alt fa-lg ml-4 mr-1" style="color: #ff0066;"></i><b><?php echo $ticket['dateDepart']; ?></b>
+                                            <i class="fa-duotone fa-horizontal-rule fa-md" style="color: #ff0066;"></i>
+                                            <i class="fas fa-calendar-alt fa-lg mr-1" style="color: #ff0066;"></i><b><?php echo $ticket['dateReturn']; ?></b>
+                                        </p>
+                                        <div class="row">
+                                            <div class="row ml-0 pb-2 mr-2 ml-4 mr-2 benthanh_detail" style="width: 100px; height: 30px;">
+                                                <i class="fas fa-utensils fa-sm" style="color: #ff0066;"><i class="fad fa-tree-palm fa-md ml-2" style="--fa-primary-color: #ff0066; --fa-secondary-color: #ff0066;"></i>
+                                            </i>
+                                            </div>
+                                            <div class="row ml-0 pt-2 pb-2 mr-2 benthanh_detail" style="width: 100px; height: 30px;">
+                                                <i class="fas fa-users ml-3" style="color: #ff0066;"></i>
+                                            </div>
                                         </div>
-                                        <div class="row ml-0 pt-2 pb-2 mr-2 benthanh_detail" style="width: 100px; height: 30px;">
-                                            <i class="fas fa-users ml-3" style="color: #ff0066;"></i>
-                                        </div>
+
                                     </div>
+                                    <div class="col-lg-5 col-md-5 col-sm-12 ml-auto mr-auto">
+                                        <div class=""><p class="fontPrice headcomment2"><i class="fas fa-tags fa-lg tagPrice mr-auto ml-auto" style="color: #ff0066;"></i>$300/<i class="fas fa-user fa-lg" style="color: #ff0066;"></i>
+                                            </p> </div>
+                                        <!-- <a href="#" class="book-now-link1"> -->
+                                        <button name="sbm" class="btn btn-primary btn-block tagPrice mr-auto ml-auto" style="width: 50%; font-size: 15px;"><b>Book Now</b></button>
+                                        <!-- </a> -->
+                                    </div>
+                                </div>
 
-                                </div>
-                                <div class="col-lg-5 col-md-5 col-sm-12 ml-auto mr-auto">
-                                    <div class=""><p class="fontPrice headcomment2"><i class="fas fa-tags fa-lg tagPrice mr-auto ml-auto" style="color: #ff0066;"></i>$300/<i class="fas fa-user fa-lg" style="color: #ff0066;"></i>
-                                        </p> </div>
-                                    <a href="#" class="book-now-link1">
-                                        <button class="btn btn-primary btn-block tagPrice mr-auto ml-auto" style="width: 50%; font-size: 15px;"><b>Book Now</b></button>
-                                    </a>
-                                </div>
                             </div>
-
                         </div>
-                    </div>
+                    </form>
                 <?php } ?>
             <?php } ?>
 

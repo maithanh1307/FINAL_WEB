@@ -357,7 +357,7 @@
                     <div class="bg-white container-fluidCM" style="padding: 30px; margin-bottom: 30px;">
                         <!--<h4 class="text-uppercase mb-4" style="letter-spacing: 5px;">3 Comments</h4>-->
                         <div class="media mb-4">
-                            <img src="img/girl1.jpg" alt="Image" class="img-fluid8 mr-3 mt-1" style="width: 55px;">
+                            <!-- <img src="img/girl1.jpg" alt="Image" class="img-fluid8 mr-3 mt-1" style="width: 55px;"> -->
                             <div class="media-body">
                                 <h6><a href="">Mariana</a> <small><i>25 Mar 2024</i></small></h6>
                                 <p>What an incredible journey! From the exciting streets of HCM city to 
@@ -367,7 +367,7 @@
                             </div>
                         </div>
                         <div class="media">
-                            <img src="img/girl2.jpg" alt="Image" class="img-fluid8 mr-3 mt-1" style="width: 55px;">
+                            <!-- <img src="img/girl2.jpg" alt="Image" class="img-fluid8 mr-3 mt-1" style="width: 55px;"> -->
                             <div class="media-body">
                                 <h6><a href="">Sunny</a> <small><i>20 Feb 2024</i></small></h6>
                                 <p>Just had the most incredible time exploring Ben Thanh Market in Ho Chi Minh City! 
@@ -376,8 +376,8 @@
                                     visit!</p>
                                 <button class="btn btn-sm btn-outline-primary">Reply</button>
                                 <div class="media mt-4">
-                                    <img src="img/meo.jpg" alt="Image" class="img-fluid8 mr-3 mt-1"
-                                        style="width: 55px;">
+                                    <!-- <img src="img/meo.jpg" alt="Image" class="img-fluid8 mr-3 mt-1"
+                                        style="width: 55px;"> -->
                                     <div class="media-body">
                                         <h6><a href="">Kats</a> <small><i>20 Feb 2024</i></small></h6>
                                         <p>Absolutely loved my visit to Ben Thanh Market! From bargaining 
@@ -395,19 +395,19 @@
                     
                     <h1 class="headcomment1 mb-6 border-top6" style="letter-spacing: 0px;">Leave a comment</h1>
                     <div class="bg-white mb-3 container-fluidCM" style="padding: 30px">
-                        <form>
+                        <form method="POST" id="commentForm">
                             <div class="form-group">
                                 <label for="name">Name *</label>
-                                <input type="text" class="form-control" id="name">
+                                <input type="text" class="form-control" id="name" required>
                             </div>
                             <div class="form-group">
                                 <label for="email">Email *</label>
                                 <input type="email" class="form-control" id="email">
                             </div>
-                            <div class="form-group">
+                            <!-- <div class="form-group">
                                 <label for="website">Website</label>
                                 <input type="url" class="form-control" id="website">
-                            </div>
+                            </div> -->
     
                             <div class="form-group">
                                 <label for="message">Message *</label>

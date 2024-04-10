@@ -10072,6 +10072,35 @@ h6,
   margin-top: -42px; 
 } 
 
+.page-headerBlog{
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../img/headerBlog.jpg), no-repeat center center;
+  background-size: cover;
+  margin-top: -42px; 
+} 
+
+.page-headerFeedBack{
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../img/feedback.jpg), no-repeat center center;
+  background-size: cover;
+  margin-top: -42px; 
+} 
+
+.page-headerPG{
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../img/myanmar_des.jpg), no-repeat center center;
+  background-size: cover;
+  margin-top: -42px; 
+}
+
+.page-headerSV1{
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../img/service.jpg), no-repeat center center;
+  background-size: cover;
+  margin-top: -42px; 
+} 
+
+.page-headerAbout{
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../img/indo.jpg), no-repeat center center;
+  background-size: cover;
+  margin-top: -42px; 
+}
 /*.destination-item img {
   transition: .5s;
 }*/

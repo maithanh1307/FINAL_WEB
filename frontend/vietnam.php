@@ -74,7 +74,7 @@
     <div class="container-fluid position-relative nav-bar p-0">
         <div class="container-lg position-relative p-0 px-lg-3" style="z-index: 9;">
             <nav class="navbar navbar-expand-lg navbar-light shadow-lg py-3 py-lg-0 pl-3 pl-lg-5">
-                <a href="index.html" class="navbar-brand">
+                <a href="index.php" class="navbar-brand">
                     <h1 class="m-0 text-primary1 mt-3 "><span class="text-dark"><img class="Imagealignment" src="img/icon.png">&nbsp; RE</span>IS</h1>
 
                 </a>
@@ -191,7 +191,7 @@
             
                           <div class="card__data1">
                             <h4 class="m-0 "><i class="fa fa-map-marker-alt text-primary mt-2"></i>Sai Gon</h4>
-                            <a href="benthanh_blog.html" class="card__button1">Read More</a>
+                            <a href="benthanh_blog.php" class="card__button1">Read More</a>
                           </div>
                        </article>
             

@@ -20,9 +20,9 @@ if ($result->num_rows > 0) {
             <td>'.$row['datePost'].'</td>
             <td>
                 <a class="edit-class" href="edit1_post.php?destination_ID=' . $row['destinationID'] . '&destination_Image=' . $row['destinationImage'] . '&destination_Name=' . $row['destinationName'] .
-                '&vote_Like=' . $row['voteLike'] . '&date_Post=' . $row['datePost'].'">Sửa</a>
+                '&vote_Like=' . $row['voteLike'] . '&date_Post=' . $row['datePost'].'">Edit</a>
                 |
-                <a class="delete-class" href="delTopdestination.php?destinationID='.$row['destinationID'].'">Xoá</a>
+                <a class="delete-class" href="delTopdestination.php?destinationID='.$row['destinationID'].'">Delete</a>
             </td>
         </tr>';
     }

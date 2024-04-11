@@ -113,7 +113,7 @@
                         </a>
                         <div class="data1">
                             <i class="fa-duotone fa-right-to-bracket fa-fade"></i>
-                            <a href="register.html" class="btn2 btn-primary2 mt-1"><b>Login /</b></a>
+                            <a href="register.php" class="btn2 btn-primary2 mt-1"><b>Login /</b></a>
                         </div>
                         <div class="data2">
                             <i class="fa-solid fa-registered fa-fade"></i>
@@ -132,7 +132,7 @@
     <div class="container-fluid position-relative nav-bar p-0">
         <div class="container-lg position-relative p-0 px-lg-3" style="z-index: 9;">
             <nav class="navbar navbar-expand-lg navbar-light shadow-lg py-3 py-lg-0 pl-3 pl-lg-5">
-                <a href="index.html" class="navbar-brand">
+                <a href="index.php" class="navbar-brand">
                     <h1 class="m-0 text-primary1 mt-3 "><span class="text-dark"><img class="Imagealignment" src="img/icon.png">&nbsp; RE</span>IS</h1>
 
                 </a>
@@ -397,7 +397,7 @@
                         </div>
                     </div>
                     <div class="tieptuc btn btn-primary mt-1">
-                        <a href="#"><b>Book now</b></a>
+                        <a href="logout1.php"><b>Done</b></a>
                     </div>
                     
                 </div>

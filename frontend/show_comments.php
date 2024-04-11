@@ -3,7 +3,7 @@
 $connection = mysqli_connect("localhost", "username", "password", "database");
 
 // Fetch comments
-$query = "SELECT * FROM comment WHERE parent_id IS NULL ORDER BY created_at DESC";
+$query = "SELECT * FROM comment WHERE parentId IS NULL ORDER BY date DESC";
 $result = mysqli_query($connection, $query);
 
 // Display comments
@@ -13,9 +13,9 @@ while ($row = mysqli_fetch_assoc($result)) {
     
     // Display form to reply to comment
     echo "<form method='post' action='reply.php'>";
-    echo "<input type='hidden' name='parent_id' value='{$row['id']}'>";
+    echo "<input type='hidden' name='parentId' value='{$row['id']}'>";
     echo "<input type='text' name='author' placeholder='Your Name'>";
-    echo "<textarea name='comment' placeholder='Your Reply'></textarea>";
+    echo "<textarea name='comments' placeholder='Your Reply'></textarea>";
     echo "<button type='submit'>Reply</button>";
     echo "</form>";
     

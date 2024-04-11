@@ -1,34 +1,30 @@
 <?php
-    require_once '../admin/connectData.php';
-    if (isset($_POST['submit'])) {
-        $sender = $_POST['name'];
-        $email = $_POST['email'];
-        $message = $_POST['message'];
+require_once '../admin/connectData.php';
+if (isset($_POST['submit'])) {
 
-        //$date = date("Y/m/d"); //thay sua
+    // Connect to MySQL
+    $connection = mysqli_connect("localhost", "root", "", "finalweb");
 
-        //echo "Test3<br>";
-        $sql = "INSERT INTO comment (sender, email, comment) 
-        VALUES ('$sender', '$email', '$message')"; //thay sua them thuoc tính date
-        //echo "Test4<br>"; //met moi 
-        //thay them try catch
-        try 
-        {
-            $query = mysqli_query($conn, $sql);
-        }
-        catch(Exception $e)
-        {
-            var_dump($e);
-        }
-        //echo "Test5<br>";
-        //move_uploaded_file($hotelImage_tmp, '../frontend/img_hoteldetails/'. $hotelImage);
-        //echo "Test6<br>";
-        //header('Location: buttonHotel.php');
-        //echo "Test7<br>";
-        //die();
+    // Handle form submission
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        //$id = $_POST['id'];
+        $author = $_POST['author'];
+        $comments = $_POST['comments'];
+        $date = date("Y/m/d"); //thay sua
+
+        // Insert comment or reply into database
+        $query = "INSERT INTO comment ( author, comments, date) VALUES ( '$author', '$comments', '$date')";
+        mysqli_query($connection, $query);
+
+        // Redirect back to the page with comments
+        exit();
     }
-?>
 
+    // Close connection
+    mysqli_close($connection);
+
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -131,7 +127,7 @@
     <div class="container-fluid position-relative nav-bar p-0">
         <div class="container-lg position-relative p-0 px-lg-3" style="z-index: 9;">
             <nav class="navbar navbar-expand-lg navbar-light shadow-lg py-3 py-lg-0 pl-3 pl-lg-5">
-                <a href="index.html" class="navbar-brand">
+                <a href="index.php" class="navbar-brand">
                     <h1 class="m-0 text-primary1 mt-3 "><span class="text-dark"><img class="Imagealignment" src="img/icon.png">&nbsp; RE</span>IS</h1>
                 </a>
                 <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
@@ -248,299 +244,297 @@
 
     <!-- Blog Start -->
     <div class="container-fluid py-5">
-        <form method="POST" enctype="multipart/form-data">
-            <div class="container py-5">
-                <div class="row">
-                    <div class="col-lg-7">
-                        <!-- Blog Detail Start -->
-                        <div class="pb-3">
-                            <div class="blog-item">
-                                <div class="position-relative">
-                                    <img class="img-fluid1 w-100" src="img/cuatay.jpg" alt="">
-                                    <!--<div class="blog-date">
-                                        <h6 class="font-weight-bold mb-n1">01</h6>
-                                        <small class="text-white text-uppercase">Jan</small>
-                                    </div>-->
-                                </div>
-                            </div>
-                            <div class="bg-white mb-3 container-fluidBT1" style="padding: 30px;">
-                            
-                                <!--<div class="d-flex mb-3">
-                                    <a class="text-primary text-uppercase text-decoration-none" href="">Admin</a>
-                                    <span class="text-primary px-2">|</span>
-                                    <a class="text-primary text-uppercase text-decoration-none" href="">Tours & Travel</a>
+        <div class="container py-5">
+            <div class="row">
+                <div class="col-lg-12">
+                    <!-- Blog Detail Start -->
+                    <div class="pb-3">
+                        <div class="blog-item">
+                            <div class="position-relative">
+                                <img class="img-fluid1 w-100" src="img/cuatay.jpg" alt="">
+                                <!--<div class="blog-date">
+                                    <h6 class="font-weight-bold mb-n1">01</h6>
+                                    <small class="text-white text-uppercase">Jan</small>
                                 </div>-->
-                                <h2 class="mb-3">Some features of Ben Thanh market </h2>
-                                <p>Ben Thanh Market is one of the most iconic landmarks in Ho Chi Minh City, Vietnam. Located in the heart of District 1, 
-                                    this bustling market has been a central hub for locals and tourists alike for over a century.
-                                    Ben Thanh Market was established in the late 19th century during French colonial rule. It started as an informal 
-                                    gathering of street vendors selling goods near the Saigon River. Over time, it grew into a permanent structure and became 
-                                    the largest marketplace in Saigon (former name of Ho Chi Minh City).</p>
-                                <p>The market's architecture reflects a blend of Vietnamese and French colonial influences. Its distinctive yellow walls and 
-                                    clock tower make it a recognizable landmark in the city. The market is divided into various sections, offering a wide array 
-                                    of products ranging from clothing, textiles, handicrafts, souvenirs, fresh produce, spices, and local cuisine. Ben Thanh Market 
-                                    stands as a symbol of Ho Chi Minh City's rich history, culture, and commerce. Whether you're in search of unique souvenirs, delectable 
-                                    street food, or simply want to immerse yourself in the local atmosphere, a visit to this iconic marketplace is a must.</p>
-                                <h4 class="mb-3">Social - Cultural</h4>
-                                <img class="img-fluid7 w-50 float-left mr-4 mb-2" src="img/bentrongcho.jpg">
-                                <p><b class="mini_header">Shopping Experience:</b> Ben Thanh Market offers a lively and chaotic shopping experience. 
-                                    Visitors can immerse themselves in the vibrant atmosphere, bargaining with vendors for goods. 
-                                    It's a great place to shop for traditional Vietnamese items such as ao dai (traditional Vietnamese attire), 
-                                    conical hats, lacquerware, and silk products. Additionally, the market's food section is a must-visit, offering
-                                    a variety of local delicacies and street food stalls.
-                                    <br><b class="mini_header">Cultural Hub:</b> Beyond its role as a marketplace, Ben Thanh is also a cultural hub where locals gather to socialize and exchange goods. It's a place where visitors can experience the pulse of daily life in Ho Chi Minh City, witnessing the hustle and bustle of commerce and the warmth of Vietnamese hospitality.</p>
-                                <h4 class="mb-3">Tourist</h4>
-                                <img class="img-fluid7 w-50 float-right ml-4 mb-2" src="img/banhang.jpg">
-                                <p><b class="mini_header">Tourist Destination:</b> Due to its historical significance and vibrant atmosphere, Ben Thanh Market 
-                                    is a popular destination for tourists visiting Ho Chi Minh City. It's often included in city tours 
-                                    and is recommended for those looking to experience authentic Vietnamese culture and cuisine.
-                                    <br><b class="mini_header">Tips for Visitors:</b> When visiting Ben Thanh Market, it's essential to hone your bargaining skills as 
-                                    prices are often negotiable. Additionally, be prepared for crowds, especially during peak hours. Exploring 
-                                    the market in the morning can offer a more relaxed shopping experience.</p>
-                                <div class="row">
-                                    <i class="fas fa-hand-point-right fa-beat-fade fa-2xl mr-3 mt-2" style="color: #ae0054;"></i>
-                                    <a href="">
-                                        <div class="wrapper">
-                                            <div class="button btn-outline-primary">
-                                                <div class="icon"><i class="fad fa-plane-departure fa-2xl"></i></div>
-                                                <span class="book"><b>Book now</b></span>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
                             </div>
                         </div>
-                        <!-- Blog Detail End -->
-        
-                        <!-- Comment List Start -->
-                        <!--<div class="bg-white container-fluidCM" style="padding: 30px; margin-bottom: 30px;">
-                            <h4 class="text-uppercase mb-4" style="letter-spacing: 5px;">3 Comments</h4>
-                            <div class="media mb-4">
-                                <img src="img/user.jpg" alt="Image" class="img-fluid mr-3 mt-1" style="width: 45px;">
-                                <div class="media-body">
-                                    <h6><a href="">John Doe</a> <small><i>01 Jan 2045</i></small></h6>
-                                    <p>Diam amet duo labore stet elitr invidunt ea clita ipsum voluptua, tempor labore
-                                        accusam ipsum et no at. Kasd diam tempor rebum magna dolores sed sed eirmod ipsum.
-                                        Gubergren clita aliquyam consetetur sadipscing, at tempor amet ipsum diam tempor
-                                        consetetur at sit.</p>
-                                    <button class="btn btn-sm btn-outline-primary">Reply</button>
-                                </div>
-                            </div>
-                            <div class="media">
-                                <img src="img/user.jpg" alt="Image" class="img-fluid mr-3 mt-1" style="width: 45px;">
-                                <div class="media-body">
-                                    <h6><a href="">John Doe</a> <small><i>01 Jan 2045</i></small></h6>
-                                    <p>Diam amet duo labore stet elitr invidunt ea clita ipsum voluptua, tempor labore
-                                        accusam ipsum et no at. Kasd diam tempor rebum magna dolores sed sed eirmod ipsum.
-                                        Gubergren clita aliquyam consetetur sadipscing, at tempor amet ipsum diam tempor
-                                        consetetur at sit.</p>
-                                    <button class="btn btn-sm btn-outline-primary">Reply</button>
-                                    <div class="media mt-4">
-                                        <img src="img/user.jpg" alt="Image" class="img-fluid mr-3 mt-1"
-                                            style="width: 45px;">
-                                        <div class="media-body">
-                                            <h6><a href="">John Doe</a> <small><i>01 Jan 2045</i></small></h6>
-                                            <p>Diam amet duo labore stet elitr invidunt ea clita ipsum voluptua, tempor
-                                                labore accusam ipsum et no at. Kasd diam tempor rebum magna dolores sed sed
-                                                eirmod ipsum. Gubergren clita aliquyam consetetur sadipscing, at tempor amet
-                                                ipsum diam tempor consetetur at sit.</p>
-                                            <button class="btn btn-sm btn-outline-primary">Reply</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>-->
-                        <!-- Comment List End -->
-        
-                        <!-- Comment Form Start -->
-                        <!--<div class="bg-white mb-3 container-fluidCM" style="padding: 30px">
-                            <h4 class="text-uppercase mb-4" style="letter-spacing: 5px;">Leave a comment</h4>
-                            <form>
-                                <div class="form-group">
-                                    <label for="name">Name *</label>
-                                    <input type="text" class="form-control" id="name">
-                                </div>
-                                <div class="form-group">
-                                    <label for="email">Email *</label>
-                                    <input type="email" class="form-control" id="email">
-                                </div>
-                                <div class="form-group">
-                                    <label for="website">Website</label>
-                                    <input type="url" class="form-control" id="website">
-                                </div>
-        
-                                <div class="form-group">
-                                    <label for="message">Message *</label>
-                                    <textarea id="message" cols="30" rows="5" class="form-control"></textarea>
-                                </div>
-                                <div class="form-group mb-0">
-                                    <input type="submit" value="Leave a comment"
-                                        class="btn btn-primary font-weight-semi-bold py-2 px-3">
-                                </div>
-                            </form>
-                        </div>-->
-                        <!-- Comment Form End -->
-                    </div>
-
-                    <!--comment-->
-        
-                    <div class="col-lg-5 mt-3 mt-lg-0">
-                        <h1 class="headcomment border-top6">Comments</h1>
-                        <div class="bg-white container-fluidCM" style="padding: 30px; margin-bottom: 30px;">
-                            <!--<h4 class="text-uppercase mb-4" style="letter-spacing: 5px;">3 Comments</h4>-->
-                            <div class="media mb-4">
-                                <!-- <img src="img/girl1.jpg" alt="Image" class="img-fluid8 mr-3 mt-1" style="width: 55px;"> -->
-                                <div class="media-body">
-                                    <h6><a href="">Mariana</a> <small><i>25 Mar 2024</i></small></h6>
-                                    <p>What an incredible journey! From the exciting streets of HCM city to 
-                                        the serene view of Ben Thanh market, this trip was nothing short of
-                                        magical. Highly recommend experiencing Vietnam's beauty firsthand!</p>
-                                    <button class="btn btn-sm btn-outline-primary">Reply</button>
-                                </div>
-                            </div>
-                            <div class="media">
-                                <!-- <img src="img/girl2.jpg" alt="Image" class="img-fluid8 mr-3 mt-1" style="width: 55px;"> -->
-                                <div class="media-body">
-                                    <h6><a href="">Sunny</a> <small><i>20 Feb 2024</i></small></h6>
-                                    <p>Just had the most incredible time exploring Ben Thanh Market in Ho Chi Minh City! 
-                                        The vibrant atmosphere, the hustle and bustle of the vendors, and the amazing 
-                                        array of goods available made it an unforgettable experience. Highly recommend a 
-                                        visit!</p>
-                                    <button class="btn btn-sm btn-outline-primary">Reply</button>
-                                    <div class="media mt-4">
-                                        <!-- <img src="img/meo.jpg" alt="Image" class="img-fluid8 mr-3 mt-1"
-                                            style="width: 55px;"> -->
-                                        <div class="media-body">
-                                            <h6><a href="">Kats</a> <small><i>20 Feb 2024</i></small></h6>
-                                            <p>Absolutely loved my visit to Ben Thanh Market! From bargaining 
-                                                with friendly vendors to sampling delicious street food, every 
-                                                moment was filled with excitement and discovery. Don't miss out 
-                                                on this iconic market when you're in Saigon!</p>
-                                            <button class="btn btn-sm btn-outline-primary">Reply</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="border-top5"></div>
+                        <div class="bg-white mb-3 container-fluidBT1" style="padding: 30px;">
                         
-                        <h1 class="headcomment1 mb-6 border-top6" style="letter-spacing: 0px;">Leave a comment</h1>
-                        <div class="bg-white mb-3 container-fluidCM" style="padding: 30px">
-                            <!-- <form> -->
-                                <div class="form-group">
-                                    <label for="name">Name *</label>
-                                    <input name="sender" type="text" class="form-control" id="name">
-                                </div>
-                                <div class="form-group">
-                                    <label for="email">Email *</label>
-                                    <input name="email" type="email" class="form-control" id="email">
-                                </div>
-                                <!-- <div class="form-group">
-                                    <label for="website">Website</label>
-                                    <input type="url" class="form-control" id="website">
-                                </div> -->
-        
-                                <div class="form-group">
-                                    <label for="message">Message *</label>
-                                    <textarea name="message" id="message" cols="30" rows="5" class="form-control"></textarea>
-                                </div>
-                                <div class="form-group mb-0">
-                                    <button type="submit" value="Leave a comment" name="submit"
-                                        class="btn btn-primary font-weight-semi-bold py-2 px-3">Comment</button>
-                                </div>
-                            <!-- </form> -->
+                            <!--<div class="d-flex mb-3">
+                                <a class="text-primary text-uppercase text-decoration-none" href="">Admin</a>
+                                <span class="text-primary px-2">|</span>
+                                <a class="text-primary text-uppercase text-decoration-none" href="">Tours & Travel</a>
+                            </div>-->
+                            <h2 class="mb-3">Some features of Ben Thanh market </h2>
+                            <p>Ben Thanh Market is one of the most iconic landmarks in Ho Chi Minh City, Vietnam. Located in the heart of District 1, 
+                                this bustling market has been a central hub for locals and tourists alike for over a century.
+                                Ben Thanh Market was established in the late 19th century during French colonial rule. It started as an informal 
+                                gathering of street vendors selling goods near the Saigon River. Over time, it grew into a permanent structure and became 
+                                the largest marketplace in Saigon (former name of Ho Chi Minh City).</p>
+                            <p>The market's architecture reflects a blend of Vietnamese and French colonial influences. Its distinctive yellow walls and 
+                                clock tower make it a recognizable landmark in the city. The market is divided into various sections, offering a wide array 
+                                of products ranging from clothing, textiles, handicrafts, souvenirs, fresh produce, spices, and local cuisine. Ben Thanh Market 
+                                stands as a symbol of Ho Chi Minh City's rich history, culture, and commerce. Whether you're in search of unique souvenirs, delectable 
+                                street food, or simply want to immerse yourself in the local atmosphere, a visit to this iconic marketplace is a must.</p>
+                            <h4 class="mb-3">Social - Cultural</h4>
+                            <img class="img-fluid7 w-50 float-left mr-4 mb-2" src="img/bentrongcho.jpg">
+                            <p><b class="mini_header">Shopping Experience:</b> Ben Thanh Market offers a lively and chaotic shopping experience. 
+                                Visitors can immerse themselves in the vibrant atmosphere, bargaining with vendors for goods. 
+                                It's a great place to shop for traditional Vietnamese items such as ao dai (traditional Vietnamese attire), 
+                                conical hats, lacquerware, and silk products. Additionally, the market's food section is a must-visit, offering
+                                a variety of local delicacies and street food stalls.
+                                <br><b class="mini_header">Cultural Hub:</b> Beyond its role as a marketplace, Ben Thanh is also a cultural hub where locals gather to socialize and exchange goods. It's a place where visitors can experience the pulse of daily life in Ho Chi Minh City, witnessing the hustle and bustle of commerce and the warmth of Vietnamese hospitality.</p>
+                            <h4 class="mb-3">Tourist</h4>
+                            <img class="img-fluid7 w-50 float-right ml-4 mb-2" src="img/banhang.jpg">
+                            <p><b class="mini_header">Tourist Destination:</b> Due to its historical significance and vibrant atmosphere, Ben Thanh Market 
+                                is a popular destination for tourists visiting Ho Chi Minh City. It's often included in city tours 
+                                and is recommended for those looking to experience authentic Vietnamese culture and cuisine.
+                                <br><b class="mini_header">Tips for Visitors:</b> When visiting Ben Thanh Market, it's essential to hone your bargaining skills as 
+                                prices are often negotiable. Additionally, be prepared for crowds, especially during peak hours. Exploring 
+                                the market in the morning can offer a more relaxed shopping experience.</p>
+                            <div class="row">
+                                <i class="fas fa-hand-point-right fa-beat-fade fa-2xl mr-3 mt-2" style="color: #ae0054;"></i>
+                                <a href="ticket_demo.php">
+                                    <div class="wrapper">
+                                        <div class="button btn-outline-primary">
+                                            <div class="icon"><i class="fad fa-plane-departure fa-2xl"></i></div>
+                                            <span class="book"><b>Book now</b></span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
                         </div>
-        
-                        <!-- Search Form -->
-                        <!--<div class="mb-5">
-                            <div class="bg-white" style="padding: 30px;">
-                                <div class="input-group">
-                                    <input type="text" class="form-control p-4" placeholder="Keyword">
-                                    <div class="input-group-append">
-                                        <span class="input-group-text bg-primary border-primary text-white"><i
-                                                class="fa fa-search"></i></span>
+                    </div>
+                    <!-- Blog Detail End -->
+    
+                    <!-- Comment List Start -->
+                    <!--<div class="bg-white container-fluidCM" style="padding: 30px; margin-bottom: 30px;">
+                        <h4 class="text-uppercase mb-4" style="letter-spacing: 5px;">3 Comments</h4>
+                        <div class="media mb-4">
+                            <img src="img/user.jpg" alt="Image" class="img-fluid mr-3 mt-1" style="width: 45px;">
+                            <div class="media-body">
+                                <h6><a href="">John Doe</a> <small><i>01 Jan 2045</i></small></h6>
+                                <p>Diam amet duo labore stet elitr invidunt ea clita ipsum voluptua, tempor labore
+                                    accusam ipsum et no at. Kasd diam tempor rebum magna dolores sed sed eirmod ipsum.
+                                    Gubergren clita aliquyam consetetur sadipscing, at tempor amet ipsum diam tempor
+                                    consetetur at sit.</p>
+                                <button class="btn btn-sm btn-outline-primary">Reply</button>
+                            </div>
+                        </div>
+                        <div class="media">
+                            <img src="img/user.jpg" alt="Image" class="img-fluid mr-3 mt-1" style="width: 45px;">
+                            <div class="media-body">
+                                <h6><a href="">John Doe</a> <small><i>01 Jan 2045</i></small></h6>
+                                <p>Diam amet duo labore stet elitr invidunt ea clita ipsum voluptua, tempor labore
+                                    accusam ipsum et no at. Kasd diam tempor rebum magna dolores sed sed eirmod ipsum.
+                                    Gubergren clita aliquyam consetetur sadipscing, at tempor amet ipsum diam tempor
+                                    consetetur at sit.</p>
+                                <button class="btn btn-sm btn-outline-primary">Reply</button>
+                                <div class="media mt-4">
+                                    <img src="img/user.jpg" alt="Image" class="img-fluid mr-3 mt-1"
+                                        style="width: 45px;">
+                                    <div class="media-body">
+                                        <h6><a href="">John Doe</a> <small><i>01 Jan 2045</i></small></h6>
+                                        <p>Diam amet duo labore stet elitr invidunt ea clita ipsum voluptua, tempor
+                                            labore accusam ipsum et no at. Kasd diam tempor rebum magna dolores sed sed
+                                            eirmod ipsum. Gubergren clita aliquyam consetetur sadipscing, at tempor amet
+                                            ipsum diam tempor consetetur at sit.</p>
+                                        <button class="btn btn-sm btn-outline-primary">Reply</button>
                                     </div>
                                 </div>
                             </div>
-                        </div>-->
+                        </div>
+                    </div>-->
+                    <!-- Comment List End -->
+    
+                    <!-- Comment Form Start -->
+                    <!--<div class="bg-white mb-3 container-fluidCM" style="padding: 30px">
+                        <h4 class="text-uppercase mb-4" style="letter-spacing: 5px;">Leave a comment</h4>
+                        <form>
+                            <div class="form-group">
+                                <label for="name">Name *</label>
+                                <input type="text" class="form-control" id="name">
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email *</label>
+                                <input type="email" class="form-control" id="email">
+                            </div>
+                            <div class="form-group">
+                                <label for="website">Website</label>
+                                <input type="url" class="form-control" id="website">
+                            </div>
+    
+                            <div class="form-group">
+                                <label for="message">Message *</label>
+                                <textarea id="message" cols="30" rows="5" class="form-control"></textarea>
+                            </div>
+                            <div class="form-group mb-0">
+                                <input type="submit" value="Leave a comment"
+                                    class="btn btn-primary font-weight-semi-bold py-2 px-3">
+                            </div>
+                        </form>
+                    </div>-->
+                    <!-- Comment Form End -->
+                </div>
 
-                        <!-- Category List -->
-                        <!--<div class="mb-5">
-                            <h4 class="text-uppercase mb-4" style="letter-spacing: 5px;">Categories</h4>
-                            <div class="bg-white" style="padding: 30px;">
-                                <ul class="list-inline m-0">
-                                    <li class="mb-3 d-flex justify-content-between align-items-center">
-                                        <a class="text-dark" href="#"><i class="fa fa-angle-right text-primary mr-2"></i>Web
-                                            Design</a>
-                                        <span class="badge badge-primary badge-pill">150</span>
-                                    </li>
-                                    <li class="mb-3 d-flex justify-content-between align-items-center">
-                                        <a class="text-dark" href="#"><i class="fa fa-angle-right text-primary mr-2"></i>Web
-                                            Development</a>
-                                        <span class="badge badge-primary badge-pill">131</span>
-                                    </li>
-                                    <li class="mb-3 d-flex justify-content-between align-items-center">
-                                        <a class="text-dark" href="#"><i
-                                                class="fa fa-angle-right text-primary mr-2"></i>Online Marketing</a>
-                                        <span class="badge badge-primary badge-pill">78</span>
-                                    </li>
-                                    <li class="mb-3 d-flex justify-content-between align-items-center">
-                                        <a class="text-dark" href="#"><i
-                                                class="fa fa-angle-right text-primary mr-2"></i>Keyword Research</a>
-                                        <span class="badge badge-primary badge-pill">56</span>
-                                    </li>
-                                    <li class="d-flex justify-content-between align-items-center">
-                                        <a class="text-dark" href="#"><i
-                                                class="fa fa-angle-right text-primary mr-2"></i>Email Marketing</a>
-                                        <span class="badge badge-primary badge-pill">98</span>
-                                    </li>
-                                </ul>
+                <!--comment-->
+    
+                <!-- <div class="col-lg-5 mt-3 mt-lg-0">
+                    <h1 class="headcomment border-top6">Comments</h1>
+                    <div class="bg-white container-fluidCM" style="padding: 30px; margin-bottom: 30px;">
+                        <h4 class="text-uppercase mb-4" style="letter-spacing: 5px;">3 Comments</h4>
+                        <div class="media mb-4">
+                            <img src="img/girl1.jpg" alt="Image" class="img-fluid8 mr-3 mt-1" style="width: 55px;">
+                            <div class="media-body">
+                                <h6><a href="">Mariana</a> <small><i>25 Mar 2024</i></small></h6>
+                                <p>What an incredible journey! From the exciting streets of HCM city to 
+                                    the serene view of Ben Thanh market, this trip was nothing short of
+                                    magical. Highly recommend experiencing Vietnam's beauty firsthand!</p>
+                                <button class="btn btn-sm btn-outline-primary">Reply</button>
                             </div>
-                        </div>-->
-        
-                        <!-- Recent Post -->
-                        <!--<div class="mb-5">
-                            <h4 class="text-uppercase mb-4" style="letter-spacing: 5px;">Recent Post</h4>
-                            <a class="d-flex align-items-center text-decoration-none bg-white mb-3" href="">
-                                <img class="img-fluid" src="img/blog-100x100.jpg" alt="">
-                                <div class="pl-3">
-                                    <h6 class="m-1">Diam lorem dolore justo eirmod lorem dolore</h6>
-                                    <small>Jan 01, 2050</small>
+                        </div>
+                        <div class="media">
+                            <img src="img/girl2.jpg" alt="Image" class="img-fluid8 mr-3 mt-1" style="width: 55px;">
+                            <div class="media-body">
+                                <h6><a href="">Sunny</a> <small><i>20 Feb 2024</i></small></h6>
+                                <p>Just had the most incredible time exploring Ben Thanh Market in Ho Chi Minh City! 
+                                    The vibrant atmosphere, the hustle and bustle of the vendors, and the amazing 
+                                    array of goods available made it an unforgettable experience. Highly recommend a 
+                                    visit!</p>
+                                <button class="btn btn-sm btn-outline-primary">Reply</button>
+                                <div class="media mt-4">
+                                    <img src="img/meo.jpg" alt="Image" class="img-fluid8 mr-3 mt-1"
+                                        style="width: 55px;">
+                                    <div class="media-body">
+                                        <h6><a href="">Kats</a> <small><i>20 Feb 2024</i></small></h6>
+                                        <p>Absolutely loved my visit to Ben Thanh Market! From bargaining 
+                                            with friendly vendors to sampling delicious street food, every 
+                                            moment was filled with excitement and discovery. Don't miss out 
+                                            on this iconic market when you're in Saigon!</p>
+                                        <button class="btn btn-sm btn-outline-primary">Reply</button>
+                                    </div>
                                 </div>
-                            </a>
-                            <a class="d-flex align-items-center text-decoration-none bg-white mb-3" href="">
-                                <img class="img-fluid" src="img/blog-100x100.jpg" alt="">
-                                <div class="pl-3">
-                                    <h6 class="m-1">Diam lorem dolore justo eirmod lorem dolore</h6>
-                                    <small>Jan 01, 2050</small>
-                                </div>
-                            </a>
-                            <a class="d-flex align-items-center text-decoration-none bg-white mb-3" href="">
-                                <img class="img-fluid" src="img/blog-100x100.jpg" alt="">
-                                <div class="pl-3">
-                                    <h6 class="m-1">Diam lorem dolore justo eirmod lorem dolore</h6>
-                                    <small>Jan 01, 2050</small>
-                                </div>
-                            </a>
-                        </div>-->
-        
-                        <!-- Tag Cloud -->
-                        <!--<div class="mb-5">
-                            <h4 class="text-uppercase mb-4" style="letter-spacing: 5px;">Tag Cloud</h4>
-                            <div class="d-flex flex-wrap m-n1">
-                                <a href="" class="btn btn-light m-1">Design</a>
-                                <a href="" class="btn btn-light m-1">Development</a>
-                                <a href="" class="btn btn-light m-1">Marketing</a>
-                                <a href="" class="btn btn-light m-1">SEO</a>
-                                <a href="" class="btn btn-light m-1">Writing</a>
-                                <a href="" class="btn btn-light m-1">Consulting</a>
                             </div>
-                        </div>-->
+                        </div>
                     </div>
+
+                    <div class="border-top5"></div>
+                    
+                    <h1 class="headcomment1 mb-6 border-top6" style="letter-spacing: 0px;">Leave a comment</h1>
+                    <div class="bg-white mb-3 container-fluidCM" style="padding: 30px">
+                        <form>
+                            <div class="form-group">
+                                <label for="name">Name *</label>
+                                <input type="text" class="form-control" id="name">
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email *</label>
+                                <input type="email" class="form-control" id="email">
+                            </div>
+                            <div class="form-group">
+                                <label for="website">Website</label>
+                                <input type="url" class="form-control" id="website">
+                            </div>
+    
+                            <div class="form-group">
+                                <label for="message">Message *</label>
+                                <textarea id="message" cols="30" rows="5" class="form-control"></textarea>
+                            </div>
+                            <div class="form-group mb-0">
+                                <input type="submit" value="Leave a comment"
+                                    class="btn btn-primary font-weight-semi-bold py-2 px-3">
+                            </div>
+                        </form>
+                    </div> -->
+    
+                    <!-- Search Form -->
+                    <!--<div class="mb-5">
+                        <div class="bg-white" style="padding: 30px;">
+                            <div class="input-group">
+                                <input type="text" class="form-control p-4" placeholder="Keyword">
+                                <div class="input-group-append">
+                                    <span class="input-group-text bg-primary border-primary text-white"><i
+                                            class="fa fa-search"></i></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>-->
+
+                    <!-- Category List -->
+                    <!--<div class="mb-5">
+                        <h4 class="text-uppercase mb-4" style="letter-spacing: 5px;">Categories</h4>
+                        <div class="bg-white" style="padding: 30px;">
+                            <ul class="list-inline m-0">
+                                <li class="mb-3 d-flex justify-content-between align-items-center">
+                                    <a class="text-dark" href="#"><i class="fa fa-angle-right text-primary mr-2"></i>Web
+                                        Design</a>
+                                    <span class="badge badge-primary badge-pill">150</span>
+                                </li>
+                                <li class="mb-3 d-flex justify-content-between align-items-center">
+                                    <a class="text-dark" href="#"><i class="fa fa-angle-right text-primary mr-2"></i>Web
+                                        Development</a>
+                                    <span class="badge badge-primary badge-pill">131</span>
+                                </li>
+                                <li class="mb-3 d-flex justify-content-between align-items-center">
+                                    <a class="text-dark" href="#"><i
+                                            class="fa fa-angle-right text-primary mr-2"></i>Online Marketing</a>
+                                    <span class="badge badge-primary badge-pill">78</span>
+                                </li>
+                                <li class="mb-3 d-flex justify-content-between align-items-center">
+                                    <a class="text-dark" href="#"><i
+                                            class="fa fa-angle-right text-primary mr-2"></i>Keyword Research</a>
+                                    <span class="badge badge-primary badge-pill">56</span>
+                                </li>
+                                <li class="d-flex justify-content-between align-items-center">
+                                    <a class="text-dark" href="#"><i
+                                            class="fa fa-angle-right text-primary mr-2"></i>Email Marketing</a>
+                                    <span class="badge badge-primary badge-pill">98</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>-->
+    
+                    <!-- Recent Post -->
+                    <!--<div class="mb-5">
+                        <h4 class="text-uppercase mb-4" style="letter-spacing: 5px;">Recent Post</h4>
+                        <a class="d-flex align-items-center text-decoration-none bg-white mb-3" href="">
+                            <img class="img-fluid" src="img/blog-100x100.jpg" alt="">
+                            <div class="pl-3">
+                                <h6 class="m-1">Diam lorem dolore justo eirmod lorem dolore</h6>
+                                <small>Jan 01, 2050</small>
+                            </div>
+                        </a>
+                        <a class="d-flex align-items-center text-decoration-none bg-white mb-3" href="">
+                            <img class="img-fluid" src="img/blog-100x100.jpg" alt="">
+                            <div class="pl-3">
+                                <h6 class="m-1">Diam lorem dolore justo eirmod lorem dolore</h6>
+                                <small>Jan 01, 2050</small>
+                            </div>
+                        </a>
+                        <a class="d-flex align-items-center text-decoration-none bg-white mb-3" href="">
+                            <img class="img-fluid" src="img/blog-100x100.jpg" alt="">
+                            <div class="pl-3">
+                                <h6 class="m-1">Diam lorem dolore justo eirmod lorem dolore</h6>
+                                <small>Jan 01, 2050</small>
+                            </div>
+                        </a>
+                    </div>-->
+    
+                    <!-- Tag Cloud -->
+                    <!--<div class="mb-5">
+                        <h4 class="text-uppercase mb-4" style="letter-spacing: 5px;">Tag Cloud</h4>
+                        <div class="d-flex flex-wrap m-n1">
+                            <a href="" class="btn btn-light m-1">Design</a>
+                            <a href="" class="btn btn-light m-1">Development</a>
+                            <a href="" class="btn btn-light m-1">Marketing</a>
+                            <a href="" class="btn btn-light m-1">SEO</a>
+                            <a href="" class="btn btn-light m-1">Writing</a>
+                            <a href="" class="btn btn-light m-1">Consulting</a>
+                        </div>
+                    </div>-->
                 </div>
             </div>
-        </form>
+        </div>
     </div>
     <!-- Blog End -->
 
@@ -632,7 +626,6 @@
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
-    <script src="js/comment.js"></script>
 </body>
 
 </html>

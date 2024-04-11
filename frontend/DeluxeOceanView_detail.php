@@ -101,7 +101,7 @@ $query = mysqli_query($conn, $sql);
     <div class="container-fluid position-relative nav-bar p-0">
         <div class="container-lg position-relative p-0 px-lg-3" style="z-index: 9;">
             <nav class="navbar navbar-expand-lg navbar-light shadow-lg py-3 py-lg-0 pl-3 pl-lg-5">
-                <a href="index.html" class="navbar-brand">
+                <a href="index.php" class="navbar-brand">
                     <h1 class="m-0 text-primary1 mt-3 "><span class="text-dark"><img class="Imagealignment"
                                 src="img/icon.png">&nbsp; RE</span>IS</h1>
                 </a>
@@ -180,7 +180,7 @@ $query = mysqli_query($conn, $sql);
                         <div class="house-price">
                             <p>2 Guest</p>
                             <h4>$100 <span>/ day</span></h4>
-                            <a href="hotel_detail.html" class="book-now-link">
+                            <a href="payment.php" class="book-now-link">
                                 <button class="btn btn-primary btn-block" style="width: 100%; font-size: 15px;"><b>Book
                                         Now</b></button>
                             </a>
@@ -204,7 +204,7 @@ $query = mysqli_query($conn, $sql);
                         <div class="house-price">
                             <p>5 Guest</p>
                             <h4>$250 <span>/ day</span></h4>
-                            <a href="hotel_detail.html" class="book-now-link">
+                            <a href="payment.php" class="book-now-link">
                                 <button class="btn btn-primary btn-block" style="width: 100%; font-size: 15px;"><b>Book
                                         Now</b></button>
                             </a>
@@ -228,7 +228,7 @@ $query = mysqli_query($conn, $sql);
                         <div class="house-price">
                             <p>3 Guest</p>
                             <h4>$125 <span>/ day</span></h4>
-                            <a href="hotel_detail.html" class="book-now-link">
+                            <a href="payment.php" class="book-now-link">
                                 <button class="btn btn-primary btn-block" style="width: 100%; font-size: 15px;"><b>Book
                                         Now</b></button>
                             </a>
@@ -252,7 +252,7 @@ $query = mysqli_query($conn, $sql);
                         <div class="house-price">
                             <p>8 Guest</p>
                             <h4>$380 <span>/ day</span></h4>
-                            <a href="hotel_detail.html" class="book-now-link">
+                            <a href="payment.php" class="book-now-link">
                                 <button class="btn btn-primary btn-block" style="width: 100%; font-size: 15px;"><b>Book
                                         Now</b></button>
                             </a>
@@ -276,7 +276,7 @@ $query = mysqli_query($conn, $sql);
                         <div class="house-price">
                             <p>2 Guest</p>
                             <h4>$170 <span>/ day</span></h4>
-                            <a href="hotel_detail.html" class="book-now-link">
+                            <a href="payment.php" class="book-now-link">
                                 <button class="btn btn-primary btn-block" style="width: 100%; font-size: 15px;"><b>Book
                                         Now</b></button>
                             </a>
@@ -300,7 +300,7 @@ $query = mysqli_query($conn, $sql);
                         <div class="house-price">
                             <p>3 Guest</p>
                             <h4>$230 <span>/ day</span></h4>
-                            <a href="hotel_detail.html" class="book-now-link">
+                            <a href="payment.php" class="book-now-link">
                                 <button class="btn btn-primary btn-block" style="width: 100%; font-size: 15px;"><b>Book
                                         Now</b></button>
                             </a>
@@ -342,7 +342,7 @@ $query = mysqli_query($conn, $sql);
                                     <h4>
                                         <?php echo $hotel['hotelPrice']; ?><span>/ day</span>
                                     </h4>
-                                    <a href="hotel_detail.html" class="book-now-link">
+                                    <a href="payment.php" class="book-now-link">
                                         <button class="btn btn-primary btn-block"
                                             style="width: 100%; font-size: 15px;"><b>Book Now</b></button>
                                     </a>

@@ -169,8 +169,16 @@
     <!--demo ticket-->
     <div class=" container mt-3">
         <form method="post">
-            <input  style="padding:3px; "  type="text" placeholder="search" name="search">
-            <button class=" btn btn-sm btn-outline-primary ml-2" style="padding:3px;" name="submit">Search</button>
+            <!-- <input  style="padding:3px; "  type="text" placeholder="search" name="search">
+            <button class=" btn btn-sm btn-outline-primary ml-2" style="padding:3px;" name="submit">Search</button> -->
+
+            <div class="input-group">
+                <input type="text" class="form-control p-4" placeholder="Keyword" name="search">
+                    <div class="input-group-append">
+                        <!-- <span class="input-group-text bg-primary border-primary text-white"><i class="fa fa-search"></i></span> -->
+                        <button class="input-group-text bg-primary border-primary text-white" style="padding:15px;" name="submit"><i class="fa fa-search"></i></button>
+                    </div>
+                </div>
         </form>
     </div>
     

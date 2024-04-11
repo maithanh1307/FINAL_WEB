@@ -10864,12 +10864,13 @@ color: #000;
 padding: 10px 0 0 0;
 font-family: "Poppins", sans-serif;
 }
-.luu a{
+.luu {
   text-decoration: none;
   float: inline-end;
   color: #f10d5b ;
   font-size: 20px;
   font-weight: 600;
+  transform: translateX();
 }
 .block2-1-1 label{
 font-size: 18px;
